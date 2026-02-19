@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<!-- Legacy `post.html` layout kept for backward compatibility. -->
+<!-- New templates: `_layouts/nyheter_template.html` and `_layouts/abelprisen_template.html`. -->
+<article class="w3-card-4 w3-margin-bottom">
+  <header class="w3-container w3-red">
+    <h1>Legacy post layout</h1>
+  </header>
+  <div class="w3-container w3-padding post-content">
+    <p>This repository now uses two specialized post layouts:</p>
+    <ul>
+      <li><code>_layouts/nyheter_template.html</code> — for news posts (category <code>nyheter</code>).</li>
+      <li><code>_layouts/abelprisen_template.html</code> — for Abel Symposium / Abel-prisen posts (category <code>abelsymposium</code>).</li>
+    </ul>
+    <p>Update post front matter to use <code>layout: nyheter_template</code> or <code>layout: abelprisen_template</code> as appropriate.</p>
+  </div>
+</article>

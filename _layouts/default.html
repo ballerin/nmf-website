@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="/assets/main.css">
+  <style>
+    /* Header right-side meta: split on two lines and hide on small screens to avoid overlap */
+    .header-meta {
+      float: right;
+      font-size: 0.7rem;
+      margin-top: 10px;
+      text-align: right;
+      line-height: 1.1;
+    }
+    .header-meta .line1,
+    .header-meta .line2 {
+      display: block;
+    }
+    /* If viewport is narrow, hide the right-side meta to prevent overlap with logo/title.
+       Chosen breakpoint 700px as a conservative threshold; adjust if you prefer a different value. */
+    @media (max-width: 700px) {
+      .header-meta { display: none; }
+    }
+    /* Full-screen tsParticles container: sits behind content and doesn't capture pointer events */
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* colors */
+      background-color: #f8f8f8;
+
+      /* place the particles behind page content */
+      z-index: -1;
+      pointer-events: none;
+    }
+      /* Make all w3-container elements slightly translucent (white, mostly transparent)
+         so content sits gently above the animated background. Use a low alpha to keep
+         the containers almost fully transparent. Adjust alpha if you want more/less. */
+
+  </style>
+</head>
+<body>
+  <!-- Particles background container (tsParticles) -->
+  <div id="tsparticles" aria-hidden="true"></div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-top w3-large w3-padding w3-red" style="z-index:3; width:300px; font-weight:bold; display: none;" id="sidebar"><br>
+    <div style="height:64px;"></div>
+    <div class="w3-bar-block">
+      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Hjem</a>
+      <a href="/#activities" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Aktiviteter og Arrangementer</a>
+      <a href="/#medlemskap" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Medlemskap</a>
+      <a href="/#publications" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Publikasjoner</a>
+      <a href="/#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Kontakt</a>
+      <hr>
+      <a href="/nyheter/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Nyheter</a>
+      <a href="/abelsymposium/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Abel Symposium</a>
+      <a href="/elizabeth-stephansen-forelesningene.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Elizabeth Stephansen-forelesningene</a>
+      <a href="/viggo-brun-prisen.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Viggo Brun-prisen</a>
+      <a href="/infomat/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Infomat</a>
+      <a href="/normat/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Normat</a>
+      <a href="/about.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Om NMF</a>
+    </div>
+  </nav>
+
+  <!-- Top menu -->
+  <header class="w3-top w3-red w3-xlarge w3-padding" style="z-index:4;">
+    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_toggle()">&#9776;</a>
+    <a href="/" style="text-decoration:none;color:inherit;align-items:center;">
+      <img class="site-logo" src="/assets/images/nmf-bare-logo.svg" alt="{{ site.title }} logo">
+      <span style="margin-left:6px">{{ site.title }}</span>
+    </a>
+    <span class="header-meta">
+      <span class="line1">Stiftet 1918</span>
+      <span class="line2">Fremmer matematikk i Norge</span>
+    </span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer;" title="close side menu" id="myOverlay"></div>
+
+  <!-- Page content container -->
+  <div id="main" class="w3-main">
+
+    {{ content }}
+
+  <!-- End page content -->
+  </div>
+
+  <!-- Modal for full size images (optional) -->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0; display:none;">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright" onclick="document.getElementById('modal01').style.display='none'">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+    <p>{{ site.title }} • Stiftet 1918 • <a href="/about/">Om oss</a> • <a href="/nyheter/">Nyheter</a></p>
+  </div>
+
+  <script src="/assets/main.js"></script>
+  <!-- tsParticles: core + init (preset not required for this config) -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="/assets/tsparticles-init.js"></script>
+</body>
+</html>
