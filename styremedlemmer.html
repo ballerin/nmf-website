@@ -1,0 +1,48 @@
+---
+layout: default
+title: Styremedlemmer
+permalink: /styremedlemmer.html
+---
+
+<style>
+  .board-card {
+    overflow: hidden;
+  }
+
+  .board-photo img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+  }
+</style>
+
+<div class="w3-container" id="content">
+  <div class="w3-container w3-center">
+    <h1 class="w3-xxxlarge text-nmf-primary"><b>Styremedlemmer</b></h1>
+    <h2 class="w3-xlarge text-nmf-secondary"><b>{{ site.data.styremedlemmer.heading_period }}</b></h2>
+  </div>
+</div>
+
+<br>
+
+<div class="w3-container w3-padding">
+  <div class="w3-row-padding" style="margin-bottom: 40px;">
+    {% for member in site.data.styremedlemmer.members %}
+    <div class="w3-col m6 l4 w3-margin-bottom">
+      <div class="w3-card-4 board-card w3-round-large">
+        <div class="board-photo">
+          <img src="{{ member.picture }}" alt="{{ member.name }}">
+        </div>
+        <div class="w3-container {{ member.color }}" style="padding-bottom: 4px;">
+          <h3 style="margin: 8px 0;"><b>{{ member.name }}</b></h3>
+          <p style="margin: 4px 0; font-size: 0.9em;">{% if member.color == 'nmf-primary' %}<strong>{{ member.role }} ({{ member.period }})</strong>{% else %}{{ member.role }} ({{ member.period }}){% endif %}</p>
+          <p style="margin: 4px 0; font-size: 0.85em; font-style: italic;">{{ member.affiliation }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>

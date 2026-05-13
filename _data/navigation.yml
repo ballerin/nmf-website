@@ -1,0 +1,69 @@
+topbar:
+  site_name: "Norsk Matematisk Forening"
+  logo: /assets/images/nmf-bare-logo.svg
+  tagline_line1: "Stiftet 1918"
+  tagline_line2: "Fremmer matematikk i Norge"
+  background_image: /assets/images/fjords.jpg
+  background_overlay: "rgba(0, 0, 0, 0.28)"
+
+main:
+  - label: Publikasjoner
+    children:
+      - label: Infomat
+        url: /infomat.html
+      - label: Mathematica Scandinavica
+        url: https://www.mscand.dk/
+        external: true
+  - label: Medlemskap
+    url: /membership.html
+  - label: Aktiviteter
+    url: /activities.html
+  - label: Priser og stipend
+    children:
+      - label: Viggo Brun-prisen
+        url: /viggo-brun-prisen.html
+      - label: Elizabeth Stephansen-forelesningene
+        url: /elizabeth-stephansen-forelesningene.html
+  - label: Om NMF
+    children:
+      - label: Forenings historie
+        url: /historie.html
+      - label: Styremedlemmer
+        url: /styremedlemmer.html
+      - label: Vedtekter
+        url: /vedtekter.html
+  - label: Nyheter
+    url: /nyheter/
+  - label: Videre
+    url: /videre.html
+
+mobile:
+  - label: Medlemskap
+    url: /membership.html
+  - label: Aktiviteter
+    url: /activities.html
+  - label: Nyheter
+    url: /nyheter/
+  - label: Videre
+    url: /infomat.html
+  - group: Publikasjoner
+    items:
+      - label: Infomat
+        url: /infomat.html
+      - label: Mathematica Scandinavica
+        url: https://www.mscand.dk/
+        external: true
+  - group: Priser og stipend
+    items:
+      - label: Viggo Brun-prisen
+        url: /viggo-brun-prisen.html
+      - label: Elizabeth Stephansen-forelesningene
+        url: /elizabeth-stephansen-forelesningene.html
+  - group: Om NMF
+    items:
+      - label: Forenings historie
+        url: /historie.html
+      - label: Styremedlemmer
+        url: /styremedlemmer.html
+      - label: Vedtekter
+        url: /vedtekter.html

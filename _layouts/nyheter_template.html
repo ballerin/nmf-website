@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-<article class="w3-card-4 w3-margin-bottom nyheter-article">
-  <header class="w3-container w3-red">
+<article class="w3-border w3-round-large w3-margin-bottom nyheter-article">
+  <header class="w3-container nmf-primary">
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
       <small class="date">{{ page.date | date: "%Y-%m-%d" }}</small>
@@ -13,10 +13,8 @@ layout: default
     {{ content }}
   </div>
   <div class="w3-container w3-light-grey w3-padding">
-    <a href="/nyheter/" class="w3-button w3-red back-button" aria-label="Tilbake til nyheter">
-      <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" role="img">
-        <path d="M12.7 16.29a1 1 0 0 1-1.4 1.42l-6-6a1 1 0 0 1 0-1.42l6-6a1 1 0 1 1 1.4 1.42L8.82 10l3.88 4.29z" />
-      </svg>
+    <a href="/nyheter/" class="w3-button nmf-primary back-button" aria-label="Tilbake til nyheter">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
       <span class="label">Tilbake til nyheter</span>
     </a>
   </div>

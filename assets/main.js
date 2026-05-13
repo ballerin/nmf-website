@@ -1,25 +1,3 @@
-// Site-wide UI scripts moved from default layout
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("sidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("sidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-function w3_toggle() {
-  if (document.getElementById("sidebar").style.display === 'block') {
-    document.getElementById("sidebar").style.display = "none";
-    document.getElementById("myOverlay").style.marginLeft = "40px";
-  } else {
-    document.getElementById("sidebar").style.display = "block";
-    document.getElementById("myOverlay").style.marginLeft = "340px";
-  }
-}
-
 // Modal Image Gallery
 function onClick(element) {
   var img = document.getElementById("img01");
@@ -29,3 +7,50 @@ function onClick(element) {
   var captionText = document.getElementById("caption");
   if (captionText) { captionText.innerHTML = element.alt; }
 }
+
+function toggleMobileNav() {
+  var menu = document.getElementById("mobileNav");
+  if (!menu) {
+    return;
+  }
+
+  if (menu.className.indexOf("w3-show") === -1) {
+    menu.className += " w3-show";
+  } else {
+    menu.className = menu.className.replace(" w3-show", "");
+  }
+}
+
+function initDropdownBehavior() {
+  var dropdowns = document.querySelectorAll(".site-navbar details.nav-dropdown");
+  if (!dropdowns.length) {
+    return;
+  }
+
+  dropdowns.forEach(function(dropdown) {
+    var summary = dropdown.querySelector("summary");
+    if (!summary) {
+      return;
+    }
+
+    summary.addEventListener("click", function(event) {
+      var isOpen = dropdown.hasAttribute("open");
+
+      dropdowns.forEach(function(other) {
+        if (other !== dropdown) {
+          other.removeAttribute("open");
+        }
+      });
+
+      if (!isOpen) {
+        dropdown.setAttribute("open", "");
+      } else {
+        dropdown.removeAttribute("open");
+      }
+
+      event.preventDefault();
+    });
+  });
+}
+
+window.addEventListener("DOMContentLoaded", initDropdownBehavior);

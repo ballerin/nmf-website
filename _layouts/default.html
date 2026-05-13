@@ -4,85 +4,62 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
+  {% assign nav = site.data.navigation %}
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/assets/main.css">
-  <style>
-    /* Header right-side meta: split on two lines and hide on small screens to avoid overlap */
-    .header-meta {
-      float: right;
-      font-size: 0.7rem;
-      margin-top: 10px;
-      text-align: right;
-      line-height: 1.1;
-    }
-    .header-meta .line1,
-    .header-meta .line2 {
-      display: block;
-    }
-    /* If viewport is narrow, hide the right-side meta to prevent overlap with logo/title.
-       Chosen breakpoint 700px as a conservative threshold; adjust if you prefer a different value. */
-    @media (max-width: 700px) {
-      .header-meta { display: none; }
-    }
-    /* Full-screen tsParticles container: sits behind content and doesn't capture pointer events */
-    #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* colors */
-      background-color: #f8f8f8;
-
-      /* place the particles behind page content */
-      z-index: -1;
-      pointer-events: none;
-    }
-      /* Make all w3-container elements slightly translucent (white, mostly transparent)
-         so content sits gently above the animated background. Use a low alpha to keep
-         the containers almost fully transparent. Adjust alpha if you want more/less. */
-
-  </style>
 </head>
-<body>
-  <!-- Particles background container (tsParticles) -->
-  <div id="tsparticles" aria-hidden="true"></div>
-  <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-bar-block w3-top w3-large w3-padding w3-red" style="z-index:3; width:300px; font-weight:bold; display: none;" id="sidebar"><br>
-    <div style="height:64px;"></div>
-    <div class="w3-bar-block">
-      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Hjem</a>
-      <a href="/#activities" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Aktiviteter og Arrangementer</a>
-      <a href="/#medlemskap" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Medlemskap</a>
-      <a href="/#publications" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Publikasjoner</a>
-      <a href="/#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Kontakt</a>
-      <hr>
-      <a href="/nyheter/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Nyheter</a>
-      <a href="/abelsymposium/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Abel Symposium</a>
-      <a href="/elizabeth-stephansen-forelesningene.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Elizabeth Stephansen-forelesningene</a>
-      <a href="/viggo-brun-prisen.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Viggo Brun-prisen</a>
-      <a href="/infomat/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Infomat</a>
-      <a href="/normat/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Normat</a>
-      <a href="/about.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Om NMF</a>
-    </div>
-  </nav>
-
-  <!-- Top menu -->
-  <header class="w3-top w3-red w3-xlarge w3-padding" style="z-index:4;">
-    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_toggle()">&#9776;</a>
-    <a href="/" style="text-decoration:none;color:inherit;align-items:center;">
-      <img class="site-logo" src="/assets/images/nmf-bare-logo.svg" alt="{{ site.title }} logo">
-      <span style="margin-left:6px">{{ site.title }}</span>
+{% assign is_abel_related = false %}
+{% if page.url contains '/abelsymposium/' or page.layout == 'abelprisen_template' %}
+  {% assign is_abel_related = true %}
+{% endif %}
+<body class="{% unless is_abel_related %}brand-theme{% endunless %}">
+  <!-- Top menu and horizontal navbar -->
+  {% assign tb = nav.topbar %}
+  <header class="site-topbar w3-container w3-padding" style="background-image: linear-gradient({{ tb.background_overlay }}, {{ tb.background_overlay }}), url('{{ tb.background_image }}');">
+    <a href="/" class="site-brand" aria-label="Gå til forsiden">
+      <img class="site-logo" src="{{ tb.logo }}" alt="{{ tb.site_name }} logo">
+      <span>{{ tb.site_name }}</span>
     </a>
     <span class="header-meta">
-      <span class="line1">Stiftet 1918</span>
-      <span class="line2">Fremmer matematikk i Norge</span>
+      <span class="line1">{{ tb.tagline_line1 }}</span>
+      <span class="line2">{{ tb.tagline_line2 }}</span>
     </span>
+    <button class="w3-button w3-hide-medium w3-hide-large site-mobile-toggle" type="button" onclick="toggleMobileNav()" aria-label="Åpne meny">
+      ☰
+    </button>
   </header>
 
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer;" title="close side menu" id="myOverlay"></div>
+  <nav class="site-navbar w3-hide-small" aria-label="Hovednavigasjon">
+    {% for item in nav.main %}
+      {% if item.children %}
+    <details class="nav-dropdown">
+      <summary class="site-navbar-link">{{ item.label }}</summary>
+      <div class="nav-dropdown-menu">
+        {% for child in item.children %}
+        <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
+        {% endfor %}
+      </div>
+    </details>
+      {% else %}
+    <a class="site-navbar-link" href="{{ item.url }}">{{ item.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+
+  <nav id="mobileNav" class="w3-bar-block w3-hide w3-hide-medium w3-hide-large site-mobile-nav" aria-label="Mobilnavigasjon">
+    {% for item in nav.mobile %}
+      {% if item.group %}
+    <div class="w3-bar-item w3-small w3-opacity w3-margin-top">{{ item.group }}</div>
+        {% for child in item.items %}
+    <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="w3-bar-item w3-button w3-margin-left">{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
+        {% endfor %}
+      {% else %}
+    <a href="{{ item.url }}" class="w3-bar-item w3-button">{{ item.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
 
   <!-- Page content container -->
   <div id="main" class="w3-main">
@@ -93,7 +70,7 @@
   </div>
 
   <!-- Modal for full size images (optional) -->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0; display:none;">
+  <div id="modal01" class="w3-modal w3-black site-modal" style="display:none;">
     <span class="w3-button w3-black w3-xxlarge w3-display-topright" onclick="document.getElementById('modal01').style.display='none'">&times;</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
       <img id="img01" class="w3-image">
@@ -102,13 +79,38 @@
   </div>
 
   <!-- Footer -->
-  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
-    <p>{{ site.title }} • Stiftet 1918 • <a href="/about/">Om oss</a> • <a href="/nyheter/">Nyheter</a></p>
-  </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-col">
+        <img src="/assets/images/nmf-bare-logo.svg" alt="NMF" class="site-footer-logo">
+        <p class="site-footer-name">{{ site.title }}</p>
+        <p class="site-footer-sub">Stiftet 1918</p>
+        <p class="site-footer-sub">Foreningens formål er å fremme studiet av de matematiske vitenskaper.</p>
+      </div>
+      <div class="site-footer-col">
+        <h4 class="site-footer-heading">Snarveier</h4>
+        <ul class="site-footer-links">
+          <li><a href="/about.html">Om NMF</a></li>
+          <li><a href="/membership.html">Medlemskap</a></li>
+          <li><a href="/nyheter/">Nyheter</a></li>
+          <li><a href="/infomat.html">INFOMAT</a></li>
+          <li><a href="/activities.html">Arrangementer</a></li>
+          <li><a href="/viggo-brun-prisen.html">Viggo Brun-prisen</a></li>
+        </ul>
+      </div>
+      <div class="site-footer-col">
+        <h4 class="site-footer-heading">Kontakt</h4>
+        <ul class="site-footer-links">
+          <li><a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a></li>
+          <li><a href="https://web.matematikkforeningen.no/" target="_blank" rel="noopener">Offisiell nettside ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <span>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</span>
+    </div>
+  </footer>
 
   <script src="/assets/main.js"></script>
-  <!-- tsParticles: core + init (preset not required for this config) -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script src="/assets/tsparticles-init.js"></script>
 </body>
 </html>

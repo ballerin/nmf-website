@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="w3-border w3-round-large w3-margin-bottom infomat-article">
+  <header class="w3-container infomat-header">
+    <div class="infomat-header-inner">
+      <div class="infomat-header-logo">
+        <img src="/assets/images/nmf-bare-logo.svg" alt="INFOMAT logo">
+      </div>
+      <div class="infomat-header-copy">
+        <h1>INFOMAT</h1>
+        <p class="infomat-subtitle">{{ page.date | date: "%B %Y" }}</p>
+        {% if page.author %}
+        <p class="infomat-author">Redaktør: {{ page.author }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  <hr>
+  <div class="w3-container w3-padding post-content infomat-content">
+    {{ content }}
+  </div>
+  <div class="w3-container w3-light-grey w3-padding">
+    <a href="/infomat.html" class="w3-button nmf-primary back-button" aria-label="Tilbake til INFOMAT">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
+      <span class="label">Tilbake til INFOMAT</span>
+    </a>
+  </div>
+</article>

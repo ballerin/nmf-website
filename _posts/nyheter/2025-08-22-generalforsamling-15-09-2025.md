@@ -6,7 +6,9 @@ categories: [nyheter]
 author: NMF
 ---
 
-NMF avholder generalforsamling 15. september 2025. Møtet gjennomføres både fysisk (Soria Moria hotell, Oslo) og online via Zoom. Dokumenter for generalforsamlingen (innkalling, saksliste, årsberetning og regnskap) er tilgjengelige fra utlysningen.
+NMF avholder generalforsamling 15. september 2025. Møtet gjennomføres både fysisk (Soria Moria hotell, Oslo) og online via Zoom.
+
+Dokumenter for generalforsamlingen (innkalling, saksliste, årsberetning og regnskap) er tilgjengelige fra utlysningen.
 
 Se lenker og poster for detaljert informasjon.
 ---
