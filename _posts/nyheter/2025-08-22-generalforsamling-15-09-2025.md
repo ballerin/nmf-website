@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Generalforsamling 15/09/2025"
 date: 2025-08-22 09:00:00 +0200
-categories: [nyheter]
+categories: [news]
 author: NMF
 ---
 
@@ -15,7 +15,7 @@ Se lenker og poster for detaljert informasjon.
 layout: nyheter_template
 title: "Generalforsamling 15/09/2025 — møtedokumenter"
 date: 2025-08-22 08:30:00 +0200
-categories: [nyheter]
+categories: [news]
 
 ---
 

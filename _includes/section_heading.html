@@ -1,0 +1,5 @@
+{% assign _lvl = include.level | default: "h2" %}
+<div class="section-top-25"{% if include.id %} id="{{ include.id }}"{% endif %}>
+  <{{ _lvl }} class="section-heading-{{ _lvl }} text-nmf-primary"><b>{{ include.title }}</b></{{ _lvl }}>
+  <hr class="w3-round section-rule section-rule-{{ _lvl }}">
+</div>

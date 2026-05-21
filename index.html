@@ -4,21 +4,79 @@ title: Norsk Matematisk Forening (NMF)
 ---
 
   <!-- Skip link for keyboard users -->
+  <!-- TODO: do we really need this? -->
   <a class="skip-link" href="#main-content">Hopp til innhold</a>
 
   <!-- Header / Hero -->
-  <header class="w3-container" id="showcase" role="banner">
-    <div class="w3-center">
-      <h1 class="w3-xxxlarge text-nmf-primary"><b>Et faglig hjem for matematikk i Norge</b></h1>
-    </div>
-    <p class="lede">Norsk Matematisk Forening (NMF) jobber for å fremme studiet og bruken av matematikk i Norge. Vi samler fagfolk og interesserte gjennom fagmøter, undervisningsstøtte, konkurranser og publikasjoner som <em>Normat</em>. Alle som er interessert i matematikk er velkomne som medlemmer.</p>
+  <header class="w3-container w3-center" id="showcase" role="banner">
+    <p class="w3-large" style="font-style: italic; color: #666;">
+        «Norsk Matematisk Forening (NMF) jobber for å fremme studiet og bruken av matematikk i Norge. Vi samler fagfolk og interesserte gjennom fagmøter, undervisningsstøtte, konkurranser og publikasjoner. Alle som er interessert i matematikk er velkomne som <a href="/membership/">medlemmer</a>.»
+    </p>
   </header>
   
   <!-- Highlights grid -->
   <main id="main-content" role="main">
 
+  <!-- News -->
+  {% include section_heading.html level="h2" title="Siste nyheter" id="nyheter" %}
+
+  <div class="news-grid">
+  {% assign news_posts = site.posts | where: "categories", "news" | sort: "date" | reverse | slice: 0, 3 %}
+  {% for post in news_posts %}
+    <a href="{{ post.url }}" class="news-card">
+      {% if post.image %}
+      <img src="{{ post.image }}" alt="{{ post.title }}">
+      {% endif %}
+      <div class="news-card-overlay">
+        <small class="news-card-date">{{ post.date | date: "%Y-%m-%d" }}</small>
+        <h3>{{ post.title }}</h3>
+      </div>
+    </a>
+  {% endfor %}
+  </div>
+
+  <div class="w3-container w3-right">
+    <a href="/nyheter/" class="w3-button nmf-primary btn-primary w3-round">Se alle nyheter</a>
+  </div>
+
+  <!-- arrangementer & events -->
+  {% include section_heading.html level="h2" title="Kommende arrangementer" id="arrangementer" %}
+
+  <div class="arrangementer-grid">
+  {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" | reverse | slice: 0, 3 %}
+  {% for arrangement in arrangement_posts %}
+    <a href="{{ arrangement.url }}" class="arrangementer-card">
+      {% if arrangement.image %}
+      <img src="{{ arrangement.image }}" alt="{{ arrangement.title }}">
+      {% endif %}
+      <div class="arrangementer-card-overlay">
+        {% if arrangement.start-date and arrangement.end-date %}
+          <small class="arrangementer-card-date">
+            Fra: {{ arrangement.start-date | date: "%Y-%m-%d" }}
+          </small>
+          <small class="arrangementer-card-date">
+            Til: {{ arrangement.end-date | date: "%Y-%m-%d" }}
+          </small>
+        {% else %}
+          <small class="arrangementer-card-date">
+            {{ arrangement.date | date: "%Y-%m-%d" }}
+          </small>
+        {% endif %}
+        <h3>{{ arrangement.title }}</h3>
+      </div>
+    </a>
+  {% endfor %}
+  </div>
+
+  <div class="w3-container w3-right">
+    <a href="/arrangementer.html" class="w3-button nmf-primary btn-primary w3-round">Se alle aktiviteter</a>
+  </div>
+
+  <div class="w3-padding-64"></div>
+
+  <!-- Four portraits: smaller faces, with short captions -->
   <div class="w3-row-padding">
-    <!-- Four portraits: smaller faces, with short captions -->
+    
     <div class="w3-col m6 l3 w3-margin-bottom w3-center">
       <figure>
         <img class="portrait-img" src="/assets/images/abel.jpg"
@@ -51,98 +109,6 @@ title: Norsk Matematisk Forening (NMF)
       <h4 class="w3-margin-top">Atle Selberg</h4>
       <p class="w3-small">Norsk matematiker (1917–2007). Viktig bidragsyter til analytisk tallteori; kjent for Selberg-traceformelen.</p>
     </div>
-  </div>
-
-  <!-- News -->
-  <div class="w3-container section-top-25" id="nyheter">
-    <h2 class="w3-xxxlarge text-nmf-primary"><b>Siste nyheter</b></h2>
-    <hr class="w3-round section-rule-primary">
-  </div>
-
-  <div class="w3-row-padding news-grid news-grid-spacing">
-  {% assign news_posts = site.posts | where: "categories", "nyheter" | sort: "date" | reverse | slice: 0, 3 %}
-  {% for post in news_posts %}
-    <div class="w3-col m6 l4 w3-margin-bottom">
-      <div class="w3-card-4 w3-round-large">
-        {% if post.image %}
-        <div class="news-media">
-          <img src="{{ post.image }}" alt="{{ post.title }}">
-          <div class="news-media-overlay">
-            <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-            <div class="post-meta">
-              <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-              <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-            </div>
-          </div>
-        </div>
-        {% else %}
-        <header class="w3-container nmf-primary news-header">
-          <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-          <div class="post-meta">
-            <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-            <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-          </div>
-        </header>
-        {% endif %}
-        <div class="w3-container">
-          <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
-        </div>
-        <div class="w3-container w3-light-grey w3-padding">
-          <a class="w3-button nmf-primary w3-right w3-round" href="{{ post.url }}">Les mer</a>
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-  </div>
-
-  <div class="w3-container w3-center w3-padding-32">
-    <a href="/nyheter/" class="w3-button nmf-primary btn-primary w3-round">Se alle nyheter</a>
-  </div>
-
-  <!-- Activities & events -->
-  <div class="w3-container section-top-25" id="activities">
-    <h2 class="w3-xxxlarge text-nmf-primary"><b>Kommende arrangementer</b></h2>
-    <hr class="w3-round section-rule-primary">
-  </div>
-
-  <div class="w3-row-padding news-grid news-grid-spacing">
-  {% assign activity_posts = site.posts | where: "categories", "activities" | sort: "start-date" | reverse | slice: 0, 3 %}
-  {% for post in activity_posts %}
-    <div class="w3-col m6 l4 w3-margin-bottom">
-      <div class="w3-card-4 w3-round-large">
-        {% if post.image %}
-        <div class="news-media">
-          <img src="{{ post.image }}" alt="{{ post.title }}">
-          <div class="news-media-overlay">
-            <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-            <div class="post-meta">
-              <small class="date">{{ post.start-date | date: "%Y-%m-%d" }}</small>
-              <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-            </div>
-          </div>
-        </div>
-        {% else %}
-        <header class="w3-container nmf-primary news-header">
-          <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-          <div class="post-meta">
-            <small class="date">{{ post.start-date | date: "%Y-%m-%d" }}</small>
-            <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-          </div>
-        </header>
-        {% endif %}
-        <div class="w3-container">
-          <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
-        </div>
-        <div class="w3-container w3-light-grey w3-padding">
-          <a class="w3-button nmf-primary w3-right w3-round" href="{{ post.url }}">Les mer</a>
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-  </div>
-
-  <div class="w3-container w3-center w3-padding-32">
-    <a href="/activities.html" class="w3-button nmf-primary btn-primary w3-round">Se alle aktiviteter</a>
   </div>
   
   </main>

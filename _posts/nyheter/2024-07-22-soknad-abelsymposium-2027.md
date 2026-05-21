@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Søknad Abelsymposium 2027"
 date: 2024-07-22 09:00:00 +0100
-categories: [nyheter]
+categories: [news]
 author: NMF
 ---
 

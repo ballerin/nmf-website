@@ -5,61 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
   {% assign nav = site.data.navigation %}
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/assets/main.css">
 </head>
+
 {% assign is_abel_related = false %}
 {% if page.url contains '/abelsymposium/' or page.layout == 'abelprisen_template' %}
   {% assign is_abel_related = true %}
 {% endif %}
+
 <body class="{% unless is_abel_related %}brand-theme{% endunless %}">
-  <!-- Top menu and horizontal navbar -->
-  {% assign tb = nav.topbar %}
-  <header class="site-topbar w3-container w3-padding" style="background-image: linear-gradient({{ tb.background_overlay }}, {{ tb.background_overlay }}), url('{{ tb.background_image }}');">
-    <a href="/" class="site-brand" aria-label="Gå til forsiden">
-      <img class="site-logo" src="{{ tb.logo }}" alt="{{ tb.site_name }} logo">
-      <span>{{ tb.site_name }}</span>
-    </a>
-    <span class="header-meta">
-      <span class="line1">{{ tb.tagline_line1 }}</span>
-      <span class="line2">{{ tb.tagline_line2 }}</span>
-    </span>
-    <button class="w3-button w3-hide-medium w3-hide-large site-mobile-toggle" type="button" onclick="toggleMobileNav()" aria-label="Åpne meny">
-      ☰
-    </button>
-  </header>
-
-  <nav class="site-navbar w3-hide-small" aria-label="Hovednavigasjon">
-    {% for item in nav.main %}
-      {% if item.children %}
-    <details class="nav-dropdown">
-      <summary class="site-navbar-link">{{ item.label }}</summary>
-      <div class="nav-dropdown-menu">
-        {% for child in item.children %}
-        <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
-        {% endfor %}
-      </div>
-    </details>
-      {% else %}
-    <a class="site-navbar-link" href="{{ item.url }}">{{ item.label }}</a>
-      {% endif %}
-    {% endfor %}
-  </nav>
-
-  <nav id="mobileNav" class="w3-bar-block w3-hide w3-hide-medium w3-hide-large site-mobile-nav" aria-label="Mobilnavigasjon">
-    {% for item in nav.mobile %}
-      {% if item.group %}
-    <div class="w3-bar-item w3-small w3-opacity w3-margin-top">{{ item.group }}</div>
-        {% for child in item.items %}
-    <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="w3-bar-item w3-button w3-margin-left">{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
-        {% endfor %}
-      {% else %}
-    <a href="{{ item.url }}" class="w3-bar-item w3-button">{{ item.label }}</a>
-      {% endif %}
-    {% endfor %}
-  </nav>
+  
+  <!-- Top bar and Nav bar -->
+  {% include default_header.html %}
 
   <!-- Page content container -->
   <div id="main" class="w3-main">
@@ -79,37 +40,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="site-footer-col">
-        <img src="/assets/images/nmf-bare-logo.svg" alt="NMF" class="site-footer-logo">
-        <p class="site-footer-name">{{ site.title }}</p>
-        <p class="site-footer-sub">Stiftet 1918</p>
-        <p class="site-footer-sub">Foreningens formål er å fremme studiet av de matematiske vitenskaper.</p>
-      </div>
-      <div class="site-footer-col">
-        <h4 class="site-footer-heading">Snarveier</h4>
-        <ul class="site-footer-links">
-          <li><a href="/about.html">Om NMF</a></li>
-          <li><a href="/membership.html">Medlemskap</a></li>
-          <li><a href="/nyheter/">Nyheter</a></li>
-          <li><a href="/infomat.html">INFOMAT</a></li>
-          <li><a href="/activities.html">Arrangementer</a></li>
-          <li><a href="/viggo-brun-prisen.html">Viggo Brun-prisen</a></li>
-        </ul>
-      </div>
-      <div class="site-footer-col">
-        <h4 class="site-footer-heading">Kontakt</h4>
-        <ul class="site-footer-links">
-          <li><a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a></li>
-          <li><a href="https://web.matematikkforeningen.no/" target="_blank" rel="noopener">Offisiell nettside ↗</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-footer-bottom">
-      <span>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</span>
-    </div>
-  </footer>
+  {% include default_footer.html %}
 
   <script src="/assets/main.js"></script>
 </body>

@@ -1,18 +1,16 @@
 ---
 layout: default
 title: "Medlemskap — Norsk Matematisk Forening"
-permalink: /membership.html
+permalink: /medlemskap/
 ---
 
-<div class="w3-container" id="content">
-  <div class="w3-container w3-center">
-    <h1 class="w3-xxxlarge text-nmf-primary"><b>Medlemskap</b></h1>
-    <h2 class="w3-xlarge text-nmf-secondary"><b>Alle er velkomne som medlemmer i NMF — både privatpersoner og institusjoner. Medlemskap gir tilgang til faglige nettverk, nyheter, rabatter og muligheter for faglig støtte.</b></h2>
-  </div>
-</div>
+{% include default_opening.html 
+  heading = "Medlemskap"
+  subtitle= "Alle er velkomne som medlemmer i NMF — både privatpersoner og institusjoner. Medlemskap gir tilgang til faglige nettverk, nyheter, rabatter og muligheter for faglig støtte."  
+%}
 
 <div class="w3-container" id="medlemskap" style="margin-top:25px">
-  <h2 class="text-nmf-primary"><b>Fordeler</b></h2>
+  {% include section_heading.html level="h3" title="Fordeler" id="fordeler" %}
   <ul>
     <li>Infomat som kommer 11 ganger i året</li>
     <li>Redusert pris på medlemskap i EMS (European Mathematical Society)</li>
@@ -50,13 +48,13 @@ permalink: /membership.html
     </tbody>
   </table>
 
-  <h2 class="text-nmf-primary"><b>Innmelding</b></h2>
+  {% include section_heading.html level="h3" title="Innmelding" id="innmelding" %}
 
   <p style="margin-top:18px;">Medlemskap i foreningen kan tegnes både av personer og institusjoner/bedrifter. Personer kan enten tegne livsvarig medlemskap eller medlemskap for ett år av gangen. Institusjoner og bedrifter kan tegne medlemskap for ett år av gangen.</p>
   <p>Ved nyinnmelding: send navn, adresse og e-post til <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a>.</p>
   <p>Alle er velkomne som medlemmer, det er ingen restriksjoner.</p>
 
-  <h2 class="text-nmf-primary"><b>Betaling</b></h2>
+  {% include section_heading.html level="h3" title="Betaling" id="betaling" %}
   <p>Kontingenten kan innbetales til:</p>
   <p>
     Norsk matematisk forening<br>
@@ -65,7 +63,7 @@ permalink: /membership.html
   <p><b>Kontonummer:</b> 4202.59.30058</p>
   <p>Merk betalingen med «NMF, medlemstype, navn».</p>
 
-  <h2 class="text-nmf-primary"><b>European Mathematical Society (EMS)</b></h2>
+  {% include section_heading.html level="h3" title="European Mathematical Society (EMS)" id="ems" %}
   <p>Alle medlemmer av NMF oppfordres til å tegne personlig medlemskap i <a href="http://www.euro-math-soc.eu/" target="_blank" rel="noopener noreferrer">EMS (European Mathematical Society)</a>.</p>
   <p>Innmelding gjøres via EMS-nettsiden: <a href="http://www.euro-math-soc.eu/ems_payment/ems_payment.html" target="_blank" rel="noopener noreferrer">http://www.euro-math-soc.eu/ems_payment/ems_payment.html</a>.</p>
   <p>Under «Payment», kryss av for «Member of a national society» og velg «Norwegian mathematical society» fra nedtrekksmenyen. Prisen er da 25 euro (halv pris).</p>

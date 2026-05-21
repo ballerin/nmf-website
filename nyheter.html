@@ -4,47 +4,24 @@ title: "Nyheter — Norsk Matematisk Forening"
 permalink: /nyheter/
 ---
 
-<div class="w3-container" id="content">
-  <div class="w3-container w3-center">
-    <h1 class="w3-xxxlarge text-nmf-primary"><b>Nyheter</b></h1>
-    <h2 class="w3-xlarge text-nmf-secondary"><b>Siste nytt fra NMF</b></h2>
-  </div>
-</div>
+{% include default_opening.html 
+  heading = "Nyheter"
+  subtitle= "Siste nytt fra NMF"  
+%}
 
-<div class="w3-row-padding news-grid news-grid-spacing">
+
+<div class="news-grid">
 {% for post in site.posts %}
-  {% if post.categories contains 'nyheter' %}
-  <div class="w3-col m6 l4 w3-margin-bottom">
-        <div class="w3-card-4 w3-round-large">
-          {% if post.image %}
-          <div class="news-media">
-            <img src="{{ post.image }}" alt="{{ post.title }}">
-            <div class="news-media-overlay">
-              <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-              <div class="post-meta">
-                <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-                <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-              </div>
-            </div>
-          </div>
-          {% else %}
-          <header class="w3-container nmf-primary news-header">
-            <h3><a href="{{ post.url }}" class="link-reset">{{ post.title }}</a></h3>
-            <div class="post-meta">
-              <small class="date">{{ post.date | date: "%Y-%m-%d" }}</small>
-              <small class="author">{% if post.author %}{{ post.author }}{% endif %}</small>
-            </div>
-          </header>
-          {% endif %}
-          <div class="w3-container">
-            <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
-          </div>
-          <div class="w3-container w3-light-grey w3-padding">
-            <a class="w3-button nmf-primary w3-right w3-round" href="{{ post.url }}">Les mer</a>
-          </div>
-        </div>
-      </div>
+  {% if post.categories contains 'news' %}
+  <a href="{{ post.url }}" class="news-card">
+    {% if post.image %}
+    <img src="{{ post.image }}" alt="{{ post.title }}">
     {% endif %}
-  {% endfor %}
+    <div class="news-card-overlay">
+      <small class="news-card-date">{{ post.date | date: "%Y-%m-%d" }}</small>
+      <h3>{{ post.title }}</h3>
+    </div>
+  </a>
+  {% endif %}
+{% endfor %}
 </div>
-

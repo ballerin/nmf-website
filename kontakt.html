@@ -1,0 +1,84 @@
+---
+layout: default
+title: "Kontakt"
+permalink: /kontakt/
+---
+
+<div class="w3-container" id="content">
+  <div class="w3-container w3-center">
+    <h1 class="w3-xxxlarge text-nmf-primary"><b>Kontakt</b></h1>
+    <h2 class="w3-xlarge text-nmf-secondary"><b>Norsk matematisk forening</b></h2>
+  </div>
+  <p class="lede">
+    Har du spørsmål om medlemskap, arrangementer, stipend eller andre saker? Ta gjerne kontakt med oss.
+  </p>
+</div>
+
+<div class="w3-container w3-padding">
+  <div class="w3-row-padding">
+
+    <div class="w3-col m6 w3-margin-bottom">
+      <div class="w3-card-4 w3-round-large w3-white" style="padding:1.75rem; height:100%;">
+        <h2 class="text-nmf-primary" style="margin-top:0;">
+          <i class="fa-solid fa-envelope" aria-hidden="true" style="margin-right:0.5rem;"></i>Postadresse
+        </h2>
+        <address style="font-style:normal; line-height:2;">
+          <strong>Norsk matematisk forening</strong><br>
+          Universitetet i Bergen<br>
+          v/Matematisk Institutt<br>
+          Postboks 7803<br>
+          5020 Bergen<br>
+          Norge
+        </address>
+        <p style="margin-top:1rem;">
+          <strong>E-post:</strong> <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a><br>
+          <strong>Org.nr:</strong> 879 191 882
+        </p>
+      </div>
+    </div>
+
+    <div class="w3-col m6 w3-margin-bottom">
+      <div class="w3-card-4 w3-round-large w3-white" style="padding:1.75rem; height:100%;">
+        <h2 class="text-nmf-primary" style="margin-top:0;">
+          <i class="fa-solid fa-circle-info" aria-hidden="true" style="margin-right:0.5rem;"></i>Spørsmål om
+        </h2>
+        <ul style="list-style:none; padding:0; line-height:2.2;">
+          <li><i class="fa-solid fa-user-plus" style="color:var(--nmf-primary); width:1.4rem;"></i> <strong>Medlemskap:</strong> <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a></li>
+          <li><i class="fa-solid fa-graduation-cap" style="color:var(--nmf-primary); width:1.4rem;"></i> <strong>Abelstipend:</strong> <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a></li>
+          <li><i class="fa-solid fa-newspaper" style="color:var(--nmf-primary); width:1.4rem;"></i> <strong>INFOMAT:</strong> <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a></li>
+          <li><i class="fa-solid fa-calendar" style="color:var(--nmf-primary); width:1.4rem;"></i> <strong>Arrangement 2026:</strong> <a href="mailto:nmm2026@math.ntnu.no">nmm2026@math.ntnu.no</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="w3-container w3-padding">
+  <h2 class="text-nmf-primary">Styret</h2>
+  <p>NMFs styre er det utøvende organet mellom generalforsamlingene. Styret kan kontaktes via foreningens e-postadresse.</p>
+  <div class="w3-row-padding">
+    {% for member in site.data.styremedlemmer.members %}
+    <div class="w3-col m6 l4 w3-margin-bottom">
+      <div class="w3-card-4 w3-round-large w3-white" style="padding:1rem; display:flex; align-items:center; gap:1rem;">
+        <img src="{{ member.picture }}" alt="{{ member.name }}"
+             style="width:56px; height:56px; object-fit:cover; border-radius:50%; flex-shrink:0;">
+        <div>
+          <strong>{{ member.name }}</strong><br>
+          <span style="font-size:0.9rem; color:#555;">{{ member.role }}</span><br>
+          <span style="font-size:0.82rem; color:#888;">{{ member.affiliation }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <p><a href="/styremedlemmer.html" class="w3-button nmf-primary w3-round">Mer om styremedlemmene</a></p>
+</div>
+
+<div class="w3-container w3-padding">
+  <h2 class="text-nmf-primary">Sosiale medier</h2>
+  <p>Følg NMF for nyheter og oppdateringer:</p>
+  <ul class="pekere-list">
+    <li><a href="https://web.matematikkforeningen.no/" target="_blank" rel="noopener">Norsk matematisk forening — offisiell nettside</a></li>
+  </ul>
+</div>

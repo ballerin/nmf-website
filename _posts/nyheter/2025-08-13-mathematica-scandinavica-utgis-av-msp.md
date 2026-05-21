@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Mathematica Scandinavica skal utgis av MSP"
 date: 2025-08-13 09:00:00 +0200
-categories: [nyheter]
+categories: [news]
 author: NMF
 ---
 

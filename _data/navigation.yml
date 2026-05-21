@@ -1,69 +1,54 @@
 topbar:
   site_name: "Norsk Matematisk Forening"
   logo: /assets/images/nmf-bare-logo.svg
-  tagline_line1: "Stiftet 1918"
-  tagline_line2: "Fremmer matematikk i Norge"
+  tagline: "Stiftet 1918. Fremmer matematikk i Norge"
   background_image: /assets/images/fjords.jpg
   background_overlay: "rgba(0, 0, 0, 0.28)"
 
-main:
+navbar:
   - label: Publikasjoner
     children:
       - label: Infomat
-        url: /infomat.html
+        url: /infomat/
       - label: Mathematica Scandinavica
         url: https://www.mscand.dk/
         external: true
   - label: Medlemskap
-    url: /membership.html
+    url: /medlemskap/
   - label: Aktiviteter
-    url: /activities.html
+    children:
+      - label: Abelkonkuransen
+        url: /abelkonkurransen/
+      - label: Abelsymposiet
+        url: https://abelsymposium.no/
+        external: true
+      - label: Generalforsamlinger
+        url: /generalforsamlinger/
+      - label: Nasjonalt matematikkmøte
+        url: /nasjonalt-matematikkmote/
+  - label: Arrengementer
+    url: /arrengementer/
   - label: Priser og stipend
     children:
+      - label: Abelstipend
+        url: /abelstipend.html
       - label: Viggo Brun-prisen
-        url: /viggo-brun-prisen.html
+        url: /viggo-brun-prisen/
       - label: Elizabeth Stephansen-forelesningene
-        url: /elizabeth-stephansen-forelesningene.html
+        url: /elizabeth-stephansen-forelesningene/
   - label: Om NMF
     children:
+      - label: Hva vi gjør
+        url: /hva-vi-gjor/
       - label: Forenings historie
-        url: /historie.html
+        url: /historie/
       - label: Styremedlemmer
-        url: /styremedlemmer.html
+        url: /styremedlemmer/
       - label: Vedtekter
-        url: /vedtekter.html
+        url: /vedtekter/
+      - label: Kontakt
+        url: /kontakt/
   - label: Nyheter
     url: /nyheter/
-  - label: Videre
-    url: /videre.html
-
-mobile:
-  - label: Medlemskap
-    url: /membership.html
-  - label: Aktiviteter
-    url: /activities.html
-  - label: Nyheter
-    url: /nyheter/
-  - label: Videre
-    url: /infomat.html
-  - group: Publikasjoner
-    items:
-      - label: Infomat
-        url: /infomat.html
-      - label: Mathematica Scandinavica
-        url: https://www.mscand.dk/
-        external: true
-  - group: Priser og stipend
-    items:
-      - label: Viggo Brun-prisen
-        url: /viggo-brun-prisen.html
-      - label: Elizabeth Stephansen-forelesningene
-        url: /elizabeth-stephansen-forelesningene.html
-  - group: Om NMF
-    items:
-      - label: Forenings historie
-        url: /historie.html
-      - label: Styremedlemmer
-        url: /styremedlemmer.html
-      - label: Vedtekter
-        url: /vedtekter.html
+  - label: Pekere videre
+    url: /pekere_videre/

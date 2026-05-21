@@ -2,9 +2,9 @@
 layout: nyheter_template
 title: "Nominasjon Viggo Brun pris 2026"
 date: 2026-02-05 09:00:00 +0100
-categories: [nyheter]
+categories: [news]
 author: NMF
-image: "/assets/images/viggo_brun_portrait_cropped.jpg"
+image: "/assets/nyheter/covers/viggo_brun_portrait_cropped.jpg"
 ---
 
 Viggo Brun-prisen 2026 skal deles ut under Nasjonalt Matematikermøte 2026 i Trondheim (10.–11. september).

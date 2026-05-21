@@ -1,21 +1,30 @@
 ---
 layout: default
 ---
-<article class="w3-border w3-round-large w3-margin-bottom nyheter-article">
-  <header class="w3-container nmf-primary">
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">
-      <small class="date">{{ page.date | date: "%Y-%m-%d" }}</small>
-      <small class="author">{% if page.author %}{{ page.author }}{% endif %}</small>
+<article class="news-article w3-border w3-round-large w3-margin-bottom">
+
+  <header class="post-hero"{% if page.image %} style="background-image: url('{{ page.image }}')"{% endif %}>
+    <div class="post-hero-overlay">
+      <div class="post-hero-text">
+        <p class="post-hero-eyebrow">Nyheter</p>
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+          {% if page.date %}<span class="date">{{ page.date | date: "%d. %B %Y" }}</span>{% endif %}
+          {% if page.author %}<span class="author">{{ page.author }}</span>{% endif %}
+        </div>
+      </div>
     </div>
   </header>
+
   <div class="w3-container w3-padding post-content">
     {{ content }}
   </div>
-  <div class="w3-container w3-light-grey w3-padding">
-    <a href="/nyheter/" class="w3-button nmf-primary back-button" aria-label="Tilbake til nyheter">
+
+  <div class="w3-container w3-light-grey w3-padding w3-center">
+    <a href="/nyheter/" class="w3-button nmf-primary back-button w3-round" aria-label="Tilbake til nyheter">
       <i class="fa-solid fa-reply" aria-hidden="true"></i>
       <span class="label">Tilbake til nyheter</span>
     </a>
   </div>
+
 </article>

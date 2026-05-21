@@ -1,0 +1,48 @@
+<!-- Top bar (logo and background picture) -->
+{% assign tb = nav.topbar %}
+<header class="site-topbar w3-container w3-padding" style="background-image: linear-gradient({{ tb.background_overlay }}, {{ tb.background_overlay }}), url('{{ tb.background_image }}');">
+<a href="/" class="site-brand" aria-label="Gå til forsiden">
+    <img class="site-logo" src="{{ tb.logo }}" alt="{{ tb.site_name }} logo">
+    <span>{{ tb.site_name }}</span>
+</a>
+<span class="header-meta">
+    <span class="line1">{{ tb.tagline }}</span>
+</span>
+<button class="w3-button w3-hide-large site-mobile-toggle" type="button" onclick="toggleMobileNav()" aria-label="Åpne meny">
+    ☰
+</button>
+</header>
+
+<!-- Desktop navigation -->
+
+<nav class="site-navbar w3-hide-small w3-hide-medium" aria-label="Hovednavigasjon">
+{% for item in nav.navbar %}
+    {% if item.children %}
+<details class="nav-dropdown">
+    <summary class="site-navbar-link">{{ item.label }}</summary>
+    <div class="nav-dropdown-menu">
+    {% for child in item.children %}
+    <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
+    {% endfor %}
+    </div>
+</details>
+    {% else %}
+<a class="site-navbar-link" href="{{ item.url }}">{{ item.label }}</a>
+    {% endif %}
+{% endfor %}
+</nav>
+
+<!-- Mobile navigation -->
+
+<nav id="mobileNav" class="w3-bar-block w3-hide w3-hide-large site-mobile-nav" aria-label="Mobilnavigasjon">
+{% for item in nav.navbar %}
+    {% if item.children %}
+    <div class="w3-bar-item"><i class="fa-solid fa-caret-down"></i>&nbsp;{{ item.label }}</div>
+        {% for child in item.children %}
+            <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="w3-bar-item w3-button w3-margin-left">{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
+        {% endfor %}
+    {% else %}
+        <a href="{{ item.url }}" class="w3-bar-item w3-button">{{ item.label }}</a>
+    {% endif %}
+{% endfor %}
+</nav>
