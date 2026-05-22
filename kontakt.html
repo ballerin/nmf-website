@@ -55,7 +55,7 @@ permalink: /kontakt/
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Styret</h2>
+  {% include section_heading.html level="h2" title="Styret" id="styret" %}
   <p>NMFs styre er det utøvende organet mellom generalforsamlingene. Styret kan kontaktes via foreningens e-postadresse.</p>
   <div class="w3-row-padding">
     {% for member in site.data.styremedlemmer.members %}
@@ -72,13 +72,5 @@ permalink: /kontakt/
     </div>
     {% endfor %}
   </div>
-  <p><a href="/styremedlemmer.html" class="w3-button nmf-primary w3-round">Mer om styremedlemmene</a></p>
-</div>
-
-<div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Sosiale medier</h2>
-  <p>Følg NMF for nyheter og oppdateringer:</p>
-  <ul class="pekere-list">
-    <li><a href="https://web.matematikkforeningen.no/" target="_blank" rel="noopener">Norsk matematisk forening — offisiell nettside</a></li>
-  </ul>
+  <p class="w3-center"><a href="/styremedlemmer.html" class="w3-button nmf-primary w3-round">Mer om styremedlemmene</a></p>
 </div>

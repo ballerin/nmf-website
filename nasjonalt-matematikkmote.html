@@ -15,7 +15,7 @@ permalink: /nasjonalt-matematikkmote/
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Om møtet</h2>
+  {% include section_heading.html level="h3" title="Om møtet" id="om-motet" %}
   <p>Det nasjonale matematikermøtet har vært arrangert siden begynnelsen av 1900-tallet og er et sentralt møtepunkt for det norske matematikkmiljøet. Møtet gir mulighet for:</p>
   <ul>
     <li>Faglige foredrag innen alle grener av matematikk</li>
@@ -25,10 +25,7 @@ permalink: /nasjonalt-matematikkmote/
     <li>Generalforsamling i Norsk matematisk forening</li>
   </ul>
   <p>Møtet er normalt finansiert av Trond Mohn Stiftelse (TMS) og Tromsø Forskningsstiftelse (TFS) i samarbeid med vertsinstitusjonene.</p>
-</div>
 
-<div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Neste møte — 2026</h2>
   <div class="w3-card-4 w3-round-large w3-white w3-padding w3-margin-bottom" style="border-left: 4px solid var(--nmf-primary);">
     <h3 style="margin-top:0;" class="text-nmf-primary">Nasjonalt matematikermøte 2026</h3>
     <p><strong>9.–11. september 2026</strong> i Trondheim</p>
@@ -36,9 +33,8 @@ permalink: /nasjonalt-matematikkmote/
     <strong>Arrangert av:</strong> Norsk matematisk forening i samarbeid med NTNU og norske universitetsmiljøer<br>
     <strong>Finansiert av:</strong> Trond Mohn Stiftelse (TMS) og Tromsø Forskningsstiftelse (TFS)</p>
     <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
-      <a href="https://www.ntnu.no/imf/nmm2026" class="w3-button nmf-primary w3-round" target="_blank" rel="noopener">Møtets nettside</a>
-      <a href="https://www.ntnu.no/imf/nmm2026/program" class="w3-button w3-border w3-round" target="_blank" rel="noopener">Program</a>
-      <a href="https://nettskjema.no/a/559495" class="w3-button w3-border w3-round" target="_blank" rel="noopener">Påmelding</a>
+        <a href="/arrangement/2026/05/12/nasjonalt-matematikermote-2026.html" class="w3-button nmf-primary w3-round">Se kunngjøringen</a>
+        <a href="https://www.ntnu.no/imf/nmm2026" class="w3-button w3-border w3-round" target="_blank" rel="noopener">Møtets nettside</a>
     </div>
     <p style="margin-top:1rem;"><strong>Påmeldingsfrist:</strong> 15. juni 2026 kl. 23:59<br>
     <strong>Kontakt:</strong> <a href="mailto:nmm2026@math.ntnu.no">nmm2026@math.ntnu.no</a></p>
@@ -46,8 +42,9 @@ permalink: /nasjonalt-matematikkmote/
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Tidligere møter</h2>
-  <table class="site-table" style="max-width:640px; margin-left:auto; margin-right:auto;" aria-label="Historikk nasjonalt matematikermøte">
+  {% include section_heading.html level="h3" title="Tidligere møter" id="historikk" %}
+  <div class="w3-padding-16"></div>
+  <table class="site-table" style="max-width:640px" aria-label="Historikk nasjonalt matematikermøte">
     <thead>
       <tr>
         <th scope="col">År</th>

@@ -4,26 +4,20 @@ title: "Abelstipend"
 permalink: /abelstipend.html
 ---
 
-<div class="w3-container" id="content">
-  <div class="w3-container w3-center">
-    <h1 class="w3-xxxlarge text-nmf-primary"><b>Abelstipend</b></h1>
-    <h2 class="w3-xlarge text-nmf-secondary"><b>Stipend for masterstudenter i matematiske fag</b></h2>
-  </div>
-  <p class="lede">
-    Abelstipend tildeles mastergradsstudenter i matematiske fag ved norske læresteder for å dekke utgifter i forbindelse med studieopphold ved utenlandske læresteder. Stipendet har som formål å stimulere lovende studenter til videre studier og forskning i matematiske fag.
-  </p>
-</div>
+{% include default_opening.html 
+  heading = "Abelstipend"
+  subtitle= "Stipend for masterstudenter i matematiske fag"
+%}
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Status for stipendordningen</h2>
-  <div class="w3-card-4 w3-round-large w3-pale-yellow w3-padding w3-margin-bottom" style="border-left: 4px solid #e6a817;">
+<div class="w3-card-4 w3-round-large w3-pale-yellow w3-padding w3-margin-bottom" style="border-left: 4px solid #e6a817;">
     <p style="margin:0;"><strong>Merk:</strong> Styret for Niels Henrik Abels minnefond ga opprinnelig Norsk Matematisk Forening i oppgave å forestå utdeling av årlige Abelstipend. Ordningen falt bort i tidsrommet 2020–2024, men NMF har som ambisjon å gjenoppta Abelstipendene gjennom ny finansiering. Stipendene ble gjenopptatt fra og med 2025.</p>
   </div>
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Kommende utlysning</h2>
-  <div class="w3-card-4 w3-round-large w3-white w3-padding w3-margin-bottom" style="border-left: 4px solid var(--nmf-primary);">
+  {% include section_heading.html level="h3" title="Kommende utlysning" id="kommende" %}
+  <div class="w3-card-4 w3-round-large w3-white w3-padding w3-margin w3-margin-bottom" style="border-left: 4px solid var(--nmf-primary);">
     <h3 style="margin-top:0;" class="text-nmf-primary">Abelstipend 2026–2027</h3>
     <p>Utlysning av Abelstipend for studieåret 2026/2027 er kunngjort. Se nyhetsoppslaget for detaljer om søknadsfristen.</p>
     <a href="/nyheter/2025/12/10/abelstipend-2026-2027.html" class="w3-button nmf-primary w3-round">Les kunngjøringen</a>
@@ -31,23 +25,23 @@ permalink: /abelstipend.html
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Informasjon og retningslinjer</h2>
+  {% include section_heading.html level="h3" title="Informasjon og retningslinjer" id="retningslinjer" %}
 
-  <h3 class="text-nmf-primary">Hvem kan søke?</h3>
+  {% include section_heading.html level="h4" title="Hvem kan søke?" id="hvem" %}
   <ul>
     <li>Abelstipend kan tildeles studenter som er opptatt i <strong>masterprogram i matematiske fag</strong> ved norske læresteder.</li>
     <li>Det gis til mastergradsstudenter ved norske læresteder som har fullført utdanning på bachelor-nivå eller tilsvarende.</li>
     <li>Som faglig minstekrav for tildeling av Abelstipend kreves normalt <strong>80 studiepoeng i matematiske fag</strong>.</li>
   </ul>
 
-  <h3 class="text-nmf-primary">Hva dekker stipendet?</h3>
+  {% include section_heading.html level="h4" title="Hva dekker stipendet?" id="hva-dekker" %}
   <ul>
     <li>Abelstipend er et <strong>personlig stipend</strong> som skal dekke utgifter i forbindelse med opphold ved et utenlandsk lærested.</li>
     <li>NMF fastsetter hvert år et <strong>månedlig maksimalbeløp</strong> det kan søkes om. Det kan gis støtte for <strong>inntil fire måneders utenlandsopphold</strong>.</li>
     <li>NMF kan vedta å innvilge hele eller en del av det beløpet det er søkt om.</li>
   </ul>
 
-  <h3 class="text-nmf-primary">Søknadens innhold</h3>
+  {% include section_heading.html level="h4" title="Søknadens innhold" id="soknad" %}
   <p>En søknad om Abelstipend skal inneholde:</p>
   <ol>
     <li><strong>Faglig mål</strong> for studieoppholdet</li>
@@ -57,7 +51,7 @@ permalink: /abelstipend.html
   </ol>
   <p>Hovedkriteriet for tildeling er <strong>faglig kvalitet</strong>.</p>
 
-  <h3 class="text-nmf-primary">Rapportering</h3>
+  {% include section_heading.html level="h4" title="Rapportering" id="rapportering" %}
   <ul>
     <li>Norsk matematisk forening krever ikke reiseregning eller annen rapportering fra mottaker av Abelstipend.</li>
     <li>Norsk matematisk forening er ansvarlig for rapportering om stipendtildelingene til skatteetaten.</li>
@@ -66,12 +60,13 @@ permalink: /abelstipend.html
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Utlysning og søknad</h2>
+  {% include section_heading.html level="h3" title="Utlysning og søknad" id="utlysning" %}
   <p>Utlysning av Abelstipend skjer normalt én gang per år. Søknad sendes til <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a>.</p>
   <p>Norsk matematisk forening er ansvarlig for utlysning og fatter beslutning om tildeling av stipend.</p>
 
-  <h2 class="text-nmf-primary" style="margin-top:2rem;">Tidligere tildelte stipend</h2>
-  <table class="site-table" style="max-width:480px; margin-left:auto; margin-right:auto;" aria-label="Abelstipend utlysninger">
+  {% include section_heading.html level="h3" title="Tidligere tildelte stipend" id="historikk" %}
+  <div class="w3-padding-16"></div>
+  <table class="site-table" aria-label="Abelstipend utlysninger">
     <thead>
       <tr>
         <th scope="col">Studieår</th>

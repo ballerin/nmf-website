@@ -15,7 +15,7 @@ permalink: /generalforsamlinger/
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Om generalforsamlingen</h2>
+  {% include section_heading.html level="h3" title="Om generalforsamlingen" id="om-gf" %}
   <p>Generalforsamlingen behandler blant annet:</p>
   <ul>
     <li>Årsberetning og regnskap</li>
@@ -25,11 +25,8 @@ permalink: /generalforsamlinger/
     <li>Innkomne forslag fra medlemmene</li>
   </ul>
   <p>Alle medlemmer av NMF har stemmerett på generalforsamlingen. Innkalling sendes normalt ut minst fire uker i forveien via <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a> og publiseres på foreningens nettsider.</p>
-</div>
 
-<div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Kommende generalforsamling</h2>
-  <div class="w3-card-4 w3-round-large w3-white w3-padding w3-margin-bottom" style="border-left: 4px solid var(--nmf-primary);">
+  <div class="w3-card w3-round-large w3-white w3-padding w3-margin" style="border-left: 4px solid var(--nmf-primary);">
     <h3 style="margin-top:0;" class="text-nmf-primary">Generalforsamling 2026</h3>
     <p>Generalforsamlingen for 2026 vil avholdes i forbindelse med <strong>Nasjonalt matematikermøte 2026</strong> i Trondheim, 9.–11. september 2026. Nærmere informasjon om tidspunkt og sted vil bli kunngjort via e-post og på foreningens nettsider.</p>
     <p><strong>Sted:</strong> Scandic Nidelven, Trondheim<br>
@@ -38,10 +35,10 @@ permalink: /generalforsamlinger/
 </div>
 
 <div class="w3-container w3-padding">
-  <h2 class="text-nmf-primary">Arkiv — Tidligere generalforsamlinger</h2>
+  {% include section_heading.html level="h3" title="Arkiv — Tidligere generalforsamlinger" id="arkiv" %}
   <p>Nedenfor finnes innkallinger og referater fra tidligere generalforsamlinger.</p>
 
-  <table class="site-table" style="max-width:700px; margin-left:auto; margin-right:auto;" aria-label="Generalforsamlingsarkiv">
+  <table class="site-table" style="max-width:700px" aria-label="Generalforsamlingsarkiv">
     <thead>
       <tr>
         <th scope="col">År</th>
