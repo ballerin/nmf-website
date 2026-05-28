@@ -2,8 +2,6 @@
 layout: activity_post
 title: "Populærforedrag: Matematikk og samfunn"
 date: 2026-05-05
-start-date: 2026-05-05
-end-date: 2026-05-05
 author: "NMF"
 categories: [arrangement]
 ---

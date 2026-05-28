@@ -37,10 +37,14 @@
 <nav id="mobileNav" class="w3-bar-block w3-hide w3-hide-large site-mobile-nav" aria-label="Mobilnavigasjon">
 {% for item in nav.navbar %}
     {% if item.children %}
-    <div class="w3-bar-item"><i class="fa-solid fa-caret-down"></i>&nbsp;{{ item.label }}</div>
+    <details class="mobile-nav-dropdown">
+      <summary class="w3-bar-item w3-button">{{ item.label }}</summary>
+      <div class="mobile-nav-dropdown-menu">
         {% for child in item.children %}
-            <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="w3-bar-item w3-button w3-margin-left">{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
+          <a href="{{ child.url }}"{% if child.external %} target="_blank" rel="noopener noreferrer"{% endif %} class="w3-bar-item w3-button w3-margin-left">{{ child.label }}{% if child.external %} <span class="external-indicator" aria-hidden="true">↗</span>{% endif %}</a>
         {% endfor %}
+      </div>
+    </details>
     {% else %}
         <a href="{{ item.url }}" class="w3-bar-item w3-button">{{ item.label }}</a>
     {% endif %}

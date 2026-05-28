@@ -98,6 +98,8 @@ sections:
   - title: "Konferanser og konferansesentra"
     icon: "fa-solid fa-landmark"
     links:
+      - label: "Lie-Størmer Center"
+        url: "https://lie-stormer.no/"
       - label: "Sophus Lie Konferansesenter"
         url: "http://www.mn.uio.no/math/om/samarbeid/sophus-lies-konferansesenter/"
       - label: "Centre for Advanced Study (CAS)"

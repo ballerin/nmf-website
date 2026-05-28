@@ -1,0 +1,17 @@
+# Carousel configuration for the front page hero
+# Images are loaded from /assets/images/carousel/
+carousel:
+  # List of slide images (paths relative to /assets/images/carousel/)
+  slides:
+    - carousel_1.jpg
+    - carousel_2.jpg
+    - carousel_3.jpg
+
+  # Seconds between automatic slide transitions
+  interval: 5
+
+  # Enable automatic slide transitions (true/false)
+  autoPlay: true
+
+  # Aspect ratio of the carousel (width / height), e.g. "16/9", "21/9", "3/1"
+  aspectRatio: "4/1"

@@ -10,15 +10,15 @@ permalink: /nyheter/
 %}
 
 
-<div class="news-grid">
+<div class="card-grid">
 {% for post in site.posts %}
   {% if post.categories contains 'news' %}
-  <a href="{{ post.url }}" class="news-card">
+  <a href="{{ post.url }}" class="card-grid-item">
     {% if post.image %}
     <img src="{{ post.image }}" alt="{{ post.title }}">
     {% endif %}
-    <div class="news-card-overlay">
-      <small class="news-card-date">{{ post.date | date: "%Y-%m-%d" }}</small>
+    <div class="card-overlay">
+      <small class="card-date">{{ post.date | date: "%Y-%m-%d" }}</small>
       <h3>{{ post.title }}</h3>
     </div>
   </a>
