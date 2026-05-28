@@ -6,7 +6,7 @@ start-date: 2026-09-09
 end-date: 2026-09-11
 categories: [arrangement]
 author: "NMF"
-image: "/assets/arrangementer/covers/trondheim.jpg"
+image: "/assets/images/arrangementer/trondheim.jpg"
 ---
 
 Nasjonalt matematikermøte 2026 arrangeres **9.–11. september 2026** i Trondheim, ved **Scandic Nidelven**.

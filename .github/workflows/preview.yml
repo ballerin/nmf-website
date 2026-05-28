@@ -1,0 +1,18 @@
+name: Jekyll Build Check
+
+# Runs on every push to a pull request to catch build errors early
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build site
+        run: bundle exec jekyll build

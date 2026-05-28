@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: ballerin/nmf-website
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: 'en'
+
+collections:
+  - name: "news"
+    label: "News"
+    folder: "_posts/nyheter"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "nyheter/{{slug}}"
+    sortable_fields: ["date"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["news"] }
+
+  - name: "events"
+    label: "Events"
+    folder: "_posts/arrangementer"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "arrangementer/{{slug}}"
+    sortable_fields: ["date"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Start Date", name: "start-date", widget: "datetime", required: false }
+      - { label: "End Date", name: "end-date", widget: "datetime", required: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["arrangement"] }
+
+  - name: "infomat"
+    label: "INFOMAT"
+    folder: "_posts/infomat"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "infomat/{{slug}}"
+    sortable_fields: ["date"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["infomat"] }

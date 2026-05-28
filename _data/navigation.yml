@@ -24,7 +24,7 @@ navbar:
   - label: Aktiviteter
     children:
       - label: Arrangementer
-        url: /arrengementer/
+        url: /arrangementer/
       - label: Abelkonkuransen
         url: /abelkonkurransen/
       - label: Abelsymposiet
@@ -37,7 +37,7 @@ navbar:
   - label: Priser og stipend
     children:
       - label: Abelstipend
-        url: /abelstipend.html
+        url: /abelstipend/
       - label: Viggo Brun-prisen
         url: /viggo-brun-prisen/
       - label: Elizabeth Stephansen-forelesningene
