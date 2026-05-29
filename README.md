@@ -13,16 +13,22 @@ No installs needed — works on Windows, Mac, and Linux.
 
 Changes are committed directly to GitHub. Cloudflare Pages deploys automatically.
 
-### ⚠️ If the domain changes
+> **Setup required:** The CMS needs a Cloudflare Worker for GitHub OAuth.
+> See `workers/README.md` for the one-time setup guide.
 
-Update `site_domain` in `admin/config.yml` to the new domain:
+## ⚠️ If the domain changes
+
+1. Update `base_url` in `admin/config.yml` to the new worker URL
+2. Update `GITHUB_ORIGIN` in the Worker variables (Cloudflare Dashboard)
+3. Update the GitHub OAuth App's callback URL
 
 ```yaml
+# admin/config.yml
 backend:
   name: github
   repo: ballerin/nmf-website
   branch: main
-  site_domain: your-new-domain.com   # ← change this
+  base_url: https://nmf-oauth.YOUR-ACCOUNT.workers.dev   # ← change this
 ```
 
 ## 📝 Editing Markdown directly
@@ -55,6 +61,7 @@ Then run `npx --yes decap-server` in a second terminal.
 
 - `admin/README.md` — full admin documentation
 - `admin/filstruktur.md` — which files you can edit
+- `workers/README.md` — OAuth proxy deployment guide
 
 ## ❓ Help
 

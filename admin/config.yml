@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ballerin/nmf-website
   branch: main
-  site_domain: nmf-website.pages.dev
+  base_url: https://nmf-oauth.ballerin.workers.dev
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
