@@ -1,15 +1,15 @@
 # Production:
-#backend:
-#  name: github
-#  repo: ballerin/nmf-website
-#  branch: main
-#  auth_endpoint: /auth
-#  base_url: https://nmf-oauth.ballerin.workers.dev
+backend:
+  name: github
+  repo: ballerin/nmf-website
+  branch: main
+  auth_endpoint: /auth
+  base_url: https://nmf-oauth.ballerin.workers.dev
 
 # Local testing:
-backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
+#backend:
+#  name: proxy
+#  proxy_url: http://localhost:8081/api/v1
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
