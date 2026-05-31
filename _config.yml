@@ -31,6 +31,7 @@ exclude:
   - admin/TEMPLATE-infomat.md
   - admin/filstruktur.md
   - README.md
+  - docs/
   - Gemfile
   - Gemfile.lock
   - vendor/

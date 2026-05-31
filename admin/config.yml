@@ -1,11 +1,21 @@
+# Production:
+#backend:
+#  name: github
+#  repo: ballerin/nmf-website
+#  branch: main
+#  auth_endpoint: /auth
+#  base_url: https://nmf-oauth.ballerin.workers.dev
+
+# Local testing:
 backend:
-  name: github
-  repo: ballerin/nmf-website
-  branch: main
-  base_url: https://nmf-oauth.ballerin.workers.dev
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
+
+site_url: https://nmf-website.pages.dev
+display_url: https://nmf-website.pages.dev
 
 locale: 'en'
 
@@ -18,9 +28,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "nyheter/{{slug}}"
+    preview_path: "news/{{year}}/{{month}}/{{day}}/{{slug}}"
     sortable_fields: ["date"]
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "nyheter_template" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string", required: false }
@@ -36,9 +47,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "arrangementer/{{slug}}"
+    preview_path: "arrangement/{{year}}/{{month}}/{{day}}/{{slug}}"
     sortable_fields: ["date"]
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "activity_post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Start Date", name: "start-date", widget: "datetime", required: false }
@@ -56,9 +68,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "infomat/{{slug}}"
+    preview_path: "infomat/{{year}}/{{month}}/{{day}}/{{slug}}"
     sortable_fields: ["date"]
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "infomat_template" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string", required: false }
