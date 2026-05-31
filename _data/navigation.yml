@@ -17,7 +17,7 @@ navbar:
     children:
       - label: Medlemskap
         url: /medlemskap/
-      - label: Abel Støttemedlemskap
+      - label: Abelstøttemedlemskap
         url: /abel-stottemedlemskap/
       - label: Donasjon
         url: /donasjon/

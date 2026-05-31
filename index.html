@@ -35,7 +35,7 @@ title: Norsk Matematisk Forening (NMF)
   <!-- Header / Hero -->
   <header class="w3-container w3-center" id="showcase" role="banner">
     <p class="w3-large" style="font-style: italic; color: #666;">
-        «Norsk Matematisk Forening (NMF) jobber for å fremme studiet og bruken av matematikk i Norge. Vi samler fagfolk og interesserte gjennom fagmøter, undervisningsstøtte, konkurranser og publikasjoner. Alle som er interessert i matematikk er velkomne som <a href="/membership/">medlemmer</a>.»
+        «Norsk matematisk forening (NMF) jobber for å fremme studiet og bruken av matematikk i Norge. Vi samler fagfolk og interesserte gjennom fagmøter, undervisningsstøtte, konkurranser og publikasjoner. Alle som er interessert i matematikk er velkomne som <a href="/membership/">medlemmer</a>.»
     </p>
   </header>
   
@@ -44,7 +44,7 @@ title: Norsk Matematisk Forening (NMF)
 
   <!-- News -->
   <div class="section-header-row">
-    {% include section_heading.html level="h2" title="Siste nyheter" id="nyheter" %}
+    {% include section_heading.html level="h2" title="Siste nytt" id="nyheter" %}
     <a href="/nyheter/" class="btn-outline-arrow">Se alle nyheter <span class="btn-arrow">→</span></a>
   </div>
 
@@ -56,7 +56,7 @@ title: Norsk Matematisk Forening (NMF)
       <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
       {% endif %}
       <div class="card-overlay">
-        <small class="card-date">{{ post.date | date: "%-d. %B %Y" }}</small>
+        <small class="card-date">{% include date_nb.html date=post.date %}</small>
         <h3>{{ post.title }}</h3>
       </div>
     </a>
@@ -69,10 +69,17 @@ title: Norsk Matematisk Forening (NMF)
     <a href="/arrangementer/" class="btn-outline-arrow">Se alle aktiviteter <span class="btn-arrow">→</span></a>
   </div>
 
-  <div class="card-grid homepage-grid">
-  {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" | reverse | slice: 0, 3 %}
+  {% assign now_epoch = site.time | date: "%s" | plus: 0 %}
+  {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" %}
+
+  <div class="card-grid homepage-grid" id="eventGrid">
+  {% assign shown = 0 %}
   {% for arrangement in arrangement_posts %}
-    <a href="{{ arrangement.url }}" class="card-grid-item">
+    {% assign end_date_val = arrangement.end-date | default: arrangement.start-date | default: arrangement.date %}
+    {% assign end_epoch = end_date_val | date: "%s" | plus: 0 %}
+    {% if end_epoch >= now_epoch %}
+      {% assign shown = shown | plus: 1 %}
+    <a href="{{ arrangement.url }}" class="card-grid-item event-card{% if shown > 3 %} event-card--hidden{% endif %}" data-end-date="{{ end_date_val | date: '%Y-%m-%d' }}">
       {% if arrangement.image %}
       <img src="{{ arrangement.image }}" alt="{{ arrangement.title }}" loading="lazy" />
       {% endif %}
@@ -84,18 +91,18 @@ title: Norsk Matematisk Forening (NMF)
       <div class="arrangementer-date-badge arrangementer-date-badge--range">
         <div class="arrangementer-date-badge-box">
           <span class="arrangementer-date-badge-day">{{ arrangement.start-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{{ arrangement.start-date | date: "%b" }}</span>
+          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.start-date %}</span>
         </div>
         <span class="arrangementer-date-badge-arrow">→</span>
         <div class="arrangementer-date-badge-box">
           <span class="arrangementer-date-badge-day">{{ arrangement.end-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{{ arrangement.end-date | date: "%b" }}</span>
+          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.end-date %}</span>
         </div>
       </div>
       {% elsif effective_date %}
       <div class="arrangementer-date-badge">
         <span class="arrangementer-date-badge-day">{{ effective_date | date: "%-d" }}</span>
-        <span class="arrangementer-date-badge-month">{{ effective_date | date: "%b" }}</span>
+        <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=effective_date %}</span>
       </div>
       {% endif %}
       {% assign event_year = arrangement.start-date | default: arrangement.date | date: "%Y" %}
@@ -104,7 +111,12 @@ title: Norsk Matematisk Forening (NMF)
         <h3>{{ arrangement.title }}</h3>
       </div>
     </a>
+    {% endif %}
   {% endfor %}
+  </div>
+
+  <div class="w3-container w3-center w3-padding-32" id="noEventsMessage"{% if shown > 0 %} style="display:none"{% endif %}>
+    <p class="w3-large" style="color: #666;">Ingen kommende arrangementer er planlagt for øyeblikket.</p>
   </div>
 
   <div class="w3-padding-16"></div>

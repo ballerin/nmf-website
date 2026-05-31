@@ -10,7 +10,7 @@ layout: default
       </div>
       <div class="infomat-header-copy">
         <h1>INFOMAT</h1>
-        <p class="infomat-subtitle">{{ page.date | date: "%B %Y" }}</p>
+        <p class="infomat-subtitle">{% include month_nb.html date=page.date %} {{ page.date | date: "%Y" }}</p>
         {% if page.author %}
         <p class="infomat-author">Redaktør: {{ page.author }}</p>
         {% endif %}

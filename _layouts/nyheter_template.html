@@ -10,7 +10,7 @@ layout: default
         <p class="post-hero-eyebrow">Nyheter</p>
         <h1>{{ page.title }}</h1>
         <div class="post-meta">
-          {% if page.date %}<span class="date">{{ page.date | date: "%d. %B %Y" }}</span>{% endif %}
+          {% if page.date %}<span class="date">{% include date_nb.html date=page.date %}</span>{% endif %}
           {% if page.author %}<span class="author">{{ page.author }}</span>{% endif %}
         </div>
       </div>

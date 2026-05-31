@@ -133,3 +133,40 @@ function initCarousel() {
 }
 
 window.addEventListener("DOMContentLoaded", initCarousel);
+
+/* ============================================================================
+   EVENT FILTER — show only future events based on user datetime
+   ========================================================================== */
+
+function initEventFilter() {
+	var cards = document.querySelectorAll('.event-card');
+	var noEventsMsg = document.getElementById('noEventsMessage');
+	var grid = document.getElementById('eventGrid');
+
+	if (!cards.length) return;
+
+	var now = new Date();
+	// Normalise to date-only string (YYYY-MM-DD) in local time
+	var yyyy = now.getFullYear();
+	var mm = String(now.getMonth() + 1).padStart(2, '0');
+	var dd = String(now.getDate()).padStart(2, '0');
+	var todayStr = yyyy + '-' + mm + '-' + dd;
+
+	var visibleCount = 0;
+
+	cards.forEach(function(card) {
+		var endDate = card.getAttribute('data-end-date');
+		if (endDate && endDate >= todayStr) {
+			card.classList.remove('event-card--hidden');
+			visibleCount++;
+		} else {
+			card.classList.add('event-card--hidden');
+		}
+	});
+
+	if (noEventsMsg) {
+		noEventsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+	}
+}
+
+window.addEventListener("DOMContentLoaded", initEventFilter);

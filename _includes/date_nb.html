@@ -1,0 +1,7 @@
+{% comment %}
+  Output a date in Norwegian format: "2. mars 2026"
+  Usage: {% include date_nb.html date=page.date %}
+{% endcomment %}
+{% assign m = include.date | date: "%-m" | minus: 1 %}
+{% assign months = "januar,februar,mars,april,mai,juni,juli,august,september,oktober,november,desember" | split: "," %}
+{{ include.date | date: "%-d." }} {{ months[m] }} {{ include.date | date: "%Y" }}

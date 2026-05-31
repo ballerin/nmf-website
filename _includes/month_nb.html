@@ -1,0 +1,7 @@
+{% comment %}
+  Output a Norwegian full month name, e.g. "april"
+  Usage: {% include month_nb.html date=page.date %}
+{% endcomment %}
+{% assign m = include.date | date: "%-m" | minus: 1 %}
+{% assign months = "januar,februar,mars,april,mai,juni,juli,august,september,oktober,november,desember" | split: "," %}
+{{ months[m] }}

@@ -5,7 +5,7 @@ title: Infomat
 
 {% include default_opening.html 
   heading = "INFOMAT"
-  subtitle= "Medlemsbladet til Norsk Matematisk Forening"
+  subtitle= "Medlemsbladet til Norsk matematisk forening"
 %}
 
 {% include section_heading.html level="h3" title="Redaksjon og tips" id="redaksjon" %}
@@ -20,7 +20,7 @@ title: Infomat
     <img src="{{ post.image }}" alt="{{ post.title }}">
     {% endif %}
     <div class="infomat-card-overlay">
-      <small class="infomat-card-date">{{ post.date | date: "%B %Y" }}</small>
+      <small class="infomat-card-date">{% include month_nb.html date=post.date %} {{ post.date | date: "%Y" }}</small>
       <h3>{{ post.title }}</h3>
     </div>
   </a>

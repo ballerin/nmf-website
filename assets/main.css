@@ -811,6 +811,9 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 /* Slimmer cards on homepage */
 .homepage-grid .card-grid-item { height: 210px; }
 
+/* Hidden event cards (revealed by JS based on user datetime) */
+.event-card--hidden { display: none !important; }
+
 /* ============================================================================
    ARRANGEMENTER DATE BADGES
    ========================================================================== */

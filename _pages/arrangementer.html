@@ -23,18 +23,18 @@ title: "Aktiviteter — Norsk Matematisk Forening"
       <div class="arrangementer-date-badge arrangementer-date-badge--range">
         <div class="arrangementer-date-badge-box">
           <span class="arrangementer-date-badge-day">{{ arrangement.start-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{{ arrangement.start-date | date: "%b" }}</span>
+          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.start-date %}</span>
         </div>
         <span class="arrangementer-date-badge-arrow">→</span>
         <div class="arrangementer-date-badge-box">
           <span class="arrangementer-date-badge-day">{{ arrangement.end-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{{ arrangement.end-date | date: "%b" }}</span>
+          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.end-date %}</span>
         </div>
       </div>
       {% elsif effective_date %}
       <div class="arrangementer-date-badge">
         <span class="arrangementer-date-badge-day">{{ effective_date | date: "%-d" }}</span>
-        <span class="arrangementer-date-badge-month">{{ effective_date | date: "%b" }}</span>
+        <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=effective_date %}</span>
       </div>
       {% endif %}
       <span class="arrangementer-year-badge">{{ event_year }}</span>

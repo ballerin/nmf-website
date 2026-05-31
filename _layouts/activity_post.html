@@ -4,8 +4,8 @@ layout: default
 <!-- FRONT MATTER FIELDS: Required: layout, title, date, categories. Optional: author, image, start-date, end-date -->
 {% assign start_date = page.start_date | default: page.start-date | default: page.date %}
 {% assign end_date = page.end_date | default: page.end-date | default: start_date %}
-{% assign start_label = start_date | date: "%d. %B %Y" %}
-{% assign end_label = end_date | date: "%d. %B %Y" %}
+{% capture start_label %}{% include date_nb.html date=start_date %}{% endcapture %}
+{% capture end_label %}{% include date_nb.html date=end_date %}{% endcapture %}
 
 <article class="post-article w3-border w3-round-large w3-margin-bottom">
 

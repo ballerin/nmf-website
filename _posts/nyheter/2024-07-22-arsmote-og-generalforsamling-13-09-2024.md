@@ -6,7 +6,7 @@ categories: [news]
 author: NMF
 ---
 
-Fredag 13/9 avholdes årsmøte i Norsk Matematisk Forening.
+Fredag 13/9 avholdes årsmøte i Norsk matematisk forening.
 
 Sted: Soria Moria hotell, Oslo — Det tredje nasjonale matematikermøte.
 
