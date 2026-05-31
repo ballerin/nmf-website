@@ -37,7 +37,7 @@ collections:
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["news"] }
+      - { label: "Categories", name: "categories", widget: "hidden", default: ["news"] }
 
   - name: "events"
     label: "Events"
@@ -53,12 +53,12 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "activity_post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Start Date", name: "start-date", widget: "datetime", required: false }
-      - { label: "End Date", name: "end-date", widget: "datetime", required: false }
+      - { label: "Start Date", name: "start-date", widget: "date", required: false, hint: "Første dag for arrangementet (YYYY-MM-DD)" }
+      - { label: "End Date", name: "end-date", widget: "date", required: false, hint: "Siste dag for arrangementet (YYYY-MM-DD)" }
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["arrangement"] }
+      - { label: "Categories", name: "categories", widget: "hidden", default: ["arrangement"] }
 
   - name: "infomat"
     label: "INFOMAT"
@@ -77,4 +77,4 @@ collections:
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["infomat"] }
+      - { label: "Categories", name: "categories", widget: "hidden", default: ["infomat"] }
