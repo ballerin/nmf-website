@@ -6,7 +6,7 @@ topbar:
   background_overlay: "rgba(0, 0, 0, 0.28)"
 
 navbar:
-  - label: Publikasjoner
+  - label: Publikasjonene
     children:
       - label: Infomat
         url: /infomat/

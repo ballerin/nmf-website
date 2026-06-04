@@ -1,18 +1,76 @@
-name: Jekyll Build Check
+name: CI — Build & Validate
 
-# Runs on every push to a pull request to catch build errors early
+# ──────────────────────────────────────────────
+# Runs on every pull request to staging or main.
+# Prevents broken content from being deployed.
+#
+# Local equivalents (run these before pushing):
+#   bundle exec jekyll build           ← build check
+#   bundle exec jekyll serve           ← visual preview
+# ──────────────────────────────────────────────
+
 on:
   pull_request:
-    branches: [main]
+    branches: [main, staging]
+  # Also allow running manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
+  # ── Job 1: Build the Jekyll site ─────────────────
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --verbose
+        # If this fails locally, run: bundle exec jekyll build
+        # Common causes: bad YAML front matter, missing layout, syntax error
+
+      # Upload the built site so you can inspect it on failure
+      - name: Upload built site (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-output
+          path: _site/
+          retention-days: 7
+
+  # ── Job 2: Validate YAML data files ──────────────
+  validate-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Validate YAML files
+        run: |
+          echo "Checking _data/*.yml for syntax errors..."
+          for file in _data/*.yml; do
+            echo "  → $file"
+            ruby -ryaml -e "YAML.load_file('$file')" || {
+              echo "ERROR: Invalid YAML in $file"
+              exit 1
+            }
+          done
+          echo "All YAML files valid."
+        # If this fails locally, run:
+        #   ruby -ryaml -e "YAML.load_file('_data/navigation.yml')"
+        # Common causes: tabs instead of spaces, wrong indentation, missing colon
+

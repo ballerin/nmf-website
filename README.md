@@ -13,13 +13,10 @@ _data/           ← Navigation, board members, carousel (YAML)
 _layouts/        ← Page templates
 _includes/       ← Reusable components
 assets/          ← CSS, JS, images
-admin/           ← Decap CMS (browser-based editor)
 docs/            ← Documentation
 ```
 
 ## Editing Content
-
-Admins use the CMS at `/admin/` (login with GitHub). No local setup needed.
 
 For `_data/*.yml` files (navigation, board members), edit directly on GitHub.
 
