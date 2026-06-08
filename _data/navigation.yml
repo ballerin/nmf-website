@@ -32,8 +32,8 @@ navbar:
         external: true
       - label: Generalforsamlinger
         url: /generalforsamlinger/
-      - label: Nasjonalt matematikkmøte
-        url: /nasjonalt-matematikkmote/
+      - label: Nasjonalt matematikermøte
+        url: /nasjonalt-matematikermote/
   - label: Priser og stipend
     children:
       - label: Abelstipend

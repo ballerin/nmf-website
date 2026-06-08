@@ -2,14 +2,12 @@
 layout: default
 title: Foreningens historie
 ---
-<div class="w3-container" id="content">
-  <div class="w3-container w3-center">
-    <h1 class="w3-xxxlarge text-nmf-primary"><b>Foreningens historie</b></h1>
-    <p class="w3-large" style="font-style: italic; margin-bottom: 30px; color: #666;">
-        «Foreningens formål er å fremme studiet av de matematiske videnskaber ved å samle norske matematikinteresserte.»
-    </p>
-  </div>
-</div>
+
+{% include default_opening.html 
+  title="Foreningens historie" 
+  description="Norsk matematisk forening ble stiftet i 1918. Her kan du lese mer om foreningens bakgrunn, stiftelse og utvikling gjennom årene."
+%}
+
 <div class="w3-container w3-padding">
   {% include section_heading.html level="h3" title="Stiftelse og bakgrunn" id="stiftelse" %}
   <p>Norsk matematisk forening ble stiftet den 2. november 1918. Utløsende årsak var at Poul Heegaard ble ansatt som professor, men behovet for en forening hang nok sammen med at matematikkmiljøet i Norge i løpet av de første årtiene av 1900-tallet hadde vokst ganske sterkt. Reformer i skoleverket og i universitetets studieordninger hadde gitt realfagene en langt sterkere posisjon enn før, og samfunnsutviklingen generelt trakk i samme retning.</p>

@@ -438,7 +438,7 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 	caption-side: top;
 	padding-bottom: 6px;
 }
-.site-table td, .site-table th { padding: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.site-table td, .site-table th { padding: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); text-align: center; }
 .site-table tbody tr:last-child td { border-bottom: none; }
 .site-table thead th {
 	background: var(--nmf-primary);
