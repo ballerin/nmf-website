@@ -6,6 +6,6 @@ categories: [news]
 author: NMF
 ---
 
-Under sommerens europeiske kongress i Sevilla ble Reinhard Siegmund-Schultze tildelt Otto Neugebauer-prisen for sitt arbeid innen matematikkhistorie, og Nina Holden mottok en av EMS-prisene for unge matematikere under 35 år.
+Under sommerens europeiske kongress i Sevilla ble Reinhard Siegmund-Schultze tildelt Otto Neugebauer- prisen for sitt arbeid innen matematikkhistorie og Nina Holden en av EMS-prisene for unge matematikere under 35 år.
 
-Se her for mer informasjon om 2024 EMS-prisvinnerne: https://www.ecm2024sevilla.com/index.php/program/prize-winners
+Se her for mer informasjon om [2024 EMS-prisvinnerne](https://www.ecm2024sevilla.com/index.php/program/prize-winners).

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<!-- FRONT MATTER FIELDS:
+  Required: layout, title
+  Optional: publish_date, author, image, eyebrow, back_link, back_label
+
+  Note: publish_date is used instead of date to avoid
+  Jekyll's built-in page.date which defaults to file mtime.
+-->
+
+<article class="post-article w3-border w3-round-large w3-margin-bottom">
+
+  <header class="post-hero"{% if page.image %} style="background-image: url('{{ page.image }}')"{% endif %}>
+    <div class="post-hero-overlay">
+      <div class="post-hero-text">
+        {% if page.eyebrow %}
+        <p class="post-hero-eyebrow">{{ page.eyebrow }}</p>
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+          {% if page.publish_date %}<span class="date">{% include date_nb.html date=page.publish_date %}</span>{% endif %}
+          {% if page.author %}<span class="author">{{ page.author }}</span>{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="w3-container w3-padding post-content">
+    {{ content }}
+  </div>
+
+  {% if page.back_link %}
+  <div class="w3-container w3-light-grey w3-padding w3-center">
+    <a href="{{ page.back_link }}" class="w3-button nmf-primary back-button w3-round" aria-label="{{ page.back_label | default: 'Tilbake' }}">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
+      <span class="label">{{ page.back_label | default: "Tilbake" }}</span>
+    </a>
+  </div>
+  {% endif %}
+
+</article>
