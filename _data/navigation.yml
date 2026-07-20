@@ -49,8 +49,8 @@ navbar:
         url: /elizabeth-stephansen-forelesningene/
   - label: Om NMF
     children:
-      - label: Hva vi gjør
-        url: /hva-vi-gjor/
+      - label: Internasjonalt samarbeid
+        url: /internasjonalt_samarbeid/
       - label: Forenings historie
         url: /historie/
       - label: Styremedlemmer
