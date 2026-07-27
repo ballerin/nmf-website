@@ -3,15 +3,16 @@
 carousel:
   # List of slide images (paths relative to /assets/images/carousel/)
   slides:
-    - carousel_1.jpg
-    - carousel_2.jpg
-    - carousel_3.jpg
+    - NMM_Oslo_2024_group.jpg
+    - NMM_Oslo_2024_lecture.jpg
+    - NMM_Tromsoe_2022_group.jpg
+    - NMM_Tromsoe_2022_lecture.jpg
 
   # Seconds between automatic slide transitions
-  interval: 5
+  interval: 10
 
   # Enable automatic slide transitions (true/false)
   autoPlay: true
 
   # Aspect ratio of the carousel (width / height), e.g. "16/9", "21/9", "3/1"
-  aspectRatio: "4/1"
+  aspectRatio: "3/1"
