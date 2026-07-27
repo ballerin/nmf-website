@@ -3,7 +3,7 @@ permalink: "abelstipend_referater/2025-2026/referat_vegard"
 layout: generic_post
 title: "Referat Abelstipend 2025-2026"
 author: "Vegard Ingemann Hansen (UiB)"
-image: "/assets/images/abelprisen/vegard_ingemann_hansen.jpg"
+image: "/assets/images/abelstipend/vegard_ingemann_hansen.jpg"
 ---
 
 # Rapport fra forskningsopphold i Finland – november 2025
@@ -36,4 +36,4 @@ masterarbeidet. Jeg fikk verdifulle innspill fra professor Fässler og ble kjent
 
 Jeg er svært takknemlig overfor Norsk Matematisk Forening for tildelingen av Abelstipendet i 2025. Dette er etter min mening et svært godt initiativ som bidrar til å støtte studenter i Norge som studerer matematikk ved ulike universiteter. 
 
-![Vegard Ingemann Hansen](/assets/images/abelprisen/vegard_ingemann_hansen.jpg)
+![Vegard Ingemann Hansen](/assets/images/abelstipend/vegard_ingemann_hansen.jpg)
