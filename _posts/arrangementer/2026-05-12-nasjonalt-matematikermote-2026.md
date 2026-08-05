@@ -20,10 +20,11 @@ Møtet er sponset av Trond Mohn Stiftelse (TMS) og Tromsø Forskningsstiftelse (
 
 ## Mer informasjon
 
+- Hovedside: <https://www.ntnu.no/imf/nmm2026>
 - Praktisk informasjon: <https://www.ntnu.no/imf/nmm2026/info>
 - Program: <https://www.ntnu.no/imf/nmm2026/program>
 - Foredragsholdere: <https://www.ntnu.no/imf/nmm2026/foredragsholdere>
-- Hovedside: <https://www.ntnu.no/imf/nmm2026>
+
 
 ## Kontakt
 
