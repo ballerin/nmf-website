@@ -6,12 +6,12 @@ topbar:
   background_overlay: "rgba(0, 0, 0, 0.28)"
 
 navbar:
-  - label: Publikasjonene
+  - label: Publikasjoner
     children:
       - label: Infomat
         url: /infomat/
       - label: Mathematica Scandinavica
-        url: https://www.mscand.dk/
+        url: https://journals.msp.org/mscand
         external: true
       - label: Œuvres completes de Niels Henrik Abel, 1881 ed.
         url: /oeuvres_completes_de_niels_henrik_abel/
