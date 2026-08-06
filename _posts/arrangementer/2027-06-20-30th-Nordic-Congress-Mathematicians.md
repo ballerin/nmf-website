@@ -1,7 +1,7 @@
 ---
 layout: activity_post
 title: "The 30th Nordic Congress of Mathematicians"
-date: 2026-08-05
+date: 2026-08-06
 start-date: 2027-06-20
 end-date: 2027-06-23
 author: "NMF"
@@ -21,3 +21,7 @@ Steffen Oppermann (NTNU) representerer Norge i den videnskapelige komiteen.
 - Praktisk informasjon: <https://ncm30.github.io/info/>
 - Program: <https://ncm30.github.io/program/>
 - Foredragsholdere: <https://ncm30.github.io/speakers/>
+
+![Venue. Photo by Mario Falcetti](/assets/images/arrangementer/hof.jpg)
+
+> Photo by [Mario Falcetti](https://commons.wikimedia.org/wiki/User:Mario_Falcetti) CC BY 4.0
