@@ -11,4 +11,4 @@ Viggo Brunprisen 2026 skal deles ut under [Nasjonalt Matematikermøte 2026](http
 
 Nominasjoner bes sendt til [nmf@matematikkforeningen.no](mailto:nmf@matematikkforeningen.no) innen 1. april 2026.
 
-Statutter: [https://web.matematikkforeningen.no/viggo-brun-prisen/](https://web.matematikkforeningen.no/viggo-brun-prisen/)
+Statutter: [Viggo Brun-prisen](/viggo-brun-prisen/)

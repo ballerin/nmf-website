@@ -45,7 +45,7 @@ title: Norsk Matematisk Forening (NMF)
   <!-- News -->
   <div class="section-header-row">
     {% include section_heading.html level="h2" title="Siste nytt" id="nyheter" %}
-    <a href="/nyheter/" class="btn-outline-arrow">Se alle nyheter <span class="btn-arrow">→</span></a>
+    <a href="/nyheter/" class="btn-outline-arrow w3-hide-small">Se alle nyheter <span class="btn-arrow">→</span></a>
   </div>
 
   <div class="card-grid">
@@ -55,10 +55,15 @@ title: Norsk Matematisk Forening (NMF)
   {% endfor %}
   </div>
 
+  <!-- Same link again for phones, where a button beside the heading collides with it -->
+  <div class="w3-center w3-padding-16 w3-hide-medium w3-hide-large">
+    <a href="/nyheter/" class="btn-outline-arrow">Se alle nyheter <span class="btn-arrow">→</span></a>
+  </div>
+
   <!-- arrangementer & events -->
   <div class="section-header-row">
     {% include section_heading.html level="h2" title="Kommende arrangementer" id="arrangementer" %}
-    <a href="/arrangementer/" class="btn-outline-arrow">Se alle aktiviteter <span class="btn-arrow">→</span></a>
+    <a href="/arrangementer/" class="btn-outline-arrow w3-hide-small">Se alle arrangementer <span class="btn-arrow">→</span></a>
   </div>
 
   {% assign now_epoch = site.time | date: "%s" | plus: 0 %}
@@ -88,6 +93,11 @@ title: Norsk Matematisk Forening (NMF)
 
   <div class="w3-container w3-center w3-padding-32" id="noEventsMessage"{% if shown > 0 %} style="display:none"{% endif %}>
     <p class="w3-large" style="color: #666;">Ingen kommende arrangementer er planlagt for øyeblikket.</p>
+  </div>
+
+  <!-- Same link again for phones. After the empty-state message, so it reads as "none planned — but here is the archive" -->
+  <div class="w3-center w3-padding-16 w3-hide-medium w3-hide-large">
+    <a href="/arrangementer/" class="btn-outline-arrow">Se alle arrangementer <span class="btn-arrow">→</span></a>
   </div>
 
   <div class="w3-padding-16"></div>
