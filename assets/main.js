@@ -145,6 +145,14 @@ function initEventFilter() {
 
 	if (!cards.length) return;
 
+	// The template already rendered the first data-max-visible upcoming events
+	// and hid the rest. Re-apply that cap here rather than just revealing
+	// everything still upcoming, otherwise a stale build spills the whole
+	// backlog onto the homepage. Cards sit in chronological order (index.html
+	// sorts by start-date), so counting down the NodeList picks the next ones.
+	var maxVisible = parseInt(grid && grid.getAttribute('data-max-visible'), 10);
+	if (isNaN(maxVisible)) maxVisible = Infinity;
+
 	var now = new Date();
 	// Normalise to date-only string (YYYY-MM-DD) in local time
 	var yyyy = now.getFullYear();
@@ -156,7 +164,7 @@ function initEventFilter() {
 
 	cards.forEach(function(card) {
 		var endDate = card.getAttribute('data-end-date');
-		if (endDate && endDate >= todayStr) {
+		if (endDate && endDate >= todayStr && visibleCount < maxVisible) {
 			card.classList.remove('event-card--hidden');
 			visibleCount++;
 		} else {

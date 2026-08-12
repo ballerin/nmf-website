@@ -1,0 +1,18 @@
+{% comment %}
+  Image card for a news post with the full Norwegian date and the title
+  along the bottom.
+
+  Parameters:
+    post  (required) the news post to render.
+    size  "short" for the slimmer version of the cards; omit for full height.
+{% endcomment %}
+
+<a href="{{ include.post.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}">
+  {% if include.post.image %}
+  <img src="{{ include.post.image }}" alt="{{ include.post.title }}" loading="lazy" />
+  {% endif %}
+  <div class="card-overlay">
+    <small class="card-date">{% include date_nb.html date=include.post.date %}</small>
+    <h3>{{ include.post.title }}</h3>
+  </div>
+</a>

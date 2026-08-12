@@ -12,18 +12,10 @@ title: Infomat
 <p>Redaktør for INFOMAT er Arne B. Sletsjøe, Universitetet i Oslo. Stoff til INFOMAT sendes til <a href="mailto:arnebs@math.uio.no">arnebs@math.uio.no</a>. INFOMAT kommer ut ca. den 15. i hver måned, unntatt juli. Deadline for neste utgave er alltid den 15. i neste måned.</p>
 
 
-<div class="infomat-grid">
+<div class="card-grid">
 {% assign infomat_posts = site.posts | where_exp: "post", "post.categories contains 'infomat'" %}
 {% for post in infomat_posts %}
-  <a href="{{ post.url }}" class="infomat-card">
-    {% if post.image %}
-    <img src="{{ post.image }}" alt="{{ post.title }}">
-    {% endif %}
-    <div class="infomat-card-overlay">
-      <small class="infomat-card-date">{% include month_nb.html date=post.date %} {{ post.date | date: "%Y" }}</small>
-      <h3>{{ post.title }}</h3>
-    </div>
-  </a>
+  {% include infomat_card.html issue=post %}
 {% endfor %}
 </div>
 

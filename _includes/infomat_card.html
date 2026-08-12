@@ -1,0 +1,18 @@
+{% comment %}
+  Image card for an INFOMAT issue with the month and year and the title
+  along the bottom.
+
+  Parameters:
+    issue  (required) the INFOMAT post to render.
+    size   "short" for the slimmer version of the cards; omit for full height.
+{% endcomment %}
+
+<a href="{{ include.issue.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}">
+  {% if include.issue.image %}
+  <img src="{{ include.issue.image }}" alt="{{ include.issue.title }}" loading="lazy" />
+  {% endif %}
+  <div class="card-overlay">
+    <small class="card-date">{% include month_nb.html date=include.issue.date %} {{ include.issue.date | date: "%Y" }}</small>
+    <h3>{{ include.issue.title }}</h3>
+  </div>
+</a>

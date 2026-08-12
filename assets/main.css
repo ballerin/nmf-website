@@ -694,48 +694,8 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 .infomat-archive-table tbody td a { color: var(--nmf-primary); font-weight: 600; }
 .infomat-archive-table tbody td a:hover { text-decoration: underline; }
 
-/* — Card grid — */
-.infomat-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 1.5rem;
-	padding: 1.5rem 0;
-}
-.infomat-card {
-	display: block;
-	position: relative;
-	border-radius: 12px;
-	overflow: hidden;
-	text-decoration: none;
-	color: #fff;
-	height: 300px;
-	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-	transition: box-shadow 0.2s ease;
-}
-.infomat-card:hover { box-shadow: 0 14px 36px rgba(0,0,0,0.2); }
-.infomat-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
-.infomat-card:hover img { transform: scale(1.04); }
-.infomat-card-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	padding: 1.25rem;
-}
-.infomat-card-date { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.85; margin-bottom: 0.3rem; }
-.infomat-card h3 { margin: 0 0 0.75rem; font-size: 1.1rem; line-height: 1.25; color: #fff; }
-.infomat-card-btn {
-	display: inline-block;
-	padding: 6px 16px;
-	background: var(--nmf-primary);
-	color: #fff;
-	border-radius: 4px;
-	font-size: 0.88rem;
-	font-weight: 700;
-	align-self: flex-start;
-}
+/* The INFOMAT issues are rendered with news_card.html and styled by the shared
+   CARD GRID rules below. */
 
 /* ============================================================================
    POST ARTICLES (shared by News & Arrangementer)
@@ -769,7 +729,9 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 }
 
 /* ============================================================================
-   CARD GRID (shared by News & Arrangementer listing pages)
+   CARD GRID
+   Shared by news_card.html and event_card.html, and so by the homepage,
+   Nyheter, Arrangementer and INFOMAT.
    ========================================================================== */
 
 .card-grid {
@@ -795,21 +757,29 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 .card-grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
 .card-grid-item:hover img { transform: scale(1.04); }
 
+/* Bottom-anchored so the scrim grows with the text it holds: a title that wraps
+   to three lines gets three lines' worth of dark background. The gradient stays
+   flat at 0.85 across the text itself and only fades out in the top padding, so
+   the text stays legible no matter how bright the image behind it is. */
 .card-overlay {
 	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+	inset: auto 0 0 0;
+	background: linear-gradient(to top,
+		rgba(0,0,0,0.85) 0%,
+		rgba(0,0,0,0.85) 60%,
+		rgba(0,0,0,0) 100%);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	padding: 1.25rem;
+	padding: 3rem 1.25rem 1.25rem;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
-.card-date { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.85; margin-bottom: 0.3rem; }
-.card-grid-item h3 { margin: 0 0 0.75rem; font-size: 1.1rem; line-height: 1.25; color: #fff; }
+.card-date { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.92); margin-bottom: 0.3rem; }
+.card-grid-item h3 { margin: 0; font-size: 1.1rem; line-height: 1.25; color: #fff; }
 
-/* Slimmer cards on homepage */
-.homepage-grid .card-grid-item { height: 210px; }
+/* Slimmer cards, used on the homepage — size="short" on either card include. */
+.card-grid-item--short { height: 210px; }
 
 /* Hidden event cards (revealed by JS based on user datetime) */
 .event-card--hidden { display: none !important; }
@@ -881,14 +851,15 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 	top: 12px;
 	right: 12px;
 	z-index: 5;
-	background: rgba(255,255,255,0.22);
-	color: #fff;
+	background: #fff;
+	color: #555;
 	font-size: 0.92rem;
-	font-weight: 500;
+	font-weight: 700;
 	padding: 6px 10px;
 	border-radius: 6px;
 	line-height: 1;
 	letter-spacing: 0.04em;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 /* ============================================================================

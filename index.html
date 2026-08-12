@@ -48,18 +48,10 @@ title: Norsk Matematisk Forening (NMF)
     <a href="/nyheter/" class="btn-outline-arrow">Se alle nyheter <span class="btn-arrow">→</span></a>
   </div>
 
-  <div class="card-grid homepage-grid">
+  <div class="card-grid">
   {% assign news_posts = site.posts | where: "categories", "news" | sort: "date" | reverse | slice: 0, 3 %}
   {% for post in news_posts %}
-    <a href="{{ post.url }}" class="card-grid-item">
-      {% if post.image %}
-      <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
-      {% endif %}
-      <div class="card-overlay">
-        <small class="card-date">{% include date_nb.html date=post.date %}</small>
-        <h3>{{ post.title }}</h3>
-      </div>
-    </a>
+    {% include news_card.html post=post size="short" %}
   {% endfor %}
   </div>
 
@@ -72,45 +64,24 @@ title: Norsk Matematisk Forening (NMF)
   {% assign now_epoch = site.time | date: "%s" | plus: 0 %}
   {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" %}
 
-  <div class="card-grid homepage-grid" id="eventGrid">
+  {% comment %}
+    Every upcoming event is rendered, but only the first max_visible_events
+    (assigned below) are shown; the rest are held hidden as spares. 
+    main.js re-applies the same cap against the visitor's date, so a build
+    that has gone stale hides the old ones and promotes the spare ones, instead
+    of leaving the section short.
+  {% endcomment %}
+  {% assign max_visible_events = 3 %}
+
+  <div class="card-grid" id="eventGrid" data-max-visible="{{ max_visible_events }}">
   {% assign shown = 0 %}
   {% for arrangement in arrangement_posts %}
     {% assign end_date_val = arrangement.end-date | default: arrangement.start-date | default: arrangement.date %}
     {% assign end_epoch = end_date_val | date: "%s" | plus: 0 %}
     {% if end_epoch >= now_epoch %}
       {% assign shown = shown | plus: 1 %}
-    <a href="{{ arrangement.url }}" class="card-grid-item event-card{% if shown > 3 %} event-card--hidden{% endif %}" data-end-date="{{ end_date_val | date: '%Y-%m-%d' }}">
-      {% if arrangement.image %}
-      <img src="{{ arrangement.image }}" alt="{{ arrangement.title }}" loading="lazy" />
-      {% endif %}
-      {% assign effective_date = arrangement.start-date | default: arrangement.date %}
-      {% assign event_year = effective_date | date: "%Y" %}
-      {% assign start_str = arrangement.start-date | date: "%Y-%m-%d" %}
-      {% assign end_str = arrangement.end-date | date: "%Y-%m-%d" %}
-      {% if arrangement.start-date and arrangement.end-date and start_str != end_str %}
-      <div class="arrangementer-date-badge arrangementer-date-badge--range">
-        <div class="arrangementer-date-badge-box">
-          <span class="arrangementer-date-badge-day">{{ arrangement.start-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.start-date %}</span>
-        </div>
-        <span class="arrangementer-date-badge-arrow">→</span>
-        <div class="arrangementer-date-badge-box">
-          <span class="arrangementer-date-badge-day">{{ arrangement.end-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.end-date %}</span>
-        </div>
-      </div>
-      {% elsif effective_date %}
-      <div class="arrangementer-date-badge">
-        <span class="arrangementer-date-badge-day">{{ effective_date | date: "%-d" }}</span>
-        <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=effective_date %}</span>
-      </div>
-      {% endif %}
-      {% assign event_year = arrangement.start-date | default: arrangement.date | date: "%Y" %}
-      <span class="arrangementer-year-badge">{{ event_year }}</span>
-      <div class="card-overlay">
-        <h3>{{ arrangement.title }}</h3>
-      </div>
-    </a>
+      {% if shown > max_visible_events %}{% assign card_hidden = true %}{% else %}{% assign card_hidden = false %}{% endif %}
+    {% include event_card.html event=arrangement size="short" autohide=true hidden=card_hidden %}
     {% endif %}
   {% endfor %}
   </div>

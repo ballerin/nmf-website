@@ -4,43 +4,13 @@ title: "Aktiviteter — Norsk Matematisk Forening"
 ---
 
 {% include default_opening.html 
-  heading = "Aktiviteter og arrangementer"
-  subtitle= "NMF organiserer og støtter aktiviteter som bygger fagmiljøet, fremmer forskning og gir arenaer for undervisning og formidling."  
+  heading = "Arrangementer"
+  subtitle= "NMF organiserer og støtter arrangementer som bygger fagmiljøet, fremmer forskning og gir arenaer for undervisning og formidling."  
 %}
 
 <div class="card-grid">
   {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" | reverse %}
   {% for arrangement in arrangement_posts %}
-    <a href="{{ arrangement.url }}" class="card-grid-item">
-      {% if arrangement.image %}
-      <img src="{{ arrangement.image }}" alt="{{ arrangement.title }}" loading="lazy" />
-      {% endif %}
-      {% assign effective_date = arrangement.start-date | default: arrangement.date %}
-      {% assign event_year = effective_date | date: "%Y" %}
-      {% assign start_str = arrangement.start-date | date: "%Y-%m-%d" %}
-      {% assign end_str = arrangement.end-date | date: "%Y-%m-%d" %}
-      {% if arrangement.start-date and arrangement.end-date and start_str != end_str %}
-      <div class="arrangementer-date-badge arrangementer-date-badge--range">
-        <div class="arrangementer-date-badge-box">
-          <span class="arrangementer-date-badge-day">{{ arrangement.start-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.start-date %}</span>
-        </div>
-        <span class="arrangementer-date-badge-arrow">→</span>
-        <div class="arrangementer-date-badge-box">
-          <span class="arrangementer-date-badge-day">{{ arrangement.end-date | date: "%-d" }}</span>
-          <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=arrangement.end-date %}</span>
-        </div>
-      </div>
-      {% elsif effective_date %}
-      <div class="arrangementer-date-badge">
-        <span class="arrangementer-date-badge-day">{{ effective_date | date: "%-d" }}</span>
-        <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=effective_date %}</span>
-      </div>
-      {% endif %}
-      <span class="arrangementer-year-badge">{{ event_year }}</span>
-      <div class="card-overlay">
-        <h3>{{ arrangement.title }}</h3>
-      </div>
-    </a>
+    {% include event_card.html event=arrangement %}
   {% endfor %}
   </div>
