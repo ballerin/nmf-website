@@ -1,154 +1,54 @@
 # Welcome! 👋
 
-This is the documentation for the **Norsk Matematisk Forening** website.
+This is the documentation for the **Norsk Matematisk Forening** (NMF) website.
 
 ## What is this?
 
-The NMF website is a collection of pages about the society — news, events, the INFOMAT magazine, board members, prizes, and more. The site lives on the internet and is built from simple text files stored on GitHub.
+The NMF website is a collection of pages about the society — news, events, the INFOMAT magazine, board members, prizes, and more.
 
-## Do I need to be a programmer?
+The site is *static*. There is no database and no admin login: the whole website is a folder of text files. You change a text file, and a few minutes later that change is live at [matematikkforeningen.no](https://matematikkforeningen.no) (once the change is approved by the admin). Three pieces make that happen:
 
-**No.** If you can write an email, you can edit this website.
-
-All content is written in **Markdown** — a simple plain-text format that's easy to learn. You edit files directly on GitHub in your browser. No installs, no special software.
-
-| Method | Best for | Difficulty |
-|---|---|---|
-| **GitHub web editor** | Editing Markdown files (news, events) and YAML data files (navigation, board) | 🟢 Easy — edit text in your browser |
-
-> 💡 **Best editor:** [VS Code](https://code.visualstudio.com/) is the recommended editor for this project. It has built-in Markdown preview (Ctrl+Shift+V), YAML syntax highlighting, Git integration, and a terminal — everything you need in one window. It's free and works on Linux, macOS, and Windows.
-
-## Local development — Install and run Jekyll
-
-If you want to preview your changes before pushing them, you can run the site locally on your computer. This requires installing Ruby and Jekyll.
-
-### Ubuntu / Debian
-
-```bash
-# Install Ruby and build tools
-sudo apt update
-sudo apt install ruby-full build-essential zlib1g-dev
-
-# Configure gem installation path (avoid permission issues)
-echo 'export GEM_HOME="$HOME/.gems"' >> ~/.bashrc
-echo 'export PATH="$HOME/.gems/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-
-# Install Bundler and Jekyll
-gem install bundler jekyll
-
-# Clone and run the site
-git clone git@github.com:ballerin/nmf-website.git
-cd nmf-website
-bundle install
-bundle exec jekyll serve
-# → Open http://localhost:4000
-```
-
-### Fedora
-
-```bash
-# Install Ruby and build tools
-sudo dnf install ruby ruby-devel gcc make
-
-# Configure gem installation path (avoid permission issues)
-echo 'export GEM_HOME="$HOME/.gems"' >> ~/.bashrc
-echo 'export PATH="$HOME/.gems/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-
-# Install Bundler and Jekyll
-gem install bundler jekyll
-
-# Clone and run the site
-git clone git@github.com:ballerin/nmf-website.git
-cd nmf-website
-bundle install
-bundle exec jekyll serve
-# → Open http://localhost:4000
-```
-
-### macOS
-
-> ⚠️ **macOS system Ruby is locked.** Running `gem install` will fail with:  
-> `You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory.`  
-> Use one of the two methods below.
-
-**Option A — Homebrew Ruby (recommended):**
-
-```bash
-# Install Homebrew if you don't have it
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install Ruby via Homebrew (bypasses the locked system Ruby)
-brew install ruby
-
-# Add Homebrew Ruby to your PATH
-echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-
-# Now this will work — it writes to Homebrew's path, not the system path
-gem install bundler jekyll
-
-# Clone and run the site
-git clone git@github.com:ballerin/nmf-website.git
-cd nmf-website
-bundle install
-bundle exec jekyll serve
-# → Open http://localhost:4000
-```
-
-> 💡 On **Apple Silicon** (M1/M2/M3), the Homebrew path is different:  
-> `echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc`
-
-**Option B — User install (no Homebrew):**
-
-If you prefer not to install Homebrew, install gems to your home directory instead:
-
-```bash
-# Install gems to ~/.gem instead of the system path
-gem install bundler jekyll --user-install
-
-# Add the user gem path to your shell
-echo 'export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-
-# Clone and run
-git clone git@github.com:ballerin/nmf-website.git
-cd nmf-website
-bundle install
-bundle exec jekyll serve
-```
-
-### Quick test after setup
-
-```bash
-# Verify everything is installed correctly
-ruby --version     # Should be 3.0 or newer
-jekyll --version   # Should show 4.x
-bundle --version   # Should show 2.x
-
-# Build the site (no server, just check for errors)
-bundle exec jekyll build
-```
-
-### Common issues
-
-| Problem | Fix |
+| Piece | Role |
 |---|---|
-| `Permission denied` when installing gems | Make sure `GEM_HOME` is set (see instructions above) |
-| **macOS:** `write permissions for /Library/Ruby/Gems` | macOS system Ruby is locked. Use **Homebrew Ruby** or `gem install --user-install` (see macOS section above) |
-| `bundle: command not found` | Run `gem install bundler` and ensure `~/.gems/bin` is in your PATH |
-| `jekyll: command not found` | Run `gem install jekyll` or use `bundle exec jekyll` instead |
-| `Could not find gem ...` | Run `bundle install` from inside the `nmf-website` folder |
-| Port 4000 already in use | Use `bundle exec jekyll serve --port 4001` |
-| Live reload not working | Use `bundle exec jekyll serve --livereload` |
+| **GitHub** | Stores the files and keeps the full history of every change. This is where you edit and where changes are discussed. |
+| **Jekyll** | Turns the text files into a finished website. You only need to install it on your machine if you want to preview changes on your own computer. The live version compiles the website from scratch every time a new modification is made |
+| **Cloudflare Pages** | Watches GitHub and publishes the finished site when it detects a change. Nobody has to press a "deploy" button — once the change is approved it gets automatically deployed |
 
-## Where to start
+## Do I need to be a programmer to contribute?
 
-- **New to Markdown?** → Read [`2_MARKDOWN_GUIDE.md`](2_MARKDOWN_GUIDE.md) first
-- **Not sure which files you can edit?** → See [`3_FILE_STRUCTURE.md`](3_FILE_STRUCTURE.md)
-- **How do branches and deploys work?** → See [`4_BRANCHING_STRATEGY.md`](4_BRANCHING_STRATEGY.md)
+**No.** If you can write an email, you can edit this website. In principle you could even do everything in your browser — no installs, no special software. See [Path A in 2_CONTRIBUTING.md](2_CONTRIBUTING.md#path-a-edit-in-your-browser).
+
+## What the site is made of
+
+Two kinds of content files, and it matters which one you are editing:
+
+| Kind | Where | Format |
+|---|---|---|
+| **Posts** — news, events, INFOMAT issues | `_posts/` | **Markdown** (`.md`) — a simple plain-text format, easy to learn. It is basically baby-LaTeX. |
+| **Pages** — history, membership, contact, board, and the front page | `_pages/` | **HTML** |
+| **Data** — links, styremedlemmer, website configs | `_data/` | **YAML** (`.yml`) |
+
+So if you are adding a news article you are writing Markdown, and [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md) tells you everything you need.
+
+If you are fixing a typo on an existing page, you are editing either an HTML or a Markdown file, depending on the complexity of the page. Do not let that scare you if you don't know HTML: for simple changes you can just find the sentence, change the words, and leave everything with `<` and `>` around it alone.
+
+> 💡 **Best editor:** [VS Code](https://code.visualstudio.com/) is the recommended editor for this project. It has built-in Markdown preview, YAML syntax highlighting, Git integration, and a terminal — everything you need in one window. It's free and works on Linux, macOS, and Windows.
+
+## Which reader are you?
+
+| You are… | Start with |
+|---|---|
+| **Fixing a typo, or adding one post**, and would rather not install anything | [2_CONTRIBUTING.md → Path A](2_CONTRIBUTING.md#path-a-edit-in-your-browser) |
+| **Contributing regularly** and happy to use an editor and a terminal | [2_CONTRIBUTING.md → Path B](2_CONTRIBUTING.md#path-b-work-on-your-own-computer) |
+| **Not a member of the project** but you want to propose a change | [2_CONTRIBUTING.md → Working from a fork](2_CONTRIBUTING.md#working-from-a-fork), then Path A or B |
+| **The maintainer** — you review other people's changes and decide what goes live | [5_GIT_AND_GITHUB.md](5_GIT_AND_GITHUB.md#reviewing-and-merging-a-pull-request) |
+
+## Two things worth knowing up front
+
+- **You cannot break the live site by editing a file.** Changes are proposed first and reviewed before they go live, and every version is kept forever, so anything can be undone.
+- **Mistakes can happen. They will not break the site.** Typos and wrong information can make their way into the published version. However, coding errors which break the website are caught at compilation time and the deployment pipeline falls back to the previous version in this case.
+- **Some files run the website rather than fill it.** Templates, styling, and configuration are listed in [4_FILE_STRUCTURE.md](4_FILE_STRUCTURE.md#files-you-should-never-edit). They might have a broader impact than what you think. If you need one of those changed, ask the maintainer.
 
 ## Who to ask for help
 
-If something isn't working, contact the person who set up the site or the current maintainer listed in the GitHub repository.
+If something isn't working, contact the current maintainer listed in the GitHub repository, or open an issue on GitHub describing what you tried and what happened.

@@ -1,36 +1,38 @@
-# NMF Website
+# NMF Website — Documentation
 
-Norsk Matematisk Forening website. Built with Jekyll, hosted on Cloudflare Pages at [nmf-website.pages.dev](https://nmf-website.pages.dev).
+Website for **Norsk Matematisk Forening**. The site is built with [Jekyll](https://jekyllrb.com/) from plain text files, the files live on GitHub, and [Cloudflare Pages](https://pages.cloudflare.com/) publishes them to [matematikkforeningen.no](https://matematikkforeningen.no).
 
-## Editing the site
+You do not need to understand all three to help out. Find your task below.
 
-- **GitHub web UI** — edit Markdown posts and YAML data files directly. See [`docs/2_MARKDOWN_GUIDE.md`](docs/2_MARKDOWN_GUIDE.md) and [`docs/3_FILE_STRUCTURE.md`](docs/3_FILE_STRUCTURE.md).
-- **Local development** — clone the repo, run `bundle exec jekyll serve`. See below.
+## All documentation
 
-## Documentation
+Read in order if you are new — each file assumes only the ones before it.
 
-| File | For |
+| File | What it covers |
 |---|---|
-| [`docs/1_WELCOME.md`](docs/1_WELCOME.md) | Start here — intro and overview |
-| [`docs/2_MARKDOWN_GUIDE.md`](docs/2_MARKDOWN_GUIDE.md) | How to write and format content with Markdown |
-| [`docs/3_FILE_STRUCTURE.md`](docs/3_FILE_STRUCTURE.md) | Which files you can safely edit |
-| [`docs/4_BRANCHING_STRATEGY.md`](docs/4_BRANCHING_STRATEGY.md) | Git branching and deployment workflow |
+| [0_README.md](0_README.md) | This index |
+| [1_WELCOME.md](1_WELCOME.md) | What the site is and what you need to know before starting |
+| [2_CONTRIBUTING.md](2_CONTRIBUTING.md) | How to get a change into the site, from browser-only to a full local setup |
+| [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md) | Writing and formatting content, and creating posts |
+| [4_FILE_STRUCTURE.md](4_FILE_STRUCTURE.md) | What every folder is for, and which files must not be edited |
+| [5_GIT_AND_GITHUB.md](5_GIT_AND_GITHUB.md) | Branches, pull requests, and how to review and merge them |
+| [6_JEKYLL_AND_DEPLOYMENT.md](6_JEKYLL_AND_DEPLOYMENT.md) | Installing Jekyll, previewing locally, and how the site is published |
 
-## Local Development
+There is also a short [CONTRIBUTING.md](../CONTRIBUTING.md) at the top of the repository — it is just a summary that points back here.
 
-```bash
-bundle install   # first time only
-bundle exec jekyll serve
-# → http://localhost:4000
-```
 
-## Branches & Deploy
+## For example, I want to…
 
-| Branch | Environment | URL |
-|---|---|---|
-| `main` | Production | Custom domain (live site) |
-| `staging` | Testing | `staging.nmf-website.pages.dev` |
+| I want to… | Read |
+|---|---|
+| Fix a typo or reword a sentence | [2_CONTRIBUTING.md](2_CONTRIBUTING.md#path-a-edit-in-your-browser) |
+| Add a news article or an event | [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#creating-a-new-post) |
+| Understand why my post is not showing up | [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#two-mistakes-that-make-a-post-disappear) |
+| Add an image to a post | [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#where-images-go) |
+| Change the menu, board members, front page slideshow, or links page | [4_FILE_STRUCTURE.md](4_FILE_STRUCTURE.md#data-files-you-can-edit) |
+| Publish a new INFOMAT issue | [4_FILE_STRUCTURE.md](4_FILE_STRUCTURE.md#publishing-a-new-infomat-issue) |
+| Know which files are safe to touch | [4_FILE_STRUCTURE.md](4_FILE_STRUCTURE.md#files-you-should-never-edit) |
+| Review and merge somebody's pull request | [5_GIT_AND_GITHUB.md](5_GIT_AND_GITHUB.md#reviewing-and-merging-a-pull-request) |
+| Run the site on my own computer | [6_JEKYLL_AND_DEPLOYMENT.md](6_JEKYLL_AND_DEPLOYMENT.md#install-jekyll) |
+| Understand how a change reaches the live site | [6_JEKYLL_AND_DEPLOYMENT.md](6_JEKYLL_AND_DEPLOYMENT.md#how-the-site-gets-published) |
 
-**Merge flow:** feature branch → `staging` (test) → `main` (production).
-
-Pushing to either branch triggers an automatic build and deploy on Cloudflare Pages. See [`docs/4_BRANCHING_STRATEGY.md`](docs/4_BRANCHING_STRATEGY.md) for the full workflow.

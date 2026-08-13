@@ -2,36 +2,40 @@
 
 Website for **Norsk Matematisk Forening** — built with [Jekyll](https://jekyllrb.com/), hosted on [Cloudflare Pages](https://pages.cloudflare.com/).
 
-Live at **[nmf-website.pages.dev](https://nmf-website.pages.dev)**.
+Live at **[matematikkforeningen.no](https://matematikkforeningen.no)**. Changes are tested on **[staging.nmf-website.pages.dev](https://staging.nmf-website.pages.dev)** first.
 
 ## Structure
 
 ```
-_posts/          ← News, events, INFOMAT (Markdown)
-_pages/          ← Static pages (About, Contact, Membership…)
-_data/           ← Navigation, board members, carousel (YAML)
+_posts/          ← Front page, News, events, INFOMAT (Markdown)
+_pages/          ← Static pages — history, membership, contact… (HTML)
+_drafts/         ← Unfinished posts (not published)
+_data/           ← Navigation, board members, carousel, links (YAML)
 _layouts/        ← Page templates
 _includes/       ← Reusable components
-assets/          ← CSS, JS, images
+assets/          ← CSS, JS, images, documents
 docs/            ← Documentation
 ```
 
-## Editing Content
+## Contributing
 
-For `_data/*.yml` files (navigation, board members), edit directly on GitHub.
+Start with **[CONTRIBUTING.md](CONTRIBUTING.md)**. Small edits need nothing but a browser; the full guides are in **[docs/](docs/)**, indexed in [docs/0_README.md](docs/0_README.md).
 
-## Local Development
+## Local development
 
 ```bash
 bundle install
 bundle exec jekyll serve        # → http://localhost:4000
-npx --yes decap-server          # CMS proxy (terminal 2)
+bundle exec jekyll build        # build check — run before pushing
 ```
 
-## Deploy
+Installing Ruby and Jekyll from scratch: [docs/6_JEKYLL_AND_DEPLOYMENT.md](docs/6_JEKYLL_AND_DEPLOYMENT.md).
 
-Push to `main`. Cloudflare Pages builds from `_config.yml` and deploys `_site/`.
+## Branches and deploy
 
-## Docs
+| Branch | Deploys to |
+|---|---|
+| `main` | [matematikkforeningen.no](https://matematikkforeningen.no) |
+| `staging` | [staging.nmf-website.pages.dev](https://staging.nmf-website.pages.dev) |
 
-See [`docs/`](docs/) for admin guides and setup instructions.
+Work on a feature branch → pull request to `staging` → pull request from `staging` to `main`. Cloudflare Pages builds and deploys automatically; GitHub Actions checks every pull request. See [docs/5_GIT_AND_GITHUB.md](docs/5_GIT_AND_GITHUB.md).
