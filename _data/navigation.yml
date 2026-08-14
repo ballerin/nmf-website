@@ -41,12 +41,12 @@ navbar:
         url: /nasjonalt-matematikermote/
   - label: Priser og stipend
     children:
-      - label: Abelstipend
-        url: /abelstipend/
       - label: Viggo Brun-prisen
         url: /viggo-brun-prisen/
       - label: Elizabeth Stephansen-forelesningene
         url: /elizabeth-stephansen-forelesningene/
+      - label: Abelstipend
+        url: /abelstipend/
   - label: Om NMF
     children:
       - label: Internasjonalt samarbeid
