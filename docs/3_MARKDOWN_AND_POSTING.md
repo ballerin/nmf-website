@@ -66,7 +66,7 @@ Link to another page on the site with a path starting from `/`, without the file
 ## Images
 
 ```markdown
-![alt text](/assets/images/nyheter/2026-06-03-leiden-declaration/ai-hero.jpeg)
+![alt text](/assets/nyheter/2026-06-03-leiden-declaration/ai-hero.jpeg)
 ```
 
 **Tips for images:**
@@ -200,13 +200,13 @@ Every post starts with **front matter** — metadata between two `---` markers, 
 
 ```yaml
 ---
-layout: activity_post
+layout: arrangement_template
 title: "Nasjonalt matematikermøte 2026"
 date: 2026-05-12
 start-date: 2026-09-09
 end-date: 2026-09-11
 author: "NMF"
-image: "/assets/images/arrangementer/trondheim.jpg"
+image: "/assets/arrangementer/2026-05-12-nasjonalt-matematikermote-2026/trondheim.jpg"
 categories: [arrangement]
 ---
 Your Markdown content starts here…
@@ -244,13 +244,13 @@ Put the image file in the repository first, then reference it with a path starti
 
 | For | Put the file in | Example reference |
 |---|---|---|
-| A news article | `assets/images/nyheter/<same-name-as-your-post>/` | `/assets/images/nyheter/2026-03-02-icm-2026/icm-2026-philadelphia.jpg` |
-| A picture reused by several news articles | `assets/images/nyheter/common_images/` | `/assets/images/nyheter/common_images/Niels_Henrik_Abel.jpg` |
-| An event | `assets/images/arrangementer/` | `/assets/images/arrangementer/trondheim.jpg` |
-| An INFOMAT issue | `assets/images/infomat/<YYYY-MM>/` | `/assets/images/infomat/2026-04/egmo-2026-team.jpg` |
+| A news article | `assets/nyheter/<same-name-as-your-post>/` | `/assets/nyheter/2026-03-02-icm-2026/icm-2026-philadelphia.jpg` |
+| A picture reused by several news articles | `assets/nyheter/common_images/` | `/assets/nyheter/common_images/Niels_Henrik_Abel.jpg` |
+| An event | `assets/arrangementer/<same-name-as-your-post>/` | `/assets/arrangementer/2026-05-12-nasjonalt-matematikermote-2026/trondheim.jpg` |
+| An INFOMAT issue | `assets/infomat/<YYYY-MM>/` | `/assets/infomat/2026-04/egmo-2026-team.jpg` |
 | A PDF or other document | `assets/documents/` | `/assets/documents/generalforsamling/referat-gf-2010.pdf` |
 
-News articles get **one folder per post**, named after the post file — that keeps the images with the article they belong to and makes them easy to remove later.
+News articles and events get **one folder per post**, named exactly after the post file (without the `.md`) — that keeps the images with the article they belong to and makes them easy to find and remove later. So a post at `_posts/arrangementer/2026-05-12-nasjonalt-matematikermote-2026.md` keeps its images in `assets/arrangementer/2026-05-12-nasjonalt-matematikermote-2026/`.
 
 ## Tips
 

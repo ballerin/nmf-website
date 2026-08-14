@@ -24,7 +24,7 @@ __Poster__: [posterGF2025](/assets/nyheter/2025-08-22-generalforsamling-15-09-20
 | Regnskap 2024 | som fremlagt på generalforsamling | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/original_regnskap2024.pdf) |
 | Regnskap 2024 | korrigert ihht kommentar på generalforsamlingen | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/korrigert_regnskap2024.pdf) |
 | Regnskap 2024 | revisor | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/nmf-2024-revisor.pdf) |
-| Regnskap 2023 | | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/regnskap-2023.pdf) |
+| Regnskap 2023 | | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/regnskap2023.pdf) |
 | Valg Instillinger 2025 | | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/valg-2025.pdf) |
 | Kontingent – forslag 2025 | | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/kontingent-forslag-2025.pdf) |
 | Innføring av Abel Støttemedlemskap i NMF – forslag 2025 | | [PDF](/assets/nyheter/2025-08-22-generalforsamling-15-09-2025/abel-stottemedlemskap_forslag_2025.pdf) |

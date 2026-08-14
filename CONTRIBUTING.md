@@ -15,7 +15,7 @@ Thanks for helping out. This is the website of **Norsk Matematisk Forening**.
 | What | Where |
 |---|---|
 | News, events, INFOMAT issues | `_posts/nyheter/`, `_posts/arrangementer/`, `_posts/infomat/` (Markdown) |
-| Pages — history, membership, contact… | `_pages/` (HTML), front page is `index.html` |
+| Pages — history, membership, contact, front page | `_pages/` (HTML) |
 | Menu, board members, slideshow, links | `_data/*.yml` |
 | Images and PDFs | `assets/` |
 

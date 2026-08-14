@@ -1,11 +1,11 @@
 ---
-layout: activity_post
+layout: arrangement_template
 title: "Nasjonalt matematikermøte 2018"
 start-date: 2018-09-13
 end-date: 2018-09-14
 categories: [arrangement]
 author: "NMF"
-image: "/assets/images/arrangementer/Bergen_2018.jpg"
+image: "/assets/arrangementer/2026-08-05-nasjonalt-matematikermote-2018/Bergen_2018.jpg"
 ---
 
 Det første nasjonale matematikermøtet avholdes i Bergen  **13.-14. september 2018** i Bergen, ved **Radisson Blu Royal Hotel**.

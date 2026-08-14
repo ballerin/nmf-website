@@ -1,12 +1,12 @@
 ---
-layout: activity_post
+layout: arrangement_template
 title: "Nasjonalt matematikermøte 2024"
 date: 2026-08-05
 start-date: 2024-09-12
 end-date: 2024-09-13
 categories: [arrangement]
 author: "NMF"
-image: "/assets/images/arrangementer/Oslo_2024.jpeg"
+image: "/assets/arrangementer/2026-08-05-nasjonalt-matematikermote-2024/Oslo_2024.jpeg"
 ---
 
 Det tredje nasjonale matematikermøtet avholdes i Oslo  **12.-13. september 2024** i Oslo, ved **Soria Moria hotell**.

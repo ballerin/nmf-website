@@ -38,11 +38,12 @@ nmf-website/
 │   ├── main.js              ← 🔴 Site JavaScript
 │   ├── documents/           ← 🟢 PDFs and documents
 │   ├── nyheter/             ← 🟢 News images, one folder per post
-│   └── images/
-│       ├── arrangementer/   ← 🟢 Event images
-│       ├── infomat/         ← 🟢 INFOMAT images, one folder per issue
+│   ├── arrangementer/       ← 🟢 Event images, one folder per post
+│   ├── infomat/             ← 🟢 INFOMAT images, one folder per issue
+│   └── images/              ← 🟢 Shared images — logos, portraits, backgrounds
 │       ├── carousel/        ← 🟢 Front page slideshow
-│       └── styremedlemmer/  ← 🟢 Board member portraits
+│       ├── styremedlemmer/  ← 🟢 Board member portraits
+│       └── abelstipend/     ← 🟢 Abel scholarship images
 │
 ├── _site/                   ← 🔴 The built website (auto-generated, overwritten every build)
 ├── .jekyll-cache/           ← 🔴 Jekyll's scratch folder — appears when you build locally, ignore it
@@ -81,7 +82,9 @@ These four files are the site's control panel. Editing them changes the site wit
 
 Editing the *words* in a page is a normal, safe contribution. Changing the *structure* — the tags, classes, and includes around the words — is closer to machinery; if you are not sure, propose the change and ask in the pull request.
 
-The front page is `index.html` at the top level, not in `_pages/`. It pulls in the newest news articles and upcoming events automatically, so it usually needs no editing when you publish something new.
+The front page is `_pages/index.html`. It pulls in the newest news articles and upcoming events automatically, so it usually needs no editing when you publish something new.
+
+> ⚠️ **Do not remove the `permalink: /` line** from the top of `_pages/index.html`. Everything in `_pages/` gets an address made from its filename, so without that line the front page is built at `/index/` and the site has **no homepage at all**. The build still succeeds and no check catches it — the site simply stops having a front page.
 
 ## Files you should never edit
 
@@ -112,7 +115,7 @@ INFOMAT appears in two places, and a new issue needs both. This is a recurring m
    ```
 
    Starting a new year means adding a whole new `<tr>` row at the top of the table — copy the row below and edit it.
-3. **The post.** Create the post in `_posts/infomat/` as described in [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#creating-a-new-post). Any images go in `assets/images/infomat/<YYYY-MM>/`.
+3. **The post.** Create the post in `_posts/infomat/` as described in [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#creating-a-new-post). Any images go in `assets/infomat/<YYYY-MM>/`.
 
 The table is maintained by hand — nothing generates it from the files in the folder, so a PDF that is uploaded but not linked is invisible.
 

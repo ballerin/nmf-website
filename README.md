@@ -7,8 +7,8 @@ Live at **[matematikkforeningen.no](https://matematikkforeningen.no)**. Changes 
 ## Structure
 
 ```
-_posts/          ← Front page, News, events, INFOMAT (Markdown)
-_pages/          ← Static pages — history, membership, contact… (HTML)
+_posts/          ← News, events, INFOMAT (Markdown)
+_pages/          ← Front page and static pages — history, membership, contact… (HTML)
 _drafts/         ← Unfinished posts (not published)
 _data/           ← Navigation, board members, carousel, links (YAML)
 _layouts/        ← Page templates

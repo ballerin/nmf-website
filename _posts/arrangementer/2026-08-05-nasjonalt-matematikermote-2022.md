@@ -1,12 +1,12 @@
 ---
-layout: activity_post
+layout: arrangement_template
 title: "Nasjonalt matematikermøte 2022"
 date: 2026-08-05
 start-date: 2024-09-1
 end-date: 2024-09-2
 categories: [arrangement]
 author: "NMF"
-image: "/assets/images/arrangementer/Tromsø_2022.jpg"
+image: "/assets/arrangementer/2026-08-05-nasjonalt-matematikermote-2022/Tromsø_2022.jpg"
 ---
 
 Det andree nasjonalt matematikermøtet avholdes i Tromsø  **1.-2. september 2022** i Tromsø.
