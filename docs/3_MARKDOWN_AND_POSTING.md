@@ -74,6 +74,7 @@ Link to another page on the site with a path starting from `/`, without the file
 - Use landscape images for best results
 - Put the file in the right folder first — see [Where images go](#where-images-go)
 - The `alt text` describes the image for screen readers and search engines
+- If the image has a **transparent background** (a logo, for example), the card behind it shows the NMF color — set `image-background` in the front matter to pick another color instead
 
 ## Lists
 
@@ -220,6 +221,7 @@ Your Markdown content starts here…
 | `categories` | ✅ | Which listing page the post appears on. Must match the table above. |
 | `author` | — | Shown as the byline. `NMF` if it comes from the society. |
 | `image` | — | The large image at the top and on the card. Leave it out and the card has no picture. |
+| `image-background` | — | A color painted behind the card image, for images with a transparent background (a logo, for example). Any CSS color works: `"#ffffff"`, `"white"`, `"#f5f5f5"`. Leave it out and the card keeps the usual NMF color. |
 | `start-date`, `end-date` | events | When the event actually **happens** — this is what draws the date badge on event cards. For a one-day event, set both to the same day. |
 
 Note that `date` and `start-date` answer different questions. `date` is when you are announcing the event (on the website); `start-date` and `end-date` are when the event runs. If `start-date` and `end-date` are missing, then the website falls back on `date`. For a news article you only need `date`, as this is not an event.

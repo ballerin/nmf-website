@@ -4,7 +4,7 @@ title: "Innkalling til generalforsamling 2004"
 categories: [news]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
-background_color: white
+image-background: "white"
 ---
 
 **Tid**: 25. mars 2004, kl. 19.00

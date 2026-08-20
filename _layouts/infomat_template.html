@@ -2,6 +2,33 @@
 layout: default
 ---
 <!-- FRONT MATTER FIELDS: Required: layout, title, date, categories. Optional: author, image -->
+<style>
+  /* INFOMAT masthead: logo beside the wordmark, stacking on small screens. */
+  .infomat-header { padding: 2rem 1.5rem; text-align: center; }
+  .infomat-header-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.75rem; max-width: 980px; margin: 0 auto; }
+  .infomat-header-logo img { width: 180px; max-width: 100%; height: auto; }
+  .infomat-header-copy { max-width: 680px; }
+  .infomat-header-copy h1 { margin: 0; font-size: clamp(3rem, 5vw, 5rem); letter-spacing: -0.05em; }
+  .infomat-subtitle { margin: 0.85rem 0 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.24em; color: #4c4c4c; }
+  .infomat-author { margin: 0.6rem 0 0; font-size: 0.95rem; color: #606060; }
+
+  /* The body is .post-content; only the roomier rhythm and the centred issue
+     headings are particular to INFOMAT. */
+  .infomat-content { padding: 1rem 0; line-height: 1.8; }
+  .infomat-content p { margin: 1.2rem 0; }
+  .infomat-content h2 { text-align: center; font-size: 2rem; border-bottom: none; margin: 2rem 0 1rem; }
+  .infomat-content h3 { font-size: 1.4rem; color: var(--nmf-primary); margin: 2rem 0 1rem; }
+  .infomat-content hr { border: none; border-top: 1px solid #e1e1e1; margin: 2rem 0; }
+  .infomat-content figure { text-align: center; }
+  .infomat-content figure img { margin: 0 auto; }
+  .infomat-content figure figcaption { margin-top: 0.6rem; font-size: 0.95rem; color: #5d5d5d; }
+
+  @media (max-width: 720px) {
+    .infomat-content { padding-left: 1rem; padding-right: 1rem; }
+    .infomat-header-inner { flex-direction: column; }
+  }
+</style>
+
 <article class="w3-border w3-round-large w3-margin-bottom infomat-article">
   <header class="w3-container infomat-header">
     <div class="infomat-header-inner">

@@ -24,9 +24,13 @@ body.brand-theme {
 	--nmf-primary-rgb: 2,90,138;
 }
 
+/* Applies the NMF palette to W3.CSS utility classes. */
+body.brand-theme .nmf-primary { background-color: var(--nmf-primary) !important; color: var(--nmf-on-primary) !important; }
+body.brand-theme .text-nmf-primary { color: var(--nmf-primary) !important; }
+body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
+
 /* ============================================================================
    GLOBAL BASE & TYPOGRAPHY
-   Core element defaults and shared typography.
    ========================================================================== */
 html, body { height: 100%; }
 body {
@@ -43,7 +47,6 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 
 /* ============================================================================
    PAGE LAYOUT SHELL
-   Main content sizing, spacing and generic helpers.
    ========================================================================== */
 .w3-main {
 	width: 100%;
@@ -59,32 +62,21 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 #main { flex: 1; }
 [id] { scroll-margin-top: 24px; }
 
-.w3-card-4 { overflow: hidden; background-color: #fff; }
+/* Cards and post articles clip their own corners over a white page. */
+.w3-card-4, .post-article { overflow: hidden; background-color: #fff; }
 
-/* Portrait images */
 .portrait-img { width: 100%; max-width: 220px; height: 220px; object-fit: cover; border-radius: 4px; }
 
-/* Post meta: date left, author right */
+/* Post meta: date left, author right. */
 .post-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; font-size: 1.2rem; }
-.post-meta .date { color: inherit; font-size: 1.2rem; font-weight: 700; }
-.post-meta .author { color: inherit; text-align: right; font-size: 1.2rem; font-weight: 700; }
+.post-meta .date, .post-meta .author { color: inherit; font-size: 1.2rem; font-weight: 700; }
+.post-meta .author { text-align: right; }
 
-/* Back button */
 .back-button { display: inline-flex; align-items: center; gap: 8px; }
-.back-button svg { width: 18px; height: 18px; vertical-align: middle; fill: currentColor; }
-.back-button .fa-reply { font-size: 1rem; line-height: 1; }
-.back-button .label { line-height: 1; }
+.back-button .fa-reply, .back-button .label { line-height: 1; }
+.back-button .fa-reply { font-size: 1rem; }
 
-/* Optional cover image in activity posts */
-.post-cover img {
-	display: block;
-	width: 100%;
-	max-height: 340px;
-	object-fit: cover;
-}
-
-/* Utility classes */
-.link-reset { color: inherit; text-decoration: none; }
+/* Section headings, via _includes/section_heading.html. */
 .section-top-25 { margin-top: 25px; }
 .section-rule {
 	width: 100px;
@@ -97,15 +89,13 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .section-rule-h3 { border-width: 6px 0 0 0; }
 .section-rule-h4 { border-width: 4px 0 0 0; }
 .section-rule-h5 { border-width: 2px 0 0 0; }
-
-/* Section headings (used via _includes/section_heading.html) */
 .section-heading-h1 { font-size: clamp(2.25rem, 5vw, 3rem); }
 .section-heading-h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
 .section-heading-h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
 .section-heading-h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
 .section-heading-h5 { font-size: clamp(1rem, 2.2vw, 1.2rem); }
-.section-rule-light { width: 50px; border: 5px solid #ffffff; }
-.site-modal { padding-top: 0; }
+
+.w3-button:focus { outline: none; box-shadow: 0 0 0 6px var(--nmf-focus-ring); }
 
 /* ============================================================================
    FOOTER
@@ -168,11 +158,7 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .site-brand { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
 .site-brand span { margin-left: 6px; font-weight: 700; font-size: 2rem; line-height: 1.05; }
 
-.header-meta {
-	font-size: 1rem;
-	text-align: right;
-	line-height: 1.15;
-}
+.header-meta { font-size: 1rem; text-align: right; line-height: 1.15; }
 
 .site-mobile-toggle {
 	color: var(--nmf-on-primary) !important;
@@ -183,9 +169,7 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	background: rgba(255,255,255,0.12);
 }
 .site-mobile-toggle:hover,
-.site-mobile-toggle:focus {
-	background: rgba(255,255,255,0.22) !important;
-}
+.site-mobile-toggle:focus { background: rgba(255,255,255,0.22) !important; }
 
 .site-navbar {
 	display: flex;
@@ -214,20 +198,17 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	font-size: 0.95rem;
 	line-height: 1;
 }
-.site-navbar-link:hover,
-.site-navbar-link:focus {
-	background: rgba(255,255,255,0.2);
-}
 
-.site-navbar .nav-dropdown {
-	position: relative;
-	display: inline-block;
-}
-.site-navbar .nav-dropdown > summary {
-	cursor: pointer;
-	list-style: none;
-	gap: 8px;
-}
+/* Same highlight for a hovered link, a hovered dropdown title and an open one. */
+.site-navbar-link:hover,
+.site-navbar-link:focus,
+.site-navbar .nav-dropdown > summary:hover,
+.site-navbar .nav-dropdown > summary:focus-visible,
+.site-navbar .nav-dropdown[open] > summary { background: rgba(255,255,255,0.2); }
+
+.site-navbar .nav-dropdown { position: relative; display: inline-block; }
+.site-navbar .nav-dropdown > summary { cursor: pointer; list-style: none; gap: 8px; }
+.site-navbar .nav-dropdown > summary::-webkit-details-marker { display: none; }
 .site-navbar .nav-dropdown > summary::after {
 	content: "▾";
 	font-size: 0.9em;
@@ -236,10 +217,6 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	transition: transform 0.15s ease;
 }
 .site-navbar .nav-dropdown[open] > summary::after { transform: rotate(180deg); }
-.site-navbar .nav-dropdown > summary::-webkit-details-marker { display: none; }
-.site-navbar .nav-dropdown > summary:hover,
-.site-navbar .nav-dropdown > summary:focus-visible { background: rgba(255,255,255,0.2); }
-.site-navbar .nav-dropdown[open] > summary { background: rgba(255,255,255,0.2); }
 
 .site-navbar .nav-dropdown-menu {
 	position: absolute;
@@ -278,7 +255,8 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 .site-mobile-nav .w3-bar-item,
-.site-mobile-nav .w3-button {
+.site-mobile-nav .w3-button,
+.site-mobile-nav details.mobile-nav-dropdown > summary {
 	color: var(--nmf-on-primary) !important;
 	font-weight: 600;
 	text-align: left;
@@ -287,32 +265,15 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .site-mobile-nav .w3-button:hover,
 .site-mobile-nav .w3-button:focus { background: rgba(255,255,255,0.14) !important; }
 
-/* Mobile dropdowns */
-.site-mobile-nav details.mobile-nav-dropdown > summary {
-	list-style: none;
-	cursor: pointer;
-	font-weight: 600;
-	text-align: left;
-	white-space: normal;
-}
+.site-mobile-nav details.mobile-nav-dropdown > summary { list-style: none; cursor: pointer; }
 .site-mobile-nav details.mobile-nav-dropdown > summary::-webkit-details-marker { display: none; }
-.site-mobile-nav details.mobile-nav-dropdown > summary::after {
-	content: " ▾";
-	font-size: 0.85em;
-	opacity: 0.7;
-}
-.site-mobile-nav details.mobile-nav-dropdown[open] > summary::after {
-	content: " ▴";
-}
-
+.site-mobile-nav details.mobile-nav-dropdown > summary::after { content: " ▾"; font-size: 0.85em; opacity: 0.7; }
+.site-mobile-nav details.mobile-nav-dropdown[open] > summary::after { content: " ▴"; }
 .site-mobile-nav .mobile-nav-dropdown-menu {
 	border-top: 1px solid rgba(255,255,255,0.12);
 	background: rgba(255,255,255,0.08);
 }
-
-.site-mobile-nav .mobile-nav-dropdown-menu .w3-button {
-	font-weight: 400;
-}
+.site-mobile-nav .mobile-nav-dropdown-menu .w3-button { font-weight: 400; }
 
 @media (max-width: 700px) {
 	.site-topbar { min-height: 72px; padding: 10px 16px !important; }
@@ -322,208 +283,54 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 }
 
 /* ============================================================================
-   ACCESSIBILITY HELPERS
+   TABLES
+   One look for hand-written .site-table tables and for Markdown tables inside
+   .post-content: brand header row, hairline rows, brand-tinted stripes.
    ========================================================================== */
-.skip-link {
-	position: absolute;
-	left: -999px;
-	top: auto;
-	background: #fff;
-	color: #000;
-	padding: 8px 10px;
-	border-radius: 4px;
-	z-index: 1200;
-	box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-.skip-link:focus { left: 8px; top: 8px; }
-
-/* ============================================================================
-   BRAND THEME MAPPINGS
-   Applies NMF palette to W3.CSS utility classes.
-   ========================================================================== */
-body.brand-theme .nmf-primary { background-color: var(--nmf-primary) !important; color: var(--nmf-on-primary) !important; }
-body.brand-theme .text-nmf-primary { color: var(--nmf-primary) !important; }
-body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
-
-/* ============================================================================
-   BUTTONS & INTERACTIONS
-   ========================================================================== */
-.hero-cta { text-align: center; margin-top: 18px; }
-.hero-cta .w3-button { padding: 12px 22px; font-weight: 700; font-size: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.hero-cta .w3-button.w3-white { background: var(--nmf-secondary); border: 1px solid var(--nmf-secondary-border); }
-.hero-cta .w3-button.nmf-primary { background: var(--nmf-primary); color: var(--nmf-on-primary); }
-.hero-cta .w3-button + .w3-button { margin-left: 12px; }
-
-.btn-primary { background: var(--nmf-primary); color: var(--nmf-on-primary); border: 1px solid transparent; }
-.btn-primary:hover, .btn-primary:focus { background: var(--nmf-primary-strong); }
-.btn-secondary { background: var(--nmf-secondary); color: var(--nmf-on-secondary); border: 1px solid var(--nmf-secondary-border); }
-.btn-secondary:hover, .btn-secondary:focus { background: #f7f7f7; }
-
-/* Section header row — heading left, CTA button right */
-.section-header-row {
-	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
-	gap: 1rem;
-	margin-top: 25px;
-}
-
-.section-header-row .section-top-25 {
-	margin-top: 0;
-	flex: 1;
-	min-width: 0;
-}
-
-.btn-outline-arrow {
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	padding: 9px 20px;
-	font-size: 0.9rem;
-	font-weight: 600;
-	text-decoration: none;
-	color: var(--nmf-primary);
-	background: transparent;
-	border: 2px solid var(--nmf-primary);
-	border-radius: 6px;
-	transition: all 0.25s ease;
-	white-space: nowrap;
-	flex-shrink: 0;
-	margin-bottom: 2px;
-}
-
-.btn-outline-arrow:hover,
-.btn-outline-arrow:focus {
-	background: var(--nmf-primary);
-	color: var(--nmf-on-primary);
-	outline: none;
-}
-
-.btn-outline-arrow:focus-visible {
-	box-shadow: 0 0 0 6px var(--nmf-focus-ring);
-}
-
-.btn-arrow {
-	display: inline-block;
-	transition: transform 0.25s ease;
-	font-size: 1.05em;
-}
-
-.btn-outline-arrow:hover .btn-arrow {
-	transform: translateX(4px);
-}
-
-.w3-button:focus { outline: none; box-shadow: 0 0 0 6px var(--nmf-focus-ring); }
-
-/* ============================================================================
-   SITE TABLE
-   Generic table style used across pages.
-   ========================================================================== */
-.site-table {
-	width: 100%;
-	max-width: 480px;
+.site-table,
+.post-content table {
 	border-collapse: separate;
 	border-spacing: 0;
-	background: transparent;
-	border: 1px solid rgba(0,0,0,0.12);
-	border-radius: 8px;
+	border-radius: 10px;
 	overflow: hidden;
-	margin: 0 auto;
+	max-width: 100%;
+	margin: 16px auto;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
+.site-table th, .site-table td,
+.post-content th, .post-content td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.site-table thead th,
+.post-content thead th { background: var(--nmf-primary); color: var(--nmf-on-primary); font-weight: 700; }
+.site-table tbody tr:nth-child(odd) td,
+.post-content tbody tr:nth-child(odd) td  { background: rgba(var(--nmf-primary-rgb),0.03); }
+.site-table tbody tr:nth-child(even) td,
+.post-content tbody tr:nth-child(even) td { background: rgba(var(--nmf-primary-rgb),0.01); }
+.site-table tbody tr:hover td,
+.post-content tbody tr:hover td { background: rgba(var(--nmf-primary-rgb),0.06); }
+.site-table tbody tr:last-child td,
+.post-content tbody tr:last-child td { border-bottom: none; }
+
+/* .site-table is the narrow, centred variant with centred cells. */
+.site-table { width: 100%; max-width: 480px; border: 1px solid rgba(0,0,0,0.12); }
+.site-table th, .site-table td { text-align: center; }
 .site-table caption {
+	caption-side: top;
 	text-align: left;
 	font-weight: 700;
 	color: var(--nmf-primary-strong);
-	margin-bottom: 8px;
-	caption-side: top;
 	padding-bottom: 6px;
 }
-.site-table td, .site-table th { padding: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); text-align: center; }
-.site-table tbody tr:last-child td { border-bottom: none; }
-.site-table thead th {
-	background: var(--nmf-primary);
-	color: var(--nmf-on-primary);
-	font-weight: 700;
-	border-bottom: 2px solid rgba(0,0,0,0.12);
-}
-.site-table tbody tr:nth-child(odd) td  { background: rgba(var(--nmf-primary-rgb),0.03); }
-.site-table tbody tr:nth-child(even) td { background: rgba(var(--nmf-primary-rgb),0.01); }
-.site-table tbody tr:hover td           { background: rgba(var(--nmf-primary-rgb),0.06); }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
 	.site-table { max-width: 100%; }
+	.site-table th, .site-table td,
+	.post-content th, .post-content td { padding: 8px 10px; }
 }
-
-/* ============================================================================
-   PEKERE VIDERE
-   Link list sections on pekere_videre.html and other info pages.
-   ========================================================================== */
-
-.pekere-section {
-	overflow: hidden;
-	break-inside: avoid;
-	display: inline-block;
-	width: 100%;
-	margin-bottom: 0;
-}
-.pekere-columns {
-	columns: 2;
-	column-gap: 1rem;
-}
-@media (max-width: 600px) {
-	.pekere-columns { columns: 1; }
-}
-.pekere-section-header {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	background: var(--nmf-primary);
-	color: #fff;
-	padding: 1rem 1.25rem;
-}
-.pekere-section-header h2 {
-	margin: 0;
-	font-size: 1rem;
-	font-weight: 700;
-	color: #fff;
-}
-.pekere-section-header i { font-size: 1.1rem; flex-shrink: 0; }
-
-.pekere-list {
-	list-style: none;
-	padding: 0.75rem 1.25rem 1rem;
-	margin: 0;
-}
-.pekere-list li {
-	padding: 0.35rem 0;
-	border-bottom: 1px solid rgba(0,0,0,0.06);
-	font-size: 0.95rem;
-}
-.pekere-list li:last-child { border-bottom: none; }
-.pekere-list a { text-decoration: none; color: var(--nmf-primary); }
-.pekere-list a:hover { text-decoration: underline; }
-
-/* ============================================================================
-   HVA VI GJØR
-   Activity/purpose cards on hva-vi-gjor.html.
-   ========================================================================== */
-
-.hva-vi-card { overflow: hidden; }
-.hva-vi-card-header {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	padding: 1rem 1.25rem;
-	color: #fff;
-}
-.hva-vi-card-header i { font-size: 1.2rem; flex-shrink: 0; }
-.hva-vi-card-header h3 { margin: 0; font-size: 1rem; font-weight: 700; color: #fff; }
 
 /* ============================================================================
    POST HERO
    Cover-image hero header for news and arrangementer post pages.
    ========================================================================== */
-
 .post-hero {
 	position: relative;
 	min-height: 340px;
@@ -553,19 +360,21 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 	line-height: 1.25;
 	margin: 0 0 0.7rem;
 }
-.post-hero-text .post-meta {
-	display: flex;
-	gap: 1.5rem;
-	font-size: 0.9rem;
-	opacity: 0.88;
-}
+.post-hero-text .post-meta { display: flex; gap: 1.5rem; font-size: 0.9rem; opacity: 0.88; }
 
 /* ============================================================================
-   POST CONTENT (SHARED)
-   Typography for news and arrangementer post bodies.
+   POST CONTENT
+   Typography for every post body: news, arrangementer, INFOMAT and the
+   generic pages built from Markdown.
    ========================================================================== */
-
-.post-content { max-width: 860px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+.post-content {
+	max-width: 860px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1.75;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
 
 .post-content blockquote {
 	border-left: 4px solid var(--nmf-primary);
@@ -608,132 +417,13 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 
 .post-content ol,
 .post-content ul { padding-left: 1.5rem; line-height: 1.85; }
-.post-content ol li,
-.post-content ul li { margin-bottom: 0.35rem; }
-
-/* ============================================================================
-   INFOMAT
-   Page header, post content, archive table, and card grid.
-   ========================================================================== */
-
-/* — Page header — */
-.infomat-header { padding: 2rem 1.5rem; text-align: center; }
-.infomat-header-inner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1.75rem;
-	flex-wrap: wrap;
-	max-width: 980px;
-	margin: 0 auto;
-}
-.infomat-header-logo img { width: 180px; max-width: 100%; height: auto; }
-.infomat-header-copy { max-width: 680px; }
-.infomat-header-copy h1 { margin: 0; font-size: clamp(3rem, 5vw, 5rem); letter-spacing: -0.05em; }
-.infomat-subtitle { margin: 0.85rem 0 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.24em; color: #4c4c4c; }
-.infomat-author { margin: 0.6rem 0 0; font-size: 0.95rem; color: #606060; }
-
-/* — Post content — */
-.infomat-content {
-	max-width: 860px;
-	margin: 0 auto;
-	padding: 1rem 0;
-	font-size: 1rem;
-	line-height: 1.8;
-	color: #202020;
-}
-.infomat-content p { margin: 1.2rem 0; }
-.infomat-content h2 { margin: 2rem 0 1rem; line-height: 1.2; color: #0f2c49; text-align: center; font-size: 2rem; }
-.infomat-content h3,
-.infomat-content h4 { margin: 2rem 0 1rem; line-height: 1.2; color: #0f2c49; }
-.infomat-content h3 { font-size: 1.4rem; }
-.infomat-content hr { border: none; border-top: 1px solid #e1e1e1; margin: 2rem 0; }
-.infomat-content ul,
-.infomat-content ol { margin: 1rem 0 1.4rem; padding-left: 1.4rem; }
-.infomat-content li { margin: 0.55rem 0; }
-.infomat-content table { max-width: 720px; margin: 1.5rem auto; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 14px; overflow: hidden; }
-.infomat-content th,
-.infomat-content td { padding: 0.95rem 1rem; border-bottom: 1px solid #e2e8f0; text-align: left; }
-.infomat-content tbody tr:last-child td { border-bottom: none; }
-.infomat-content th { background: rgba(2, 90, 138, 0.08); color: var(--nmf-primary); font-weight: 700; }
-.infomat-content tr:nth-child(even) { background: #f8fafc; }
-.infomat-content table caption { caption-side: bottom; padding: 0.75rem 0; font-size: 0.95rem; color: #5b6b7a; }
-.infomat-content blockquote {
-	margin: 1.8rem 0;
-	padding: 1rem 1.25rem;
-	border-left: 4px solid var(--nmf-primary);
-	background: #f7f7f7;
-	color: #2f3f50;
-}
-.infomat-content img { display: block; max-width: 100%; max-height: 480px; height: auto; margin: 1.6rem auto; border-radius: 8px; box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
-.infomat-content figure { text-align: center; }
-.infomat-content figure img { margin: 0 auto; }
-.infomat-content figure figcaption { margin-top: 0.6rem; font-size: 0.95rem; color: #5d5d5d; }
-.infomat-content a { color: var(--nmf-primary); text-decoration: underline; }
-.infomat-content a:hover { color: var(--nmf-primary-strong); }
-
-@media (max-width: 720px) {
-	.infomat-content { padding-left: 1rem; padding-right: 1rem; }
-	.infomat-header-inner { flex-direction: column; }
-}
-
-/* — Archive table — */
-.infomat-archive-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px auto 32px; width: fit-content; max-width: 100%; }
-.infomat-archive-table { min-width: 560px; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; border-radius: 14px; overflow: hidden; }
-.infomat-archive-table thead th {
-	background-color: var(--nmf-primary);
-	color: #fff;
-	padding: 8px 6px;
-	text-align: center;
-	white-space: nowrap;
-}
-.infomat-archive-table thead th:first-child { text-align: left; padding-left: 10px; }
-.infomat-archive-table tbody td { padding: 7px 6px; text-align: center; border-bottom: 1px solid #eee; color: #555; }
-.infomat-archive-table tbody td:first-child { text-align: left; padding-left: 10px; font-weight: 600; color: #222; white-space: nowrap; }
-.infomat-archive-table tbody tr:nth-child(even) td { background-color: #f9f9f9; }
-.infomat-archive-table tbody td a { color: var(--nmf-primary); font-weight: 600; }
-.infomat-archive-table tbody td a:hover { text-decoration: underline; }
-
-/* The INFOMAT issues are rendered with news_card.html and styled by the shared
-   CARD GRID rules below. */
-
-/* ============================================================================
-   POST ARTICLES (shared by News & Arrangementer)
-   Post layout, post-content tables.
-   ========================================================================== */
-
-/* — Post layout — */
-.post-article.w3-border { overflow: hidden; background-color: #fff; }
-.post-article .post-content { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.post-article .post-content table {
-	border-collapse: separate;
-	border-spacing: 0;
-	width: auto;
-	max-width: 100%;
-	margin: 16px auto;
-	box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-	border-radius: 10px;
-	overflow: hidden;
-}
-.post-article .post-content table th,
-.post-article .post-content table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.06); }
-.post-article .post-content table tbody tr:last-child td { border-bottom: none; }
-.post-article .post-content table thead th { background: var(--nmf-primary); color: var(--nmf-on-primary); font-weight: 700; }
-.post-article .post-content table tbody tr:nth-child(odd) td  { background: rgba(var(--nmf-primary-rgb),0.03); }
-.post-article .post-content table tbody tr:nth-child(even) td { background: rgba(var(--nmf-primary-rgb),0.01); }
-.post-article .post-content table tbody tr:hover td           { background: rgba(var(--nmf-primary-rgb),0.06); }
-
-@media (max-width: 640px) {
-	.post-article .post-content table th,
-	.post-article .post-content table td { padding: 8px 10px; }
-}
+.post-content li { margin-bottom: 0.35rem; }
 
 /* ============================================================================
    CARD GRID
-   Shared by news_card.html and event_card.html, and so by the homepage,
-   Nyheter, Arrangementer and INFOMAT.
+   Shared by news_card.html, event_card.html and infomat_card.html, and so by
+   the homepage, Nyheter, Arrangementer and INFOMAT.
    ========================================================================== */
-
 .card-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -778,194 +468,45 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 .card-date { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.92); margin-bottom: 0.3rem; }
 .card-grid-item h3 { margin: 0; font-size: 1.1rem; line-height: 1.25; color: #fff; }
 
-/* Slimmer cards, used on the homepage — size="short" on either card include. */
+/* Slimmer cards, used on the homepage — size="short" on any card include. */
 .card-grid-item--short { height: 210px; }
 
-/* Hidden event cards (revealed by JS based on user datetime) */
+/* Hidden event cards (revealed by JS based on user datetime). */
 .event-card--hidden { display: none !important; }
 
-/* ============================================================================
-   ARRANGEMENTER DATE BADGES
-   ========================================================================== */
-
-.arrangementer-date-badge {
-	position: absolute;
-	top: 12px;
-	left: 12px;
-	z-index: 5;
+/* White pills over an event card image: the date top left (two boxes when the
+   event spans a range) and the year top right. */
+.card-badge,
+.card-badge-box {
 	background: #fff;
-	color: #222;
 	border-radius: 6px;
 	padding: 6px 10px;
 	text-align: center;
 	line-height: 1.1;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 	min-width: 50px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
-
-.arrangementer-date-badge--range {
+.card-badge { position: absolute; top: 12px; z-index: 5; }
+.card-badge--date { left: 12px; }
+.card-badge--year {
+	right: 12px;
+	min-width: auto;
+	color: #555;
+	font-size: 0.92rem;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.04em;
+}
+/* The range wrapper only positions its two boxes, so it carries no pill of its own. */
+.card-badge--range {
 	display: flex;
 	align-items: center;
 	gap: 6px;
 	padding: 0 8px;
+	min-width: auto;
 	background: transparent;
 	box-shadow: none;
-	min-width: auto;
 }
-
-.arrangementer-date-badge-box {
-	background: #fff;
-	border-radius: 6px;
-	padding: 6px 10px;
-	text-align: center;
-	line-height: 1.1;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-	min-width: 50px;
-}
-
-.arrangementer-date-badge-arrow {
-	font-size: 1rem;
-	color: #fff;
-	font-weight: 700;
-	text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-	flex-shrink: 0;
-}
-
-.arrangementer-date-badge-day {
-	display: block;
-	font-size: 1.35rem;
-	font-weight: 800;
-	color: var(--nmf-primary);
-}
-.arrangementer-date-badge-month {
-	display: block;
-	font-size: 0.72rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	color: #555;
-}
-
-.arrangementer-year-badge {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	z-index: 5;
-	background: #fff;
-	color: #555;
-	font-size: 0.92rem;
-	font-weight: 700;
-	padding: 6px 10px;
-	border-radius: 6px;
-	line-height: 1;
-	letter-spacing: 0.04em;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-}
-
-/* ============================================================================
-   CAROUSEL
-   Hero image carousel used on front page.
-   ========================================================================== */
-
-.carousel-wrapper {
-	position: relative;
-	width: 100%;
-	max-width: 1100px;
-	margin: 0 auto 12px;
-	overflow: hidden;
-	border-radius: 8px;
-	box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-	background: #1a1a1a;
-}
-
-.carousel-track {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-	flex: 0 0 100%;
-	width: 100%;
-	height: 100%;
-}
-
-.carousel-slide img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-/* Navigation arrows */
-.carousel-btn {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background: rgba(0,0,0,0.45);
-	color: #fff;
-	border: none;
-	font-size: 1.6rem;
-	padding: 10px 16px;
-	cursor: pointer;
-	border-radius: 4px;
-	transition: background 0.2s ease;
-	z-index: 10;
-	line-height: 1;
-}
-
-.carousel-btn:hover,
-.carousel-btn:focus {
-	background: rgba(0,0,0,0.7);
-	outline: none;
-}
-
-.carousel-btn:focus-visible {
-	box-shadow: 0 0 0 4px var(--nmf-focus-ring);
-}
-
-.carousel-prev { left: 12px; }
-.carousel-next { right: 12px; }
-
-/* Dot indicators */
-.carousel-dots {
-	position: absolute;
-	bottom: 14px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	gap: 10px;
-	z-index: 10;
-}
-
-.carousel-dot {
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	border: 2px solid rgba(255,255,255,0.85);
-	background: transparent;
-	cursor: pointer;
-	padding: 0;
-	transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.carousel-dot.active,
-.carousel-dot:hover {
-	background: #fff;
-	border-color: #fff;
-}
-
-.carousel-dot:focus-visible {
-	outline: 2px solid #fff;
-	outline-offset: 2px;
-}
-
-@media (max-width: 600px) {
-	.carousel-btn {
-		font-size: 1.1rem;
-		padding: 6px 10px;
-	}
-	.carousel-dots { gap: 7px; }
-	.carousel-dot { width: 10px; height: 10px; }
-}
+.card-badge-day { display: block; font-size: 1.35rem; font-weight: 800; color: var(--nmf-primary); }
+.card-badge-month { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #555; }
+.card-badge-arrow { font-size: 1rem; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.4); flex-shrink: 0; }

@@ -3,11 +3,17 @@
   along the bottom.
 
   Parameters:
-    issue  (required) the INFOMAT post to render.
-    size   "short" for the slimmer version of the cards; omit for full height.
+    issue       (required) the INFOMAT post to render.
+    size        "short" for the slimmer version of the cards; omit for full height.
+    background  CSS color painted behind the image, for images with a transparent
+                background. Overrides the issue's own "image-background" front matter.
+                Omit both and the card keeps the default brand color.
 {% endcomment %}
 
-<a href="{{ include.issue.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}">
+{%- assign card_background = include.background | default: include.issue["image-background"] -%}
+
+<a href="{{ include.issue.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}"
+   {%- if card_background %} style="background-color: {{ card_background }}"{% endif %}>
   {% if include.issue.image %}
   <img src="{{ include.issue.image }}" alt="{{ include.issue.title }}" loading="lazy" />
   {% endif %}
