@@ -4,6 +4,8 @@ title: "Generalforsamling 15/09/2025"
 date: 2025-08-22 09:00:00 +0200
 categories: [news]
 author: NMF
+image: "/assets/images/nmf-bare-logo.svg"
+background_color: white
 ---
 
 # Generalforsamling
