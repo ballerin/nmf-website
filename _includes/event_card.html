@@ -29,24 +29,24 @@
   <img src="{{ include.event.image }}" alt="{{ include.event.title }}" loading="lazy" />
   {% endif %}
   {% if event_start and event_end and start_str != end_str %}
-  <div class="arrangementer-date-badge arrangementer-date-badge--range">
-    <div class="arrangementer-date-badge-box">
-      <span class="arrangementer-date-badge-day">{{ event_start | date: "%-d" }}</span>
-      <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=event_start %}</span>
+  <div class="card-badge card-badge--date card-badge--range">
+    <div class="card-badge-box">
+      <span class="card-badge-day">{{ event_start | date: "%-d" }}</span>
+      <span class="card-badge-month">{% include month_nb_short.html date=event_start %}</span>
     </div>
-    <span class="arrangementer-date-badge-arrow">→</span>
-    <div class="arrangementer-date-badge-box">
-      <span class="arrangementer-date-badge-day">{{ event_end | date: "%-d" }}</span>
-      <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=event_end %}</span>
+    <span class="card-badge-arrow">→</span>
+    <div class="card-badge-box">
+      <span class="card-badge-day">{{ event_end | date: "%-d" }}</span>
+      <span class="card-badge-month">{% include month_nb_short.html date=event_end %}</span>
     </div>
   </div>
   {% elsif effective_date %}
-  <div class="arrangementer-date-badge">
-    <span class="arrangementer-date-badge-day">{{ effective_date | date: "%-d" }}</span>
-    <span class="arrangementer-date-badge-month">{% include month_nb_short.html date=effective_date %}</span>
+  <div class="card-badge card-badge--date">
+    <span class="card-badge-day">{{ effective_date | date: "%-d" }}</span>
+    <span class="card-badge-month">{% include month_nb_short.html date=effective_date %}</span>
   </div>
   {% endif %}
-  <span class="arrangementer-year-badge">{{ effective_date | date: "%Y" }}</span>
+  <span class="card-badge card-badge--year">{{ effective_date | date: "%Y" }}</span>
   <div class="card-overlay">
     <h3>{{ include.event.title }}</h3>
   </div>

@@ -6,6 +6,63 @@ title: Norsk Matematisk Forening (NMF)
 permalink: /
 ---
 
+<style>
+  /* Keyboard skip link: off-screen until focused. */
+  .skip-link { position: absolute; left: -999px; top: auto; background: #fff; color: #000; padding: 8px 10px; border-radius: 4px; z-index: 1200; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+  .skip-link:focus { left: 8px; top: 8px; }
+
+  /* Section header row — heading left, "see all" button right. */
+  .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-top: 25px; }
+  .section-header-row .section-top-25 { margin-top: 0; flex: 1; min-width: 0; }
+  .btn-outline-arrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 20px; margin-bottom: 2px;
+    font-size: 0.9rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+    color: var(--nmf-primary); background: transparent;
+    border: 2px solid var(--nmf-primary); border-radius: 6px;
+    flex-shrink: 0; transition: all 0.25s ease;
+  }
+  .btn-outline-arrow:hover,
+  .btn-outline-arrow:focus { background: var(--nmf-primary); color: var(--nmf-on-primary); outline: none; }
+  .btn-outline-arrow:focus-visible { box-shadow: 0 0 0 6px var(--nmf-focus-ring); }
+  .btn-arrow { display: inline-block; font-size: 1.05em; transition: transform 0.25s ease; }
+  .btn-outline-arrow:hover .btn-arrow { transform: translateX(4px); }
+
+  /* Hero image carousel (driven by assets/main.js). */
+  .carousel-wrapper { position: relative; width: 100%; max-width: 1100px; margin: 0 auto 12px; overflow: hidden; border-radius: 8px; background: #1a1a1a; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+  .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
+  .carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; }
+  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+    padding: 10px 16px; border: none; border-radius: 4px; cursor: pointer;
+    font-size: 1.6rem; line-height: 1; color: #fff; background: rgba(0,0,0,0.45);
+    transition: background 0.2s ease;
+  }
+  .carousel-btn:hover,
+  .carousel-btn:focus { background: rgba(0,0,0,0.7); outline: none; }
+  .carousel-btn:focus-visible { box-shadow: 0 0 0 4px var(--nmf-focus-ring); }
+  .carousel-prev { left: 12px; }
+  .carousel-next { right: 12px; }
+
+  .carousel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; }
+  .carousel-dot {
+    width: 12px; height: 12px; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.85); background: transparent;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .carousel-dot.active,
+  .carousel-dot:hover { background: #fff; border-color: #fff; }
+  .carousel-dot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  @media (max-width: 600px) {
+    .carousel-btn { font-size: 1.1rem; padding: 6px 10px; }
+    .carousel-dots { gap: 7px; }
+    .carousel-dot { width: 10px; height: 10px; }
+  }
+</style>
+
   <!-- Skip link for keyboard users -->
   <!-- TODO: do we really need this? -->
   <a class="skip-link" href="#main-content">Hopp til innhold</a>

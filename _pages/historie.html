@@ -3,6 +3,31 @@ layout: default
 title: Foreningens historie
 ---
 
+<style>
+  /* Portrait with the person's name underneath: floated to the left of a
+     biography (.bio), or lined up side by side with others (.portrait-row). */
+  .portrait-figure { width: 220px; max-width: 100%; margin: 0; }
+  .portrait-figure figcaption { margin-top: 0.5rem; font-size: 0.85rem; line-height: 1.35; color: #555; text-align: center; }
+
+  /* .bio contains its own floated portrait, so a short biography can never let
+     the picture spill down into the next person's text. */
+  .bio { display: flow-root; margin-bottom: 1.5rem; }
+  .bio .portrait-figure { float: left; margin: 0.25rem 1.5rem 1rem 0; }
+  .bio h3 { margin-top: 0; }
+
+  /* The row shrinks its portraits to share the width rather than wrapping, so it
+     stays on one line down to phone widths; aspect-ratio keeps them square while
+     they shrink, since .portrait-img fixes the height. */
+  .portrait-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .portrait-row .portrait-figure { flex: 0 1 220px; min-width: 0; }
+  .portrait-row .portrait-img { height: auto; aspect-ratio: 1 / 1; }
+
+  @media (max-width: 700px) {
+    /* Below this the biography portraits sit on top of the text instead. */
+    .bio .portrait-figure { float: none; margin: 0 auto 1rem; }
+  }
+</style>
+
 {% include default_opening.html
   heading="Foreningens historie"
   subtitle="Norsk matematisk forening ble stiftet i 1918. Her kan du lese mer om foreningens bakgrunn, stiftelse og utvikling gjennom årene."

@@ -3,6 +3,19 @@ layout: default
 title: Infomat
 ---
 
+<style>
+  /* Archive table: many narrow month columns, so it scrolls sideways on small
+     screens and overrides the centred .site-table cells with tighter ones. */
+  .infomat-archive-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: fit-content; max-width: 100%; margin: 16px auto 32px; }
+  .infomat-archive-table { min-width: 560px; font-size: 0.88rem; }
+  .infomat-archive-table th, .infomat-archive-table td { padding: 7px 6px; white-space: nowrap; }
+  .infomat-archive-table thead th:first-child,
+  .infomat-archive-table tbody td:first-child { text-align: left; padding-left: 10px; }
+  .infomat-archive-table tbody td:first-child { font-weight: 600; }
+  .infomat-archive-table tbody td a { color: var(--nmf-primary); font-weight: 600; }
+  .infomat-archive-table tbody td a:hover { text-decoration: underline; }
+</style>
+
 {% include default_opening.html 
   heading = "INFOMAT"
   subtitle= "Medlemsbladet til Norsk matematisk forening"
