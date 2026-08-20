@@ -520,6 +520,64 @@ body.brand-theme .text-nmf-secondary { color: var(--nmf-secondary) !important; }
 .hva-vi-card-header h3 { margin: 0; font-size: 1rem; font-weight: 700; color: #fff; }
 
 /* ============================================================================
+   PORTRAITS
+   A portrait with the person's name underneath, used on historie.html either
+   floated to the left of a biography (.bio) or lined up side by side with
+   others (.portrait-row).
+   ========================================================================== */
+
+.portrait-figure {
+	width: 220px;
+	max-width: 100%;
+	margin: 0;
+}
+.portrait-figure figcaption {
+	margin-top: 0.5rem;
+	font-size: 0.85rem;
+	line-height: 1.35;
+	color: #555;
+	text-align: center;
+}
+
+/* Portrait floated beside a biography. */
+.bio {
+	/* Contains its own floated portrait, so a short biography can never let the
+	   picture spill down into the next person's text. */
+	display: flow-root;
+	margin-bottom: 1.5rem;
+}
+.bio .portrait-figure {
+	float: left;
+	margin: 0.25rem 1.5rem 1rem 0;
+}
+.bio h3 { margin-top: 0; }
+
+/* Portraits lined up side by side. They shrink to share the width rather than
+   wrapping, so the row stays on one line down to phone widths; aspect-ratio
+   keeps them square while they shrink, since .portrait-img fixes the height. */
+.portrait-row {
+	display: flex;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+.portrait-row .portrait-figure {
+	flex: 0 1 220px;
+	min-width: 0;
+}
+.portrait-row .portrait-img {
+	height: auto;
+	aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 700px) {
+	/* Below this the biography portraits stop floating and sit on top of the text. */
+	.bio .portrait-figure {
+		float: none;
+		margin: 0 auto 1rem;
+	}
+}
+
+/* ============================================================================
    POST HERO
    Cover-image hero header for news and arrangementer post pages.
    ========================================================================== */
