@@ -4,7 +4,7 @@ title: "Innkalling til generalforsamling 2025"
 categories: [news]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
-image-background: "white"
+background_color: white
 ---
 
 **Tid**:  15. september 2025, kl. 18:00 – 20:00 
