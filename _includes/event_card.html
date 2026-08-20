@@ -3,12 +3,15 @@
   year top right, title along the bottom.
 
   Parameters:
-    event     (required) the arrangement post to render.
-    size      "short" for the slimmer version of the cards; omit for full height.
-    autohide  true adds the .event-card hook and data-end-date that main.js
-              uses to hide events once they are over with javascript (after compilation)
-    hidden    true renders the card already hidden. Javascript will reveal it if relevant, meaning
-              that it is in the next 3 upcoming events.
+    event       (required) the arrangement post to render.
+    size        "short" for the slimmer version of the cards; omit for full height.
+    autohide    true adds the .event-card hook and data-end-date that main.js
+                uses to hide events once they are over with javascript (after compilation)
+    hidden      true renders the card already hidden. Javascript will reveal it if relevant, meaning
+                that it is in the next 3 upcoming events.
+    background  CSS color painted behind the image, for images with a transparent
+                background. Overrides the event's own "image-background" front matter.
+                Omit both and the card keeps the default brand color.
 {% endcomment %}
 
 {%- assign event_start = include.event["start-date"] -%}
@@ -17,9 +20,11 @@
 {%- assign effective_date = event_start | default: include.event.date -%}
 {%- assign start_str = event_start | date: "%Y-%m-%d" -%}
 {%- assign end_str = event_end | date: "%Y-%m-%d" -%}
+{%- assign card_background = include.background | default: include.event["image-background"] -%}
 <a href="{{ include.event.url }}"
    class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}{% if include.autohide %} event-card{% endif %}{% if include.hidden %} event-card--hidden{% endif %}"
-   {%- if include.autohide %} data-end-date="{{ event_end_date | date: '%Y-%m-%d' }}"{% endif %}>
+   {%- if include.autohide %} data-end-date="{{ event_end_date | date: '%Y-%m-%d' }}"{% endif %}
+   {%- if card_background %} style="background-color: {{ card_background }}"{% endif %}>
   {% if include.event.image %}
   <img src="{{ include.event.image }}" alt="{{ include.event.title }}" loading="lazy" />
   {% endif %}

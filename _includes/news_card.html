@@ -3,11 +3,17 @@
   along the bottom.
 
   Parameters:
-    post  (required) the news post to render.
-    size  "short" for the slimmer version of the cards; omit for full height.
+    post        (required) the news post to render.
+    size        "short" for the slimmer version of the cards; omit for full height.
+    background  CSS color painted behind the image, for images with a transparent
+                background. Overrides the post's own "image-background" front matter.
+                Omit both and the card keeps the default brand color.
 {% endcomment %}
 
-<a href="{{ include.post.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}">
+{%- assign card_background = include.background | default: include.post["image-background"] -%}
+
+<a href="{{ include.post.url }}" class="card-grid-item{% if include.size == 'short' %} card-grid-item--short{% endif %}"
+   {%- if card_background %} style="background-color: {{ card_background }}"{% endif %}>
   {% if include.post.image %}
   <img src="{{ include.post.image }}" alt="{{ include.post.title }}" loading="lazy" />
   {% endif %}
