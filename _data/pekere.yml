@@ -1,15 +1,35 @@
 sections:
   - title: "Ledige stillinger"
-    icon: "fa-solid fa-building-columns"
+    icon: "fa-solid fa-star"
     links: 
       - label: "Nordic-Math.Job" 
         url: "https://www.maths.lth.se/nordic/index.html"
 
   - title: "Matematisk ordliste"
-    icon: "fa-solid fa-building-columns"
+    icon: "fa-solid fa-star"
     links: 
       - label: "Matematisk ordliste (Matematikkrådet)"
         url: "https://ordliste.matematikkradet.no/"
+
+  - title: "For matematikkinteresserte"
+    icon: "fa-solid fa-star"
+    links:
+      - label: "Abelprisen"
+        url: "http://www.abelprisen.no/"
+      - label: "Holmboeprisen"
+        url: "http://holmboeprisen.no/"
+      - label: "UngeAbel"
+        url: "https://lamis.no/ungeabel/"
+        note: "matematikkonkurranse for ungdomsskoleelever"
+      - label: "Abelkonkurransen"
+        url: "http://abelkonkurransen.no/"
+        note: "for videregående elever"
+      - label: "matematikk.org"
+        url: "http://www.matematikk.org/"
+        note: "for elever og lærere på alle trinn"
+      - label: "matematikk.net"
+        url: "http://www.matematikk.net/"
+        note: "for ungdomsskole og videregående"
 
   - title: "Matematiske institusjoner i Norge"
     icon: "fa-solid fa-building-columns"
@@ -27,6 +47,16 @@ sections:
       - label: "Institutt for matematikk og naturvitenskap, UiS"
         url: "http://www.uis.no/om_uis/teknisk-naturvitskapleg_fakultet/matematikk_og_naturvitskap/"
 
+  - title: "Nordiske matematiske konferansesentre"
+    icon: "fa-solid fa-landmark"
+    links:
+      - label: "Lie-Størmer Center"
+        url: "https://lie-stormer.no/"
+      - label: "Mittag-Leffler Institute"
+        url: "http://www.mittag-leffler.se/"
+      - label: "Sophus Lie Konferansesenter"
+        url: "http://www.mn.uio.no/math/om/samarbeid/sophus-lies-konferansesenter/"
+
   - title: "Norske matematikkforeninger"
     icon: "fa-solid fa-people-group"
     links:
@@ -39,8 +69,8 @@ sections:
       - label: "Norsk Statistisk Forening"
         url: "http://norskstatistiskforening.no/"
 
-  - title: "Nordiske foreninger"
-    icon: "fa-solid fa-earth-europe"
+  - title: "Nordiske matematiske foreninger"
+    icon: "fa-solid fa-people-group"
     links:
       - label: "Dansk Matematisk Forening"
         url: "http://www.math.ku.dk/dmf/index_en.html"
@@ -51,11 +81,9 @@ sections:
       - label: "Svenska Matematikersamfundet"
         url: "http://www.swe-math-soc.se/"
 
-  - title: "Internasjonale foreninger"
+  - title: "Internasjonale matematiske foreninger"
     icon: "fa-solid fa-globe"
     links:
-      - label: "American Mathematical Society (AMS)"
-        url: "http://www.ams.org/"
       - label: "Centre International de Mathématiques Pures et Appliquées"
         url: "https://www.cimpa.info"
       - label: "European Mathematical Society (EMS)"
@@ -66,12 +94,10 @@ sections:
         url: "http://www.mathunion.org/"
       - label: "International Council for Industrial and Applied Mathematics (ICIAM)"
         url: "https://iciam.org"
-      - label: "Mathematical Association of America (MAA)"
-        url: "http://www.maa.org/"
       - label: "Society for Industrial and Applied Mathematics (SIAM)"
         url: "http://www.siam.org/"
 
-  - title: "Matematiske tidsskrifter"
+  - title: "Nordiske matematiske tidsskrifter"
     icon: "fa-solid fa-book-open"
     links:
       - label: "Acta Mathematica"
@@ -94,54 +120,8 @@ sections:
       - label: "Zentralblatt MATH"
         url: "http://www.zentralblatt-math.org/zmath/en/"
         note: 
+     
 
-  - title: "Konferanser og konferansesentra"
-    icon: "fa-solid fa-landmark"
-    links:
-      - label: "Lie-Størmer Center"
-        url: "https://lie-stormer.no/"
-      - label: "Sophus Lie Konferansesenter"
-        url: "http://www.mn.uio.no/math/om/samarbeid/sophus-lies-konferansesenter/"
-      - label: "Centre for Advanced Study (CAS)"
-        url: "http://www.cas.uio.no/"
-      - label: "MSRI (Mathematical Sciences Research Institute)"
-        url: "http://www.msri.org/web/msri"
-      - label: "Mathematisches Forschungsinstitut Oberwolfach"
-        url: "http://www.mfo.de/"
-      - label: "Mittag-Leffler Institute"
-        url: "http://www.mittag-leffler.se/"
-      - label: "American Institute of Mathematics (AIM)"
-        url: "http://www.aimath.org/"
-      - label: "Clay Mathematics Institute"
-        url: "http://www.claymath.org/"
-        note: "Millennium Prize Problems"
-      - label: "The Fields Institute"
-        url: "http://www.fields.utoronto.ca/"
-      - label: "Isaac Newton Institute for Mathematical Sciences"
-        url: "https://www.newton.ac.uk"
-      - label: "ICTP — International Centre for Theoretical Physics"
-        url: "https://www.ictp.it"
-      - label: "Institute for Advanced Study"
-        url: "http://www.math.ias.edu/"
-
-  - title: "For matematikkinteresserte"
-    icon: "fa-solid fa-star"
-    links:
-      - label: "Abelprisen"
-        url: "http://www.abelprisen.no/"
-      - label: "Holmboeprisen"
-        url: "http://holmboeprisen.no/"
-      - label: "UngeAbel"
-        url: "https://lamis.no/ungeabel/"
-        note: "matematikkonkurranse for ungdomsskoleelever"
-      - label: "Abelkonkurransen"
-        url: "http://abelkonkurransen.no/"
-        note: "for videregående elever"
-      - label: "matematikk.org"
-        url: "http://www.matematikk.org/"
-        note: "for elever og lærere på alle trinn"
-      - label: "matematikk.net"
-        url: "http://www.matematikk.net/"
-        note: "for ungdomsskole og videregående"
+ 
     
      
