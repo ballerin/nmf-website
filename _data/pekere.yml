@@ -118,9 +118,9 @@ sections:
       - label: "The Fields Institute"
         url: "http://www.fields.utoronto.ca/"
       - label: "Isaac Newton Institute for Mathematical Sciences"
-        url: "http://www.newton.cam.ac.uk/"
+        url: "https://www.newton.ac.uk"
       - label: "ICTP — International Centre for Theoretical Physics"
-        url: "http://www.ictp.trieste.it/"
+        url: "https://www.ictp.it"
       - label: "Institute for Advanced Study"
         url: "http://www.math.ias.edu/"
 
