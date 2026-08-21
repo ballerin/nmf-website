@@ -5,9 +5,9 @@ permalink: /pekere_videre/
 ---
 
 <style>
-  /* Link-list sections laid out in two masonry-ish columns. */
-  .pekere-columns { columns: 2; column-gap: 1rem; }
-  .pekere-section { break-inside: avoid; display: inline-block; width: 100%; overflow: hidden; margin-bottom: 0; }
+  /* Link-list sections stacked in a single column. */
+  .pekere-columns { display: flex; flex-direction: column; gap: 1rem; }
+  .pekere-section { overflow: hidden; }
   .pekere-section-header { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--nmf-primary); color: #fff; }
   .pekere-section-header h2 { margin: 0; font-size: 1rem; font-weight: 700; color: #fff; }
   .pekere-section-header i { font-size: 1.1rem; flex-shrink: 0; }
@@ -16,7 +16,6 @@ permalink: /pekere_videre/
   .pekere-list li:last-child { border-bottom: none; }
   .pekere-list a { color: var(--nmf-primary); text-decoration: none; }
   .pekere-list a:hover { text-decoration: underline; }
-  @media (max-width: 600px) { .pekere-columns { columns: 1; } }
 </style>
 
 {% include default_opening.html 
