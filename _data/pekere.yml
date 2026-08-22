@@ -73,9 +73,9 @@ sections:
     icon: "fa-solid fa-people-group"
     links:
       - label: "Dansk Matematisk Forening"
-        url: "http://www.math.ku.dk/dmf/index_en.html"
+        url: "https://mathematics.dk"
       - label: "Finnish Mathematical Society"
-        url: "http://matemaattinenyhdistys.fi/i18n/en/?cn=1"
+        url: "https://matemaattinenyhdistys.fi/index.php/"
       - label: "Icelandic Mathematical Society"
         url: "http://www.stae.is/isf/en"
       - label: "Svenska Matematikersamfundet"
