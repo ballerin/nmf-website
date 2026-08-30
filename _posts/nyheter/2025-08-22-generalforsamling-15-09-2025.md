@@ -8,7 +8,7 @@ image: "/assets/images/nmf-bare-logo.svg"
 image-background: "white"
 ---
 
-# Generalforsamling
+# Generalforsamling 2025
 
 __Tid__: Mandag 15/09/2025 kl. 18:00 – 20:00
 
