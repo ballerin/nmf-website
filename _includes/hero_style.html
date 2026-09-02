@@ -1,0 +1,33 @@
+{%- comment -%}
+  Inline style for a .post-hero header: the framing modifiers from the post's
+  front matter, as custom properties. The image itself is rendered by
+  _includes/hero_image.html.
+
+  Parameters:
+    post   (required) the post whose image and modifiers to use.
+
+  Front matter read off that post:
+    hero-zoom   scale factor for the image. 1 is the default, untouched size;
+                1.3 zooms in 30%.
+    hero-shift  vertical offset in pixels. 0 is the default; a positive number
+                moves the image down and so reveals more of its top edge.
+    image-background
+                CSS color painted behind the image, for images with a
+                transparent background or a zoom below 1 that leaves the
+                header's edges uncovered. The same key the cards read.
+                Omit it and the hero keeps the default brand color.
+
+  At hero-zoom 1 the image exactly covers the header, so a shift pans within
+  whatever the image overflows by; push it further than that overflow and the
+  image-background color shows along the edge. Zooming below 1 reveals more of
+  the picture rather than shrinking a crop of it.
+{%- endcomment -%}
+{%- assign hero_zoom = include.post["hero-zoom"] -%}
+{%- assign hero_background = include.post["image-background"] -%}
+{%- assign hero_shift = include.post["hero-shift"] -%}
+{%- capture hero_style -%}
+  {%- if hero_zoom %}--hero-zoom:{{ hero_zoom }};{% endif -%}
+  {%- if hero_shift %}--hero-shift:{{ hero_shift }}px;{% endif -%}
+  {%- if hero_background %}--hero-background:{{ hero_background }};{% endif -%}
+{%- endcapture -%}
+{%- if hero_style != "" %} style="{{ hero_style }}"{% endif -%}

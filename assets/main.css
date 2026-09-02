@@ -334,13 +334,32 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .post-hero {
 	position: relative;
 	min-height: 340px;
-	background-color: var(--nmf-primary);
-	background-size: cover;
-	background-position: center;
+	overflow: hidden;
+	/* image-background from the post, for transparent images or a zoom below 1
+	   that leaves the header's edges uncovered; brand color otherwise. */
+	background-color: var(--hero-background, var(--nmf-primary));
 }
+/* By default the image covers the header exactly, centred. The shift moves the
+   image *within* that frame via object-position, so panning reveals more of the
+   image's other edge instead of sliding a frame-sized block off and exposing the
+   background. Zoom then scales the whole thing, with the header clipping it.
+   Below zoom 1 the image is switched to contain by _includes/hero_image.html,
+   so shrinking a logo shows all of it rather than a cover crop of it. The image
+   sits under .post-hero-overlay, so the transform never drags the heading. */
+.post-hero-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center calc(50% + var(--hero-shift, 0px));
+	transform: scale(var(--hero-zoom, 1));
+}
+.post-hero-img.is-contained { object-fit: contain; }
 .post-hero-overlay {
 	position: absolute;
 	inset: 0;
+	z-index: 1;
 	background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.10) 100%);
 	display: flex;
 	align-items: flex-end;
@@ -444,8 +463,22 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	background-color: var(--nmf-primary);
 }
 .card-grid-item:hover { box-shadow: 0 14px 36px rgba(0,0,0,0.2); }
-.card-grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
-.card-grid-item:hover img { transform: scale(1.04); }
+/* --card-zoom and --card-shift come from _includes/card_image.html. The hover
+   lift multiplies the zoom rather than replacing it, so a zoomed card still
+   grows by the same 4% on hover. */
+.card-grid-item img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	object-position: center calc(50% + var(--card-shift, 0px));
+	transform: scale(var(--card-zoom, 1));
+	transition: transform 0.35s ease;
+}
+.card-grid-item img.is-contained { object-fit: contain; }
+.card-grid-item:hover img { transform: scale(calc(var(--card-zoom, 1) * 1.04)); }
 
 /* Bottom-anchored so the scrim grows with the text it holds: a title that wraps
    to three lines gets three lines' worth of dark background. The gradient stays
@@ -454,6 +487,7 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .card-overlay {
 	position: absolute;
 	inset: auto 0 0 0;
+	z-index: 1;
 	background: linear-gradient(to top,
 		rgba(0,0,0,0.85) 0%,
 		rgba(0,0,0,0.85) 60%,
@@ -510,3 +544,65 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .card-badge-day { display: block; font-size: 1.35rem; font-weight: 800; color: var(--nmf-primary); }
 .card-badge-month { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #555; }
 .card-badge-arrow { font-size: 1rem; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.4); flex-shrink: 0; }
+
+/* ============================================================================
+   VIGGO BRUN-PRISEN DIPLOMA
+   Used by _layouts/viggo_brun_template.html to reproduce the printed diploma on
+   page 2 of assets/ViggoBrun_2.pdf. Sizes are em off the one clamped font-size
+   on .vb-diploma, so the certificate scales as a unit and keeps the PDF's
+   proportions. W3.CSS carries the rest from the markup: w3-center to centre,
+   w3-image for the image defaults, w3-hide-small to drop the braces on phones.
+   ========================================================================== */
+.vb-article { --blue: #2c3792; --ink: #231f20; }
+
+.vb-diploma {
+	position: relative;
+	font-family: "Cormorant Garamond", Georgia, serif;
+	font-size: clamp(0.72rem, 2.6vw, 1.15rem);
+	padding: 3em 2em 2.5em;
+}
+.vb-diploma-inner { max-width: 36em; margin: 0 auto; }
+.vb-emblem { position: absolute; top: 1.6em; right: 1.6em; width: 6.3em; }
+.vb-mark { display: block; width: 6.4em; margin: 0 auto 1em; }
+
+/* Wordmark, year and laureate, framed by the braces. One SVG serves both: the
+   right-hand brace on the diploma is a mirror of the left. */
+.vb-award { position: relative; }
+.vb-award-inner { padding: 0 11%; }        /* the braces' own inset on the page */
+.vb-brace { position: absolute; top: 0; height: 100%; }
+.vb-brace--left { left: 0; }
+.vb-brace--right { right: 0; transform: scaleX(-1); }
+
+/* font: inherit resets both the global h1 font-family and its default 2em,
+   which would otherwise double every em inside the heading. */
+.vb-title { margin: 0; color: var(--blue); font: inherit; }
+.vb-wordmark, .vb-year { display: block; line-height: 1.1; }
+.vb-wordmark { font-size: 2em; font-weight: 600; font-variant-caps: small-caps; letter-spacing: 0.07em; }
+/* Twice the wordmark's cap height, in lining figures — Cormorant defaults to old-style. */
+.vb-year { font-size: 3.8em; font-weight: 300; font-variant-numeric: lining-nums; color: #51ade5; }
+.vb-laureate { margin: 0.15em 0 0; font-size: 2.7em; font-style: italic; font-weight: 300; color: var(--blue); }
+.vb-citation { margin: 0.6em auto 0; max-width: 27em; font-size: clamp(1.05rem, 1.25em, 1.4rem); font-style: italic; font-weight: 500; line-height: 1.5; color: var(--blue); text-wrap: balance; }
+
+/* "Tildeles" and "For". text-indent puts back the trailing letter-space, so the
+   word stays optically centred. */
+.vb-label { margin: 0; font: 600 clamp(0.7rem, 0.78em, 0.88rem) "Poppins", sans-serif; text-transform: uppercase; letter-spacing: 0.3em; text-indent: 0.3em; color: var(--ink); }
+.vb-label--for { margin-top: 2.5em; }
+
+/* Both rules are drawn rather than shipped as images, at the PDF's own
+   measurements: slashes leaning 21° at a 4.4px pitch, 2.2pt dots at 4pt. The
+   hatch is an SVG tile rather than a repeating-linear-gradient because a
+   gradient's hard colour stops get no antialiasing, which turned the slashes
+   into visible staircases. A data URI cannot read var(--blue), so the blue is
+   repeated literally here. */
+.vb-rule--hatch {
+	width: min(320px, 62%); height: 10px; margin: 1.6em auto 1.9em;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='10'%3E%3Cpath d='M0.6 10.5 4.5 -0.5M5 10.5 8.9 -0.5M9.4 10.5 13.3 -0.5M13.8 10.5 17.7 -0.5M18.2 10.5 22.1 -0.5' stroke='%232c3792' stroke-width='1.1'/%3E%3C/svg%3E") repeat-x left center;
+}
+.vb-rule--dots {
+	width: min(700px, 82%); height: 4px; margin: 0 auto;
+	background: radial-gradient(circle, var(--ink) 1.35px, transparent 1.55px) center/5px 4px repeat-x;
+}
+
+.vb-signature { padding: 1.5rem 1rem 1.75rem; }
+.vb-signature img { display: block; width: 30px; margin: 0 auto 0.6rem; }
+.vb-signature-name { margin: 0; font: 700 0.8rem "Poppins", sans-serif; text-transform: uppercase; letter-spacing: 0.17em; text-indent: 0.17em; color: var(--ink); }

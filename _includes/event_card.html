@@ -12,6 +12,10 @@
     background  CSS color painted behind the image, for images with a transparent
                 background. Overrides the event's own "image-background" front matter.
                 Omit both and the card keeps the default brand color.
+    zoom        scale factor for the image, overriding the post's own "card-zoom".
+                1 is the default, untouched size; 1.3 zooms in 30%.
+    shift       vertical offset in pixels, overriding the post's own "card-shift".
+                0 is the default; a positive number moves the image down.
 {% endcomment %}
 
 {%- assign event_start = include.event["start-date"] -%}
@@ -26,7 +30,7 @@
    {%- if include.autohide %} data-end-date="{{ event_end_date | date: '%Y-%m-%d' }}"{% endif %}
    {%- if card_background %} style="background-color: {{ card_background }}"{% endif %}>
   {% if include.event.image %}
-  <img src="{{ include.event.image }}" alt="{{ include.event.title }}" loading="lazy" />
+  {% include card_image.html post=include.event zoom=include.zoom shift=include.shift %}
   {% endif %}
   {% if event_start and event_end and start_str != end_str %}
   <div class="card-badge card-badge--date card-badge--range">

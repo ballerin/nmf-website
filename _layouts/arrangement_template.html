@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
-<!-- FRONT MATTER FIELDS: Required: layout, title, date, categories. Optional: author, image, start-date, end-date -->
+<!-- FRONT MATTER FIELDS: Required: layout, title, date, categories.
+     Optional: author, image, start-date, end-date,
+     hero-zoom, hero-shift, card-zoom, card-shift, image-background.
+     hero-zoom/hero-shift frame the image in this page's hero; card-zoom/card-shift
+     frame it in the cards that link here. See _includes/hero_style.html. -->
 {% assign start_date = page.start_date | default: page.start-date | default: page.date %}
 {% assign end_date = page.end_date | default: page.end-date | default: start_date %}
 {% capture start_label %}{% include date_nb.html date=start_date %}{% endcapture %}
@@ -9,7 +13,8 @@ layout: default
 
 <article class="post-article w3-border w3-round-large w3-margin-bottom">
 
-  <header class="post-hero"{% if page.image %} style="background-image: url('{{ page.image }}')"{% endif %}>
+  <header class="post-hero"{% include hero_style.html post=page %}>
+    {% include hero_image.html post=page %}
     <div class="post-hero-overlay">
       <div class="post-hero-text">
         <p class="post-hero-eyebrow">

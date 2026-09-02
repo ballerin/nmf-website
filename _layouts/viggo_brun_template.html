@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<!-- FRONT MATTER FIELDS:
+     Required: layout, title, date, categories, year, laureate
+     Optional: author, citation, image, image-background, card-zoom, card-shift
+     This layout has no hero, so its image is only ever used by the cards that
+     link here; card-zoom/card-shift frame it there. See _includes/card_image.html.
+     Reproduces the printed diploma on page 2 of assets/ViggoBrun_2.pdf as the
+     header of the post; the body copy then runs on below the dotted rule. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,500&display=swap">
+
+<article class="post-article vb-article w3-border w3-round-large w3-margin-bottom">
+
+  <header class="vb-diploma">
+
+    <img class="vb-emblem w3-image" src="/assets/images/viggo-brun-prisen/viggo-brun-emblem-gold.svg"
+         alt="" aria-hidden="true">
+
+    <div class="vb-diploma-inner w3-center">
+
+      <img class="vb-mark w3-image" src="/assets/images/viggo-brun-prisen/viggo-brun-mark-blue.svg" alt="">
+
+      <div class="vb-award">
+        <img class="vb-brace vb-brace--left w3-image w3-hide-small"  src="/assets/images/viggo-brun-prisen/viggo-brun-brace.svg" alt="" aria-hidden="true">
+        <img class="vb-brace vb-brace--right w3-image w3-hide-small" src="/assets/images/viggo-brun-prisen/viggo-brun-brace.svg" alt="" aria-hidden="true">
+
+        <div class="vb-award-inner">
+          <h1 class="vb-title">
+            <span class="vb-wordmark">Viggo&nbsp;Brun<br>Prisen</span>
+            {% if page.year %}<span class="vb-year">{{ page.year }}</span>{% endif %}
+          </h1>
+
+          <div class="vb-rule vb-rule--hatch" aria-hidden="true"></div>
+
+          {% if page.laureate %}
+          <p class="vb-label">Tildeles</p>
+          <p class="vb-laureate">{{ page.laureate }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if page.citation %}
+      <p class="vb-label vb-label--for">For</p>
+      <p class="vb-citation">{{ page.citation }}</p>
+      {% endif %}
+
+    </div>
+  </header>
+
+  <div class="vb-rule vb-rule--dots" aria-hidden="true"></div>
+
+  <div class="vb-signature w3-center">
+    <img src="/assets/images/nmf-bare-logo.svg" class="w3-image" alt="" aria-hidden="true">
+    <p class="vb-signature-name">Norsk Matematisk Forening</p>
+  </div>
+
+  <div class="w3-container w3-padding post-content">
+    {{ content }}
+  </div>
+
+
+  <div class="w3-container w3-light-grey w3-padding w3-center">
+    <a href="/nyheter/" class="w3-button nmf-primary back-button w3-round" aria-label="Tilbake til nyheter">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
+      <span class="label">Tilbake til nyheter</span>
+    </a>
+  </div>
+
+</article>

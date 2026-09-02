@@ -1,0 +1,18 @@
+{%- comment -%}
+  The cover image inside a .post-hero header.
+
+  Parameters:
+    post   (required) the post whose image to render.
+
+  By default the image covers the header exactly, centred. A hero-zoom below 1
+  also adds .is-contained, which fits the whole image inside the header instead
+  of covering it — zooming out is what you do for a logo, and a logo wants to be
+  shown whole rather than cropped. See _includes/hero_style.html for the
+  modifiers themselves.
+{%- endcomment -%}
+{%- assign hero_zoom = include.post["hero-zoom"] -%}
+{%- assign contained = false -%}
+{%- if hero_zoom -%}{%- assign z = hero_zoom | plus: 0 -%}{%- if z < 1 -%}{%- assign contained = true -%}{%- endif -%}{%- endif -%}
+{%- if include.post.image -%}
+<img class="post-hero-img{% if contained %} is-contained{% endif %}" src="{{ include.post.image }}" alt="" />
+{%- endif -%}

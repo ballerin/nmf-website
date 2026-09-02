@@ -221,7 +221,9 @@ Your Markdown content starts here…
 | `categories` | ✅ | Which listing page the post appears on. Must match the table above. |
 | `author` | — | Shown as the byline. `NMF` if it comes from the society. |
 | `image` | — | The large image at the top and on the card. Leave it out and the card has no picture. |
-| `image-background` | — | A color painted behind the card image, for images with a transparent background (a logo, for example). Any CSS color works: `"#ffffff"`, `"white"`, `"#f5f5f5"`. Leave it out and the card keeps the usual NMF color. |
+| `image-background` | — | A color painted behind the image, both at the top of the post and on the card, for images with a transparent background (a logo, for example). Any CSS color works: `"#ffffff"`, `"white"`, `"#f5f5f5"`. Leave it out and the usual NMF color is used. |
+| `hero-zoom`, `hero-shift` | — | Adjust how the image is framed **at the top of the post**. See *Framing the image* below. |
+| `card-zoom`, `card-shift` | — | The same, for the image **on the listing card**. See *Framing the image* below. |
 | `start-date`, `end-date` | events | When the event actually **happens** — this is what draws the date badge on event cards. For a one-day event, set both to the same day. |
 
 Note that `date` and `start-date` answer different questions. `date` is when you are announcing the event (on the website); `start-date` and `end-date` are when the event runs. If `start-date` and `end-date` are missing, then the website falls back on `date`. For a news article you only need `date`, as this is not an event.
@@ -253,6 +255,43 @@ Put the image file in the repository first, then reference it with a path starti
 | A PDF or other document | `assets/documents/` | `/assets/documents/generalforsamling/referat-gf-2010.pdf` |
 
 News articles and events get **one folder per post**, named exactly after the post file (without the `.md`) — that keeps the images with the article they belong to and makes them easy to find and remove later. So a post at `_posts/arrangementer/2026-05-12-nasjonalt-matematikermote-2026.md` keeps its images in `assets/arrangementer/2026-05-12-nasjonalt-matematikermote-2026/`.
+
+## Framing the image (zoom and shift)
+
+By default the image fills its space, centred, and whatever does not fit is cut off. Most photographs look right that way and need nothing more. When the interesting part sits off to one side, or a logo comes out far too big, four optional fields let you adjust it.
+
+Picture it as a **window**: the image sits behind the page and carries on past the edges of the frame, and you are choosing how big it is and where it sits behind that window.
+
+| Field | Default | What it does |
+|---|---|---|
+| `hero-zoom` | `1` | How big the image is at the top of the post. `1.4` moves in closer; `0.6` pulls back and shows more of the picture. |
+| `hero-shift` | `0` | Slides that image up or down, in pixels. `40` moves it **down**, so you see more of its top; `-40` moves it up. |
+| `card-zoom` | `1` | The same, for the image on the listing card. |
+| `card-shift` | `0` | The same, for the image on the listing card. |
+
+The top of the post and the card are set separately on purpose. The one at the top is wide and short, the card is nearly square, so the same photograph usually wants different numbers in each. Set only the ones you need — leaving a field out is the same as setting it to its default.
+
+**Zooming out below `1` shows colour around the edges**, because the image is no longer big enough to fill the frame. For a logo that is usually the point: pair it with `image-background` to choose that colour.
+
+### Finding the right numbers
+
+There is no way to work these out on paper. Change a number, reload the page, look, repeat. Three things make that quicker:
+
+- **Move in small steps.** `1.1`, `1.2`, `1.3`. Jumping straight to `3` rarely tells you anything useful.
+- **Get the zoom right first, then shift.** The right size often fixes the framing on its own.
+- **A shift can only move within what the image has to spare.** At `hero-zoom: 1` a wide photograph has very little spare height, so a large `hero-shift` simply pulls it off the edge and shows colour there. Zoom in a little first to give it room to move.
+
+A worked example. A square logo at the top of a post comes out enormous, because the image is sized to fill a frame far wider than it is tall. Pull it back and give it a white backdrop:
+
+```yaml
+image: "/assets/images/nmf-bare-logo.svg"
+image-background: "white"
+hero-zoom: 0.5
+```
+
+That is `_posts/nyheter/2026-08-30-generalforsamling-10-09-2026.md` — copy from it if you are doing the same thing.
+
+**One caveat, and it mostly bites logos.** The zoom is measured against the size the image would have to be to fill the frame, and that size depends on how wide the browser window is. So a number that shows a whole logo on a phone will still clip it on a wide desktop screen, and a number that fits a desktop screen leaves it small on a phone. Check at both — drag the window narrow and wide — and settle on the compromise you prefer. For photographs this rarely matters, since a photograph is meant to be cropped.
 
 ## Tips
 

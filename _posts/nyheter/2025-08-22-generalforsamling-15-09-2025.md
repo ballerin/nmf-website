@@ -6,6 +6,8 @@ categories: [news]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "white"
+hero-zoom: 0.3
+card-zoom: 0.7
 ---
 
 # Generalforsamling 2025

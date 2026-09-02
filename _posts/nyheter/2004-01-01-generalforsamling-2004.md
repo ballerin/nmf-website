@@ -5,6 +5,8 @@ categories: [news]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "white"
+hero-zoom: 0.3
+card-zoom: 0.7
 ---
 
 **Tid**: 25. mars 2004, kl. 19.00

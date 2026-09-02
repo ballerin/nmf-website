@@ -1,0 +1,30 @@
+{%- comment -%}
+  The <img> inside a card, with the optional framing modifiers applied.
+  Shared by news_card.html, event_card.html and infomat_card.html.
+
+  Parameters:
+    post   (required) the post whose image and modifiers to use.
+    zoom   scale factor, overriding the post's own "card-zoom".
+    shift  vertical offset in pixels, overriding the post's own "card-shift".
+
+  Front matter read off that post:
+    image       the card image.
+    card-zoom   scale factor. 1, the default, covers the card exactly. Above 1
+                zooms in. Below 1 also switches the image to "contain", so the
+                whole of it shows, smaller — that is the logo case.
+    card-shift  vertical offset in pixels. 0 is the default; a positive number
+                moves the image down and so reveals more of its top edge.
+
+  The shift moves the image within the card rather than moving the card, so it
+  pans across whatever the image overflows by; pushed past that, the card's
+  background color shows along the edge.
+{%- endcomment -%}
+{%- assign card_zoom = include.zoom | default: include.post["card-zoom"] -%}
+{%- assign card_shift = include.shift | default: include.post["card-shift"] -%}
+{%- assign contained = false -%}
+{%- if card_zoom -%}{%- assign z = card_zoom | plus: 0 -%}{%- if z < 1 -%}{%- assign contained = true -%}{%- endif -%}{%- endif -%}
+{%- capture card_style -%}
+  {%- if card_zoom %}--card-zoom:{{ card_zoom }};{% endif -%}
+  {%- if card_shift %}--card-shift:{{ card_shift }}px;{% endif -%}
+{%- endcapture -%}
+<img src="{{ include.post.image }}"{% if contained %} class="is-contained"{% endif %} alt="{{ include.post.title }}" loading="lazy"{% if card_style != "" %} style="{{ card_style }}"{% endif %} />

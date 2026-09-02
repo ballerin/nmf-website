@@ -3,7 +3,9 @@ layout: default
 ---
 <!-- FRONT MATTER FIELDS:
   Required: layout, title
-  Optional: publish_date, author, image, eyebrow, back_link, back_label
+  Optional: publish_date, author, image, eyebrow, back_link, back_label,
+            hero-zoom, hero-shift, image-background
+            (frame the hero image — see _includes/hero_style.html)
 
   Note: publish_date is used instead of date to avoid
   Jekyll's built-in page.date which defaults to file mtime.
@@ -11,7 +13,8 @@ layout: default
 
 <article class="post-article w3-border w3-round-large w3-margin-bottom">
 
-  <header class="post-hero"{% if page.image %} style="background-image: url('{{ page.image }}')"{% endif %}>
+  <header class="post-hero"{% include hero_style.html post=page %}>
+    {% include hero_image.html post=page %}
     <div class="post-hero-overlay">
       <div class="post-hero-text">
         {% if page.eyebrow %}
