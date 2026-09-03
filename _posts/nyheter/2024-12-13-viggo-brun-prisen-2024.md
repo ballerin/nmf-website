@@ -1,13 +1,16 @@
 ---
-layout: nyheter_template
-title: "Viggo Brun-prisen 2024"
+layout: viggo_brun_template
+title: "TEST Viggo Brun-prisen 2024"
 date: 2024-12-13 09:00:00 +0100
-categories: [news]
+categories: [news, vb-prisen]
 author: NMF
-image: "/assets/nyheter/common_images/viggo_brun_portrait_cropped.jpg"
+year: 2024
+laureate: "Jørgen Vold Rennemo"
+citation: "hans fremragende bidrag til teorien og anvendelsene av deriverte kategorier i algebraisk geometri, spesielt for løsningen til “Crepant Resolution”–formodningen i Donaldson–Thomas teori, for introduseringen av ‘hori-mologisk dualitet’, for et nytt bevis av Torelli-teoremet for kubiske firfoldigheter og for konstruksjonen av de første eksemplene av Fano-varieteter med torsjon i den tredje kohomologigruppen."
+image: "/assets/images/viggo-brun-prisen/viggo-brun-prisen-wide-blue.svg"
+image-background: "#cfd9c9"
+card-zoom: 0.8
 ---
-
-Viggo Brun-prisen for 2024 tildeles __Jørgen Vold Renemmo__ for hans fremragende bidrag til teorien og anvendelsene av deriverte kategorier i algebraisk geometri, spesielt for løsningen til “Crepant Resolution”–formodningen i Donaldson–Thomas teori, for introduseringen av ‘hori-mologiskdualitet’, for et nytt bevis av Torelli-teoremet for kubiske firfoldigheter og or konstruksjonen av de første eksemplene av Fano-varieteter med torsjon i den tredje kohomologigruppen.
 
 Jørgen Vold Rennemo (f.dt 1989) er en norsk matematiker med mastergrad fra Universitetet i Oslo i 2010 og doktorgrad fra Imperial College, London, i 2015. Etterpå var postdoktor ved Universitetet i Oxford fra 2015 til 2017. I 2017 kom han til Universitetet i Oslo, f.rst som postdoktor og fra 2021 som førsteamanuensis.
 

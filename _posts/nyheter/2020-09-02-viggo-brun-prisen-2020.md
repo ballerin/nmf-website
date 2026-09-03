@@ -1,12 +1,15 @@
 ---
-layout: nyheter_template
+layout: viggo_brun_template
 title: "Viggo Brun-prisen 2020"
-categories: [news]
+categories: [news, vg-prisen]
 author: NMF
-image: "/assets/nyheter/common_images/viggo_brun_portrait_cropped.jpg"
+year: 2020
+laureate: "John Christian Ottem"
+citation: "his deep and original contributions to algebraic geometry, especially to the theory for birational varieties of higher dimension and to questions concerning positivity and existence of cycles."
+image: "/assets/images/viggo-brun-prisen/viggo-brun-prisen-wide-blue.svg"
+image-background: "#cfd9c9"
+card-zoom: 0.8
 ---
-
-The Viggo Brun Prize 2020 is awarded to __John Christian Ottem__ for his deep and original contributions to algebraic geometry, especially to the theory for birational varieties of higher dimension and to questions concerning positivity and existence of cycles.
 
 John Christian Ottem (born 1985) is a Norwegian mathematician with a bachelor and a master degree from the University of Oslo. His PhD degree is from the University of Cambridge in 2013, where his advisor was Burt Totaro. Ottem held a post doc position at the University of Cambridge from 2013 to 2016. In 2016 he became an associate professor – and in 2019 a professor – at the University of Oslo.
 

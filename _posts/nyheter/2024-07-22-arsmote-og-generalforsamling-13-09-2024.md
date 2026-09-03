@@ -4,6 +4,10 @@ title: "Årsmøte og Generalforsamling 13/09/2024"
 date: 2024-07-22 10:00:00 +0100
 categories: [news]
 author: NMF
+image: "/assets/images/nmf-bare-logo.svg"
+image-background: "#b37a7a"
+hero-zoom: 0.5
+card-zoom: 0.7
 ---
 
 ## Årsmøte

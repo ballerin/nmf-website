@@ -1,12 +1,15 @@
 ---
-layout: nyheter_template
+layout: viggo_brun_template
+year: 2022
 title: "Viggo Brun-prisen 2022"
-categories: [news]
+categories: [news, vb-prisen]
 author: NMF
-image: "/assets/nyheter/common_images/viggo_brun_portrait_cropped.jpg"
+laureate: "Nina Holden"
+citation: "her exceptionally deep and broad contributions to probability theory, especially for her work on random surfaces and quantum gravity in two dimensions."
+image: "/assets/images/viggo-brun-prisen/viggo-brun-prisen-wide-blue.svg"
+image-background: "#cfd9c9"
+card-zoom: 0.8
 ---
-
-The Viggo Brun Prize for 2022 is awarded to __Nina Holden__ for her exceptionally deep and broad contributions to probability theory, especially for her work on random surfaces and quantum gravity in two dimensions.
 
 Nina Holden (born 1986) is a Norwegian mathematician with MSc from the University of Oslo in 2010 and PhD from the Massachusetts Institute of Technology in 2018. She is currently a Post-Doc at ETH Zürich and has accepted a position as Associate Professor at the Courant Institute of Mathematical Sciences, New York University, starting in fall 2022. In 2021 Nina Holden was honored with the Maryam Mirzakhani New Frontiers Prize.
 

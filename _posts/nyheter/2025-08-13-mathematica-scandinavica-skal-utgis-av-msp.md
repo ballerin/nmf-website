@@ -4,6 +4,7 @@ title: "Mathematica Scandinavica skal utgis av MSP"
 date: 2025-08-13 09:00:00 +0200
 categories: [news]
 author: NMF
+image: "/assets/nyheter/2025-08-13-mathematica-scandinavica-skal-utgis-av-msp/mathematica_scandinavica_logo.png"
 ---
 
 De fem nordiske matematikkforeningene driver tidsskriftet Mathematica Scandinavica. Norsk redaktør for tiden er Paul Arne Østvær og i board of associate editors er vi representert ved Espen Robstad, Sigbjørn Hervik og Kristian Seip.

@@ -5,8 +5,8 @@ date: 2026-08-30 09:00:00 +0200
 categories: [news]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
-image-background: "white"
-hero-zoom: 0.3
+image-background: "#b37a7a"
+hero-zoom: 0.5
 card-zoom: 0.7
 ---
 
