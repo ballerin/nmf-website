@@ -4,6 +4,19 @@ title: "Abelkonkurransen"
 permalink: /abelkonkurransen/
 ---
 
+<style>
+  /* Konkurransens struktur: one grid of equal-height cards so the key-number
+     strips, pinned to the bottom edge, line up however long the text is.
+     Everything else is W3.CSS. Accents come from the design tokens in
+     assets/main.css, so they follow body.brand-theme. */
+  .abel-steps { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); list-style: none; padding: 0; }
+  .abel-card { display: flex; flex-direction: column; border-top: 4px solid var(--nmf-primary); }
+  .abel-card dl { margin: auto 0 0; }
+  .abel-card dl div { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.35rem 0; }
+  .abel-card dd { margin: 0; font-weight: 600; }
+  .abel-note { border-left-color: var(--nmf-primary) !important; }
+</style>
+
 {% include default_opening.html
   heading="Abelkonkurransen"
   subtitle="Niels Henrik Abels matematikkonkurranse for videregående skole. Informasjon om konkurransens struktur, internasjonale konkurranser og ressurser for deltakere."
@@ -16,38 +29,51 @@ permalink: /abelkonkurransen/
       <img src="/assets/images/abel.jpg" alt="Niels Henrik Abel" class="portrait-img">
     </div>
     <div class="w3-rest">
-      <p>Abelkonkurransen er den norske nasjonale matematikkolympiaden og er åpen for alle elever ved norske videregående skoler. Konkurransen avvikles i to runder og kulminerer med at de beste norske deltakerne representerer landet i internasjonale konkurranser.</p>
-      <p>Niels Henrik Abel (1802–1829) er Norges fremste matematiker gjennom tidene. Han er mest kjent for å ha bevist at den generelle femtegradsligningen ikke kan løses med radikaler, og for grunnleggende bidrag til elliptiske funksjoner og abelsk gruppenteori. Abelkonkurransen bærer hans navn som en hyllest til hans matematiske arv.</p>
-      <p>Vi vil også nevne <a href="http://ungeabel.lamis.no/" target="_blank" rel="noopener">UngeAbel</a> — en tilsvarende konkurranse for ungdomsskoleelever arrangert av LAMIS. NMF er ikke involvert i UngeAbel, men oppfordrer ungdomsskoleelever til å delta.</p>
+      <p>Abelkonkurransen er den norske nasjonale matematikkolympiaden. Den er først og fremst for elever ved norske videregående skoler, men elever fra ungdomsskolen kan også delta. Abelkonkurransen har blitt arrangert i Norge siden 1993, og flere tusen elever i videregående har vært med. Elever som gjør det bra i konkurransen kan bli invitert til internasjonale konkurranser i matematikk.</p>
+      <p>Norsk matematisk forening eier konkurransen. Matematikksenteret har det administrative ansvaret for gjennomføringen, mens det faglige ansvaret primært ligger hos Institutt for matematiske fag ved NTNU.</p>
+      <p>Niels Henrik Abel (1802–1829) er Norges fremste matematiker gjennom tidene. Han er mest kjent for å ha bevist at den generelle femtegradsligningen ikke kan løses ved algebraiske operasjoner, og for grunnleggende bidrag til teorien om elliptiske funksjoner. Begrepet «abelsk gruppe» er oppkalt etter ham. Abelkonkurransen bærer hans navn som en hyllest til hans matematiske arv.</p>
     </div>
   </div>
 </div>
 
 <div class="w3-container w3-padding">
   {% include section_heading.html level="h3" title="Konkurransens struktur" id="konkurransens-struktur" %}
-  <div class="w3-row-padding w3-stretch w3-margin-top">
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-card-4 w3-round-large w3-white" style="height:100%; padding:1.5rem;">
-        <div style="font-size:2rem; color:var(--nmf-primary); margin-bottom:0.5rem;">①</div>
-        <h3 style="margin-top:0;" class="text-nmf-primary">Første runde</h3>
-        <p>Avholdes ved skolene i <strong>november</strong>. Alle elever på videregående kan delta. Oppgavene er flervalgsspørsmål og kortsvar. De beste fra hele landet går videre til andre runde.</p>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-card-4 w3-round-large w3-white" style="height:100%; padding:1.5rem;">
-        <div style="font-size:2rem; color:var(--nmf-primary); margin-bottom:0.5rem;">②</div>
-        <h3 style="margin-top:0;" class="text-nmf-primary">Andre runde</h3>
-        <p>Avholdes i <strong>februar</strong>. Oppgavene er mer krevende og krever begrunnede løsninger. De beste kandidatene i denne runden inviteres til å representere Norge internasjonalt.</p>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-card-4 w3-round-large w3-white" style="height:100%; padding:1.5rem;">
-        <div style="font-size:2rem; color:var(--nmf-primary); margin-bottom:0.5rem;">🏆</div>
-        <h3 style="margin-top:0;" class="text-nmf-primary">Internasjonale konkurranser</h3>
-        <p>De beste representerer Norge i blant annet <strong>IMO</strong> (International Mathematical Olympiad), <strong>NMC</strong> (Nordic Mathematical Contest) og <strong>Baltic Way</strong>.</p>
-      </div>
-    </div>
-  </div>
+  <p>Konkurransen har to innledende runder ute på skolene og en nasjonal finale ved NTNU i Trondheim. Rundene går på omtrent samme tid hvert år; de nøyaktige datoene for inneværende skoleår finner du hos <a href="https://www.matematikksenteret.no/konkurranser/abelkonkurransen" target="_blank" rel="noopener">Matematikksenteret</a>.</p>
+
+  <ol class="abel-steps w3-margin-top">
+    <li class="w3-card w3-white w3-padding abel-card w3-round">
+      <h4 class="text-nmf-primary"><span class="w3-badge nmf-primary" aria-hidden="true">1</span> Første runde</h4>
+      <p class="w3-small w3-text-grey">Høst · på skolen</p>
+      <p>Første runde foregår digitalt på skolen. Hver oppgave har fem svaralternativer, og bare ett av dem er riktig.</p>
+      <dl class="w3-light-grey w3-padding-small w3-round">
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Oppgaver</dt><dd>20 flervalg</dd></div>
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Tid</dt><dd>100 minutter</dd></div>
+        <div><dt class="w3-small w3-text-grey">Videre</dt><dd>Beste 10 %</dd></div>
+      </dl>
+    </li>
+
+    <li class="w3-card w3-white w3-padding abel-card w3-round">
+      <h4 class="text-nmf-primary"><span class="w3-badge nmf-primary" aria-hidden="true">2</span> Andre runde</h4>
+      <p class="w3-small w3-text-grey">Vinter · på skolen</p>
+      <p>De 10 prosentene som gjør det best, går videre. Andre runde holdes også på skolen, med vanskeligere oppgaver der svaret er et heltall i området 0–999.</p>
+      <dl class="w3-light-grey w3-padding-small w3-round">
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Oppgaver</dt><dd>10 kortsvar</dd></div>
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Tid</dt><dd>100 minutter</dd></div>
+        <div><dt class="w3-small w3-text-grey">Videre</dt><dd>Ca. 20 beste</dd></div>
+      </dl>
+    </li>
+
+    <li class="w3-card w3-white w3-padding abel-card w3-round">
+      <h4 class="text-nmf-primary"><span class="w3-badge nmf-primary" aria-hidden="true">3</span> Finalen</h4>
+      <p class="w3-small w3-text-grey">Vår · NTNU, Trondheim</p>
+      <p>Resultatene fra de innledende rundene summeres, og de beste 20 (og ofte noen til) inviteres til finalen, som holdes ved NTNU i Trondheim med treningsleir i forkant. Svarene skal begrunnes.</p>
+      <dl class="w3-light-grey w3-padding-small w3-round">
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Oppgaver</dt><dd>4 langsvar</dd></div>
+        <div class="w3-border-bottom"><dt class="w3-small w3-text-grey">Tid</dt><dd>4 timer</dd></div>
+        <div><dt class="w3-small w3-text-grey">Videre</dt><dd>Internasjonalt uttak</dd></div>
+      </dl>
+    </li>
+  </ol>
 </div>
 
 <div class="w3-container w3-padding">
@@ -62,14 +88,19 @@ permalink: /abelkonkurransen/
     </thead>
     <tbody>
       <tr>
-        <td><a href="https://www.imo-official.org/" target="_blank" rel="noopener">IMO — International Mathematical Olympiad</a></td>
+        <td><a href="https://www.imo-official.org/" target="_blank" rel="noopener">International Mathematical Olympiad (IMO)</a></td>
         <td>Globalt</td>
-        <td>6 elever</td>
+        <td>Inntil 6 elever</td>
       </tr>
       <tr>
-        <td><a href="https://www.georgiamath.ge/nmc" target="_blank" rel="noopener">NMC — Nordic Mathematical Contest</a></td>
+        <td><a href="https://www.egmo.org/" target="_blank" rel="noopener">European Girls’ Mathematical Olympiad (EGMO)</a></td>
+        <td>Europeisk</td>
+        <td>Inntil 4 jenter</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.georgmohr.dk/nmcperm/" target="_blank" rel="noopener">Nordic Mathematical Contest (NMC)</a></td>
         <td>Nordisk</td>
-        <td>20 elever</td>
+        <td>Inntil 20 elever</td>
       </tr>
       <tr>
         <td>Baltic Way</td>
@@ -78,14 +109,18 @@ permalink: /abelkonkurransen/
       </tr>
     </tbody>
   </table>
+  <p style="max-width:680px; margin-left:auto; margin-right:auto;">Deltakelse i internasjonale konkurranser er normalt forbeholdt finalistene i Abelkonkurransen. I tillegg kommer formelle krav som varierer fra konkurranse til konkurranse, blant annet aldersbegrensninger og krav til statsborgerskap eller varig oppholdstillatelse. Uttak til IMO skjer primært på grunnlag av resultater fra finalen og den nordiske matematikkonkurransen (NMC).</p>
 </div>
 
 <div class="w3-container w3-padding">
   {% include section_heading.html level="h3" title="Ressurser og påmelding" id="ressurser-og-pamelding" %}
   <ul class="pekere-list">
-    <li><a href="http://abelkonkurransen.no/nb/" target="_blank" rel="noopener">Abelkonkurransens offisielle nettside</a> — oppgavearkiv, resultater og påmelding</li>
+    <li><a href="https://www.matematikksenteret.no/konkurranser/abelkonkurransen" target="_blank" rel="noopener">Abelkonkurransens offisielle nettside</a> (Matematikksenteret) — datoer, resultater og informasjon</li>
+    <li><a href="https://www.matematikksenteret.no/konkurranser/abelkonkurransen/bli-med-i-abelkonkurransen" target="_blank" rel="noopener">Bli med i Abelkonkurransen</a> — registrering av skolekontakt</li>
+    <li><a href="https://www.matematikksenteret.no/konkurranser/abelkonkurransen/regler-abelkonkurransen" target="_blank" rel="noopener">Regler og praktisk informasjon</a> — poengberegning, hjelpemidler og gjennomføring</li>
+    <li><a href="https://www.matematikksenteret.no/konkurranser/abelkonkurransen/oppgaver-og-l%C3%B8sninger" target="_blank" rel="noopener">Oppgaver og løsninger</a> — oppgavearkiv fra Abelkonkurransen, NMC, Baltic Way og IMO</li>
     <li><a href="https://www.imo-official.org/" target="_blank" rel="noopener">IMO Official</a> — resultater og historikk fra IMO</li>
-    <li><a href="http://ungeabel.lamis.no/" target="_blank" rel="noopener">UngeAbel</a> — matematikkonkurranse for ungdomsskoleelever (LAMIS)</li>
+    <li><a href="https://lamis.no/ungeabel/" target="_blank" rel="noopener">UngeAbel</a> — matematikkonkurranse for klasser på 9. trinn (LAMIS)</li>
   </ul>
-  <p>Påmelding til første runde skjer gjennom den offisielle nettsiden. Alle videregående skoler i Norge er automatisk invitert til å delta. Kontakt <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a> for mer informasjon.</p>
+  <p>Det er ingen påmelding for enkeltelever i Abelkonkurransen, men hver skole må ha en skolekontakt — en lærer — som registrerer seg på forhånd hos Matematikksenteret. Fristen for registrering er 25. oktober. Kontakt <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a> for mer informasjon.</p>
 </div>
