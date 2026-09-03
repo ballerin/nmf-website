@@ -30,5 +30,5 @@ __Poster__: [posterGF2026](/assets/nyheter/2026-08-30-generalforsamling-10-09-20
 | Referat NMF 2025 | | [PDF](/assets/nyheter/2026-08-30-generalforsamling-10-09-2026/referat_nmf_2025.pdf) |
 | Regnskap 2025 |  | [PDF](/assets/nyheter/2026-08-30-generalforsamling-10-09-2026/regnskap2025.pdf) |
 | Regnskap 2024 |  | [PDF](/assets/nyheter/2026-08-30-generalforsamling-10-09-2026/regnskap2024.pdf) |
-| valgkomiteens innstilling 2026  | | [PDF](/assets/nyheter/2026-08-30-generalforsamling-10-09-2026/Valgkomiteens_forslag.pdf) |
+| Valgkomiteens innstilling 2026  | | [PDF](/assets/nyheter/2026-08-30-generalforsamling-10-09-2026/Valgkomiteens_forslag.pdf) |
 
