@@ -1,6 +1,6 @@
 ---
 layout: viggo_brun_template
-title: "TEST Viggo Brun-prisen 2024"
+title: "Viggo Brun-prisen 2024"
 date: 2024-12-13 09:00:00 +0100
 categories: [news, vb-prisen]
 author: NMF
