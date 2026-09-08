@@ -1,7 +1,7 @@
 ---
 layout: nyheter_template
 title: "Innkalling til generalforsamling 2004"
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "#b37a7a"

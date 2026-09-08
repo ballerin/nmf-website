@@ -5,7 +5,7 @@
 layout: nyheter_template
 title: "Eksempel på nyhetsartikkel (UTKAST)"
 date: 2026-06-01 09:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: "NMF"
 image: "/assets/images/nyheter/viggo_brun_portrait_cropped.jpg"
 ---

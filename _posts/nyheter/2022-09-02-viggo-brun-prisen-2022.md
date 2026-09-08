@@ -2,7 +2,7 @@
 layout: viggo_brun_template
 year: 2022
 title: "Viggo Brun-prisen 2022"
-categories: [news, vb-prisen]
+categories: [nyheter, vb-prisen]
 author: NMF
 laureate: "Nina Holden"
 citation: "her exceptionally deep and broad contributions to probability theory, especially for her work on random surfaces and quantum gravity in two dimensions."

@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Frontiers of Science Awards til Andrii Bondarenko, Kristian Seip og Nina Holden"
 date: 2024-09-02 09:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: NMF
 ---
 

@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Leiden declaration on artifical intelligence and mathematics"
 date: 2026-03-03 12:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/nyheter/2026-06-03-leiden-declaration/ai-hero.jpeg"
 ---

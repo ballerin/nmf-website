@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Nominasjon Viggo Brun pris 2026"
 date: 2026-02-05 09:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/images/viggo-brun-prisen/viggo-brun-prisen-wide-blue.svg"
 image-background: "#cfd9c9"

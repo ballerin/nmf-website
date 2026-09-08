@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "EMS-priser til Reinhard Siegmund-Schultze og Nina Holden"
 date: 2024-08-28 09:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: NMF
 ---
 

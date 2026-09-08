@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Årsmøte og Generalforsamling 13/09/2024"
 date: 2024-07-22 10:00:00 +0100
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "#b37a7a"

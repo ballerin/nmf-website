@@ -109,7 +109,7 @@ permalink: /
   </div>
 
   <div class="card-grid">
-  {% assign news_posts = site.posts | where: "categories", "news" | sort: "date" | reverse | slice: 0, 3 %}
+  {% assign news_posts = site.posts | where: "categories", "nyheter" | sort: "date" | reverse | slice: 0, 3 %}
   {% for post in news_posts %}
     {% include news_card.html post=post size="short" %}
   {% endfor %}

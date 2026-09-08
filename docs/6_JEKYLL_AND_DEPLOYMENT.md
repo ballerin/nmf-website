@@ -15,7 +15,7 @@ _layouts/nyheter_template.html           ← the frame around it
         +
 _includes/default_header.html            ← the shared pieces
         ↓  jekyll build
-_site/news/2026/03/02/icm-2026.html      ← what visitors get
+_site/nyheter/2026/03/02/icm-2026.html      ← what visitors get
 ```
 
 Three consequences worth understanding:

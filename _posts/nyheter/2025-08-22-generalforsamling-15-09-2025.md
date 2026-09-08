@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Inkalling til generalforsamling 15/09/2025"
 date: 2025-08-22 09:00:00 +0200
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "#b37a7a"

@@ -1,7 +1,7 @@
 ---
 layout: viggo_brun_template
 title: "Viggo Brun-prisen 2020"
-categories: [news, vg-prisen]
+categories: [nyheter, vg-prisen]
 author: NMF
 year: 2020
 laureate: "John Christian Ottem"

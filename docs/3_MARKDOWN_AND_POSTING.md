@@ -175,7 +175,7 @@ There are three kinds of post, and each has its own folder, layout, and category
 
 | Kind | Folder | `layout:` | `categories:` |
 |---|---|---|---|
-| News article | `_posts/nyheter/` | `nyheter_template` | `[news]` |
+| News article | `_posts/nyheter/` | `nyheter_template` | `[nyheter]` |
 | Event | `_posts/arrangementer/` | `arrangement_template` | `[arrangement]` |
 | INFOMAT issue | `_posts/infomat/` | `infomat_template` | `[infomat]` |
 
@@ -240,7 +240,7 @@ For an event that is far off, this is the trap: put **today's date** (or the ann
 
 **2. The folder name does not set the category — `categories` does.**
 
-Putting a file in `_posts/nyheter/` does *not* make it a news post. The folders exist only to keep things tidy. A post in `_posts/nyheter/` with `categories: [nyheter]` instead of `[news]` is published at its own address but appears on no listing page, so nobody will ever find it. Copy the value from the table above exactly.
+Putting a file in `_posts/nyheter/` does *not* make it a news post. The folders exist only to keep things tidy. A post in `_posts/nyheter/` with `categories: [news]` instead of `[nyheter]` is published at its own address but appears on no listing page, so nobody will ever find it. Copy the value from the table above exactly.
 
 ## Where images go
 

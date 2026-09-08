@@ -2,7 +2,7 @@
 layout: viggo_brun_template
 title: "Viggo Brun-prisen 2024"
 date: 2024-12-13 09:00:00 +0100
-categories: [news, vb-prisen]
+categories: [nyheter, vb-prisen]
 author: NMF
 year: 2024
 laureate: "Jørgen Vold Rennemo"

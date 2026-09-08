@@ -11,7 +11,7 @@ permalink: /nyheter/
 
 <div class="card-grid">
 {% for post in site.posts %}
-  {% if post.categories contains 'news' %}
+  {% if post.categories contains 'nyheter' %}
   {% include news_card.html post=post %}
   {% endif %}
 {% endfor %}

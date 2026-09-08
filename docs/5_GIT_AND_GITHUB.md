@@ -267,7 +267,7 @@ For anything you could fix yourself in one word — a typo, a wrong date, a miss
 
 ````
 ```suggestion
-categories: [news]
+categories: [nyheter]
 ```
 ````
 

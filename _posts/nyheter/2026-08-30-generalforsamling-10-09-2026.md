@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Inkalling til generalforsamling 10/09/2026"
 date: 2026-08-30 09:00:00 +0200
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/images/nmf-bare-logo.svg"
 image-background: "#b37a7a"

@@ -2,7 +2,7 @@
 layout: nyheter_template
 title: "Mathematica Scandinavica skal utgis av MSP"
 date: 2025-08-13 09:00:00 +0200
-categories: [news]
+categories: [nyheter]
 author: NMF
 image: "/assets/nyheter/2025-08-13-mathematica-scandinavica-skal-utgis-av-msp/mathematica_scandinavica_logo.png"
 ---
