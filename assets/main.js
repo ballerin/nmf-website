@@ -178,3 +178,92 @@ function initEventFilter() {
 }
 
 window.addEventListener("DOMContentLoaded", initEventFilter);
+
+/* ============================================================================
+   CARD PAGINATION — splits a long .card-grid into pages of N cards
+
+   A grid opts in with data-paginate="12" and is paired with
+   {% include pagination.html for="<grid id>" %}. Every card stays in the HTML
+   and only off-page ones are hidden, with W3.CSS's w3-hide, so search engines
+   and a javascript-less browser still see the full list. Card images are
+   loading="lazy", so hidden cards cost no image requests.
+
+   The current page is mirrored in ?side=, which makes a page linkable and lets
+   the back button step through pages.
+   ========================================================================== */
+
+function setupCardPagination(grid) {
+	var perPage = parseInt(grid.getAttribute("data-paginate"), 10) || 12;
+	var cards = Array.prototype.slice.call(grid.children);
+	var nav = document.querySelector('[data-pagination-for="' + grid.id + '"]');
+	var totalPages = Math.ceil(cards.length / perPage);
+
+	// A single page needs no controls: every card stays visible, nav stays hidden.
+	if (!nav || totalPages < 2) return;
+
+	var steps = nav.querySelectorAll("[data-page-step]");
+	var list = nav.querySelector(".pagination-pages");
+	var numbers = [];
+	var current;
+
+	// The set of page buttons never changes, so build it once here; paging then
+	// only restyles them.
+	for (var page = 1; page <= totalPages; page++) {
+		var btn = document.createElement("button");
+		btn.type = "button";
+		btn.className = "w3-button w3-border w3-round";
+		btn.textContent = page;
+		btn.setAttribute("aria-label", "Side " + page);
+		btn.addEventListener("click", goToPage.bind(null, page, true));
+		numbers.push(list.appendChild(btn));
+	}
+
+	function pageFromUrl() {
+		return parseInt(new URLSearchParams(window.location.search).get("side"), 10) || 1;
+	}
+
+	function goToPage(page, fromClick) {
+		current = Math.min(Math.max(page, 1), totalPages);
+
+		cards.forEach(function(card, i) {
+			card.classList.toggle("w3-hide", Math.floor(i / perPage) + 1 !== current);
+		});
+
+		numbers.forEach(function(btn, i) {
+			var isCurrent = i + 1 === current;
+			btn.classList.toggle("is-current", isCurrent);
+			if (isCurrent) btn.setAttribute("aria-current", "page");
+			else btn.removeAttribute("aria-current");
+		});
+
+		steps.forEach(function(step) {
+			var target = current + parseInt(step.getAttribute("data-page-step"), 10);
+			step.disabled = target < 1 || target > totalPages;
+		});
+
+		if (fromClick) {
+			// Without this, clicking a control at the foot of the grid leaves the
+			// reader looking at the bottom of a page they have not seen.
+			grid.scrollIntoView({ behavior: "smooth", block: "start" });
+			window.history.pushState(null, "",
+				current === 1 ? window.location.pathname : "?side=" + current);
+		}
+	}
+
+	steps.forEach(function(step) {
+		step.addEventListener("click", function() {
+			goToPage(current + parseInt(step.getAttribute("data-page-step"), 10), true);
+		});
+	});
+
+	window.addEventListener("popstate", function() { goToPage(pageFromUrl(), false); });
+
+	goToPage(pageFromUrl(), false);
+	nav.hidden = false;
+}
+
+function initCardPagination() {
+	document.querySelectorAll("[data-paginate]").forEach(setupCardPagination);
+}
+
+window.addEventListener("DOMContentLoaded", initCardPagination);

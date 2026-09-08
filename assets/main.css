@@ -505,6 +505,26 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 /* Slimmer cards, used on the homepage — size="short" on any card include. */
 .card-grid-item--short { height: 210px; }
 
+/* ----------------------------------------------------------------------------
+   PAGINATION — the "forrige / 1 2 3 / neste" bar under a paginated card grid.
+   Markup in _includes/pagination.html, behaviour in assets/main.js.
+
+   Nearly all of it is W3.CSS: w3-center lays the buttons out, w3-button plus
+   w3-border and w3-round shape them, w3-button:hover greys them, w3-button
+   :disabled greys out forrige/neste at the ends, and off-page cards are hidden
+   with w3-hide. Only the current page's fill is left to define, since the brand
+   colour is not one of the w3-* colours. The !important is not optional here:
+   .w3-button:hover sets its own grey with !important, and would otherwise wipe
+   the fill off the current page as soon as the pointer crossed it.
+   -------------------------------------------------------------------------- */
+.pagination .w3-button { margin: 2px; }
+
+.pagination .is-current {
+	background-color: var(--nmf-primary) !important;
+	color: var(--nmf-on-primary) !important;
+	font-weight: 600;
+}
+
 /* Hidden event cards (revealed by JS based on user datetime). */
 .event-card--hidden { display: none !important; }
 

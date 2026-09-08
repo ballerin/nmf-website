@@ -9,10 +9,12 @@ permalink: /nyheter/
   subtitle= "Siste nytt fra NMF"  
 %}
 
-<div class="card-grid">
+<div class="card-grid" id="nyheterGrid" data-paginate="12">
 {% for post in site.posts %}
   {% if post.categories contains 'nyheter' %}
   {% include news_card.html post=post %}
   {% endif %}
 {% endfor %}
 </div>
+
+{% include pagination.html for="nyheterGrid" %}

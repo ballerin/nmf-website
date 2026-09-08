@@ -8,9 +8,11 @@ title: "Aktiviteter — Norsk Matematisk Forening"
   subtitle= "NMF organiserer og støtter arrangementer som bygger fagmiljøet, fremmer forskning og gir arenaer for undervisning og formidling."  
 %}
 
-<div class="card-grid">
+<div class="card-grid" id="arrangementerGrid" data-paginate="12">
   {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" | reverse %}
   {% for arrangement in arrangement_posts %}
     {% include event_card.html event=arrangement %}
   {% endfor %}
-  </div>
+</div>
+
+{% include pagination.html for="arrangementerGrid" %}

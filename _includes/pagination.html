@@ -1,0 +1,30 @@
+{%- comment -%}
+  Page controls for a paginated card grid. Renders "forrige / 1 2 3 / neste"
+  underneath a .card-grid.
+
+  Parameters:
+    for  (required) the id of the grid this controls, which must carry
+         data-paginate="<cards per page>".
+
+  Pair the two like this:
+
+    <div class="card-grid" id="nyheterGrid" data-paginate="12"> … </div>
+    {% include pagination.html for="nyheterGrid" %}
+
+  The look is W3.CSS: w3-center lays the buttons out, w3-button/w3-border/
+  w3-round shape them, and W3.CSS also supplies the hover and the greyed-out
+  disabled state. Only the current-page fill is ours, in assets/main.css.
+
+  initCardPagination() in assets/main.js fills in the page numbers and does the
+  hiding. Until it runs the nav stays hidden and every card is visible, so with
+  javascript off the page degrades to the full, unpaginated list it was before.
+{%- endcomment -%}
+<nav class="pagination w3-center w3-padding-16" data-pagination-for="{{ include.for }}" aria-label="Sidenavigering" hidden>
+  <button type="button" class="w3-button w3-border w3-round pagination-step" data-page-step="-1" rel="prev">
+    <span aria-hidden="true">←</span> Forrige
+  </button>
+  <span class="pagination-pages"></span>
+  <button type="button" class="w3-button w3-border w3-round pagination-step" data-page-step="1" rel="next">
+    Neste <span aria-hidden="true">→</span>
+  </button>
+</nav>
