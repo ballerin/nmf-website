@@ -1,18 +1,18 @@
 sections:
   - title: "Ledige stillinger"
-    icon: "fa-solid fa-star"
+    icon: "fa-solid fa-briefcase"
     links: 
       - label: "Nordic-Math.Job" 
         url: "https://www.maths.lth.se/nordic/index.html"
 
   - title: "Matematisk ordliste"
-    icon: "fa-solid fa-star"
+    icon: "fa-solid fa-spell-check"
     links: 
       - label: "Matematisk ordliste (Matematikkrådet)"
         url: "https://ordliste.matematikkradet.no/"
 
   - title: "For matematikkinteresserte"
-    icon: "fa-solid fa-star"
+    icon: "fa-solid fa-graduation-cap"
     links:
       - label: "Abelprisen"
         url: "http://www.abelprisen.no/"
@@ -48,7 +48,7 @@ sections:
         url: "http://www.uis.no/om_uis/teknisk-naturvitskapleg_fakultet/matematikk_og_naturvitskap/"
 
   - title: "Nordiske matematiske konferansesentre"
-    icon: "fa-solid fa-landmark"
+    icon: "fa-solid fa-person-chalkboard"
     links:
       - label: "Lie-Størmer Center"
         url: "https://lie-stormer.no/"
@@ -70,7 +70,7 @@ sections:
         url: "http://norskstatistiskforening.no/"
 
   - title: "Nordiske matematiske foreninger"
-    icon: "fa-solid fa-people-group"
+    icon: "fa-solid fa-handshake"
     links:
       - label: "Dansk Matematisk Forening"
         url: "https://mathematics.dk"
