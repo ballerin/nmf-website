@@ -32,7 +32,7 @@ navbar:
         url: /arrangementer/
       - label: Abelkonkuransen
         url: /abelkonkurransen/
-      - label: Abelsymposiet
+      - label: Abelsymposium
         url: https://abelsymposium.no/
         external: true
       - label: Generalforsamlinger
