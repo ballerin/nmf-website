@@ -1,6 +1,6 @@
 # Contributing to the NMF website
 
-Thanks for helping out. This is the website of **Norsk Matematisk Forening**.
+Thanks for helping out. This is the website of **Norsk matematisk forening**.
 
 ## The short version
 

@@ -34,6 +34,6 @@ Oppholdet i Jyväskylä var svært lærerikt og bidro både til faglig utvikling
 
 masterarbeidet. Jeg fikk verdifulle innspill fra professor Fässler og ble kjent med et inspirerende forskningsmiljø. Erfaringene fra oppholdet vil ha stor betydning for den videre utviklingen av min masteroppgave.
 
-Jeg er svært takknemlig overfor Norsk Matematisk Forening for tildelingen av Abelstipendet i 2025. Dette er etter min mening et svært godt initiativ som bidrar til å støtte studenter i Norge som studerer matematikk ved ulike universiteter. 
+Jeg er svært takknemlig overfor Norsk matematisk forening for tildelingen av Abelstipendet i 2025. Dette er etter min mening et svært godt initiativ som bidrar til å støtte studenter i Norge som studerer matematikk ved ulike universiteter. 
 
 ![Vegard Ingemann Hansen](/assets/images/abelstipend/vegard_ingemann_hansen.jpg)

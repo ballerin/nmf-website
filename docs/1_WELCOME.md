@@ -1,6 +1,6 @@
 # Welcome! 👋
 
-This is the documentation for the **Norsk Matematisk Forening** (NMF) website.
+This is the documentation for the **Norsk matematisk forening** (NMF) website.
 
 ## What is this?
 

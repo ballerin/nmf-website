@@ -12,7 +12,7 @@ card-zoom: 0.7
 
 ## Årsmøte
 
-Fredag 13/9 avholdes årsmøte i Norsk Matematisk Forening.
+Fredag 13/9 avholdes årsmøte i Norsk matematisk forening.
 
 __Sted__:   Soria Moria hotell, Oslo: Det tredje nasjonale matematikermøte
 

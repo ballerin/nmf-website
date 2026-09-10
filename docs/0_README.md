@@ -1,6 +1,6 @@
 # NMF Website — Documentation
 
-Website for **Norsk Matematisk Forening**. The site is built with [Jekyll](https://jekyllrb.com/) from plain text files, the files live on GitHub, and [Cloudflare Pages](https://pages.cloudflare.com/) publishes them to [matematikkforeningen.no](https://matematikkforeningen.no).
+Website for **Norsk matematisk forening**. The site is built with [Jekyll](https://jekyllrb.com/) from plain text files, the files live on GitHub, and [Cloudflare Pages](https://pages.cloudflare.com/) publishes them to [matematikkforeningen.no](https://matematikkforeningen.no).
 
 You do not need to understand all three to help out. Find your task below.
 

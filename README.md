@@ -1,6 +1,6 @@
 # nmf-website
 
-Website for **Norsk Matematisk Forening** — built with [Jekyll](https://jekyllrb.com/), hosted on [Cloudflare Pages](https://pages.cloudflare.com/).
+Website for **Norsk matematisk forening** — built with [Jekyll](https://jekyllrb.com/), hosted on [Cloudflare Pages](https://pages.cloudflare.com/).
 
 Live at **[matematikkforeningen.no](https://matematikkforeningen.no)**. Changes are tested on **[staging.nmf-website.pages.dev](https://staging.nmf-website.pages.dev)** first.
 
