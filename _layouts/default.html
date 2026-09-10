@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ page.title | default: site.title }}</title>
+  {%- comment -%}
+    SEO: every page carries the brand in its title tag, so the page front matter
+    holds only the specific part. The front page is exempt, its title already
+    leads with the full name.
+  {%- endcomment -%}
+  {%- assign page_title = page.title | default: site.title -%}
+  <title>{% if page.url == '/' %}{{ page_title }}{% else %}{{ page_title }} | Norsk Matematisk Forening{% endif %}</title>
   {% assign nav = site.data.navigation %}
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
