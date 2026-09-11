@@ -126,7 +126,14 @@ permalink: /
     <a href="/arrangementer/" class="btn-outline-arrow w3-hide-small">Se alle arrangementer <span class="btn-arrow">→</span></a>
   </div>
 
-  {% assign now_epoch = site.time | date: "%s" | plus: 0 %}
+  {% comment %}
+    Compare whole days, not timestamps: an event ending today is still on
+    today, so it must keep showing until the end of that day. A raw timestamp
+    comparison counts the end date as midnight at the start of its day and
+    would drop the event during its final day. main.js makes the same
+    day-granularity check on the rendered cards, using the visitor's date.
+  {% endcomment %}
+  {% assign now_date_num = site.time | date: "%Y%m%d" | plus: 0 %}
   {% assign arrangement_posts = site.posts | where: "categories", "arrangement" | sort: "start-date" %}
 
   {% comment %}
@@ -142,8 +149,8 @@ permalink: /
   {% assign shown = 0 %}
   {% for arrangement in arrangement_posts %}
     {% assign end_date_val = arrangement.end-date | default: arrangement.start-date | default: arrangement.date %}
-    {% assign end_epoch = end_date_val | date: "%s" | plus: 0 %}
-    {% if end_epoch >= now_epoch %}
+    {% assign end_date_num = end_date_val | date: "%Y%m%d" | plus: 0 %}
+    {% if end_date_num >= now_date_num %}
       {% assign shown = shown | plus: 1 %}
       {% if shown > max_visible_events %}{% assign card_hidden = true %}{% else %}{% assign card_hidden = false %}{% endif %}
     {% include event_card.html event=arrangement size="short" autohide=true hidden=card_hidden %}
