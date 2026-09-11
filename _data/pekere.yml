@@ -1,8 +1,10 @@
 sections:
   - title: "Ledige stillinger"
     icon: "fa-solid fa-briefcase"
-    links: 
-      - label: "Nordic-Math.Job" 
+    links:
+      - label: "Ledige stillinger i matematikk og statistikk i Norge"
+        url: "/ledige-stillinger/"
+      - label: "Nordic-Math.Job"
         url: "https://www.maths.lth.se/nordic/index.html"
 
   - title: "Matematisk ordliste"

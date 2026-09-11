@@ -37,7 +37,8 @@ permalink: /pekere_videre/
       <ul class="pekere-list">
         {% for link in section.links %}
         <li>
-          <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>{% if link.note %} — <em>{{ link.note }}</em>{% endif %}
+          {%- comment -%} Links to our own pages ("/...") stay in the same tab. {%- endcomment -%}
+          <a href="{{ link.url }}"{% assign first_char = link.url | slice: 0 %}{% if first_char != "/" %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>{% if link.note %} — <em>{{ link.note }}</em>{% endif %}
         </li>
         {% endfor %}
       </ul>

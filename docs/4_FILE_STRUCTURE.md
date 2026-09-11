@@ -28,7 +28,8 @@ nmf-website/
 │   ├── navigation.yml       ← Top menu bar
 │   ├── styremedlemmer.yml   ← Board members
 │   ├── carousel.yml         ← Front page slideshow
-│   └── pekere.yml           ← External links page
+│   ├── pekere.yml           ← External links page
+│   └── stillinger.yml       ← Vacant positions (Ledige stillinger)
 │
 ├── _layouts/                ← 🔴 Page templates
 ├── _includes/               ← 🔴 Reusable components
@@ -65,7 +66,7 @@ nmf-website/
 
 ## Data files you can edit
 
-These four files are the site's control panel. Editing them changes the site without touching a single template, which makes them the maintainer's most useful tool.
+These files are the site's control panel. Editing them changes the site without touching a single template, which makes them the maintainer's most useful tool.
 
 | File | What it controls | Edit when |
 |---|---|---|
@@ -73,6 +74,7 @@ These four files are the site's control panel. Editing them changes the site wit
 | `_data/styremedlemmer.yml` | The board members page: name, role, period, photo, affiliation | After an election or annual meeting |
 | `_data/carousel.yml` | The front page slideshow: which images, how many seconds between slides, whether it rotates automatically | You have better photos, e.g. after a conference |
 | `_data/pekere.yml` | The links page — sections of external links to institutions, journals, and societies | A link breaks or a new one is worth adding |
+| `_data/stillinger.yml` | The vacant positions page: title, level, institution, deadline, link. Newest at the top; copy the template at the start of the file, and keep the deadline quoted (`"2026-12-31"`) | A new position is announced |
 
 > ⚠️ **YAML is strict about indentation.** Use exactly 2 spaces per level, never tabs, and keep quotation marks and colons exactly as in the surrounding lines. The safest way to add an entry is to copy the block above it and change the values. An automatic check catches broken YAML before it can reach the site, so a mistake here is annoying but not dangerous.
 

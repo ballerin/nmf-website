@@ -17,6 +17,7 @@ Thanks for helping out. This is the website of **Norsk matematisk forening**.
 | News, events, INFOMAT issues | `_posts/nyheter/`, `_posts/arrangementer/`, `_posts/infomat/` (Markdown) |
 | Pages — history, membership, contact, front page | `_pages/` (HTML) |
 | Menu, board members, slideshow, links | `_data/*.yml` |
+| Vacant positions (Ledige stillinger) | `_data/stillinger.yml`, newest at the top (template in the file) |
 | Images and PDFs | `assets/` |
 
 Templates, styling, and configuration (`_layouts/`, `_includes/`, `assets/main.css`, `_config.yml`) run the site — ask the maintainer before changing them.

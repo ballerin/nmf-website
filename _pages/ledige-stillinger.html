@@ -1,0 +1,120 @@
+---
+layout: default
+title: "Ledige stillinger i matematikk og statistikk"
+levels:
+  - key: phd
+    label: "Stipendiat"
+  - key: postdoc
+    label: "Postdoktor"
+  - key: researcher
+    label: "Forsker"
+  - key: faculty
+    label: "Vitenskapelig stilling"
+  - key: other
+    label: "Annet"
+---
+
+<style>
+  /* Layout is W3.CSS; the brand colour for pressed buttons and open deadlines
+     comes from .nmf-primary / .text-nmf-primary in main.css, toggled by
+     main.js. What is left here is what W3.CSS has no class for. */
+
+  /* Breathing room when the filter buttons wrap onto several lines, as for
+     .pagination .w3-button in main.css. */
+  .jobs-filters .w3-button { margin: 2px 0; }
+
+  /* Keeps "Frist 31. august 2026" on one line in the narrow right column. */
+  .job-meta { white-space: nowrap; }
+
+  /* Until main.js takes over, show what was open when the site was built, so
+     the archive does not flash up first. Without javascript the class is
+     never set and the whole list shows. */
+  .jobs-pending .job--expired,
+  .jobs-pending .jobs-year--expired { display: none; }
+</style>
+
+<script>document.documentElement.classList.add("jobs-pending");</script>
+
+{% include default_opening.html
+  heading = "Ledige stillinger"
+  subtitle = "Vitenskapelige stillinger i matematikk og statistikk i Norge"
+%}
+
+{% assign build_today = site.time | date: "%Y-%m-%d" %}
+{% assign jobs = site.data.stillinger %}
+{%- comment -%}
+  Group by the year of the deadline, newest year first. Positions without a
+  deadline get an empty group name, which sorts first and so lands last after
+  the reverse. Within a year the order is the one in the data file.
+{%- endcomment -%}
+{% assign year_groups = jobs | group_by_exp: "job", "job.deadline | slice: 0, 4" | sort: "name" | reverse %}
+
+<div class="w3-content w3-container w3-padding-32" id="jobs">
+
+  {%- comment -%}
+    TODO: add Rodolfo Rios-Zertuche's email address once confirmed with him.
+    His UiT staff page is gone, so a UiT address may no longer work.
+  {%- endcomment %}
+  <p>Listen er en videreføring av <em>Nordic Math Job</em> for Norge. Annonser for nye stillinger kan sendes til Rodolfo Rios-Zertuche.</p>
+
+  <form class="jobs-filters w3-card w3-round-large w3-padding w3-white w3-margin-top" id="jobsFilters" role="search" onsubmit="return false" hidden>
+    <div>
+      <span class="w3-show-inline-block w3-margin-right" role="group" aria-label="Vis stillinger">
+        <button type="button" class="w3-button w3-border w3-round" data-view="open" aria-pressed="true">Åpne <span class="w3-opacity"></span></button>
+        <button type="button" class="w3-button w3-border w3-round" data-view="all" aria-pressed="false">Alle <span class="w3-opacity"></span></button>
+      </span>
+      <span class="w3-show-inline-block">
+        <label for="jobsFrom">Frist fra</label>
+        <select id="jobsFrom" class="w3-white w3-border w3-round w3-padding-small">
+          {% for group in year_groups %}{% if group.name != "" %}<option>{{ group.name }}</option>{% endif %}{% endfor %}
+        </select>
+        <label for="jobsTo">til</label>
+        <select id="jobsTo" class="w3-white w3-border w3-round w3-padding-small">
+          {% for group in year_groups %}{% if group.name != "" %}<option>{{ group.name }}</option>{% endif %}{% endfor %}
+        </select>
+      </span>
+    </div>
+    <input type="search" id="jobsSearch" class="w3-input w3-border w3-round w3-margin-top" placeholder="Søk i tittel, sted, fagområde …" aria-label="Søk i stillinger">
+    <div class="w3-margin-top" role="group" aria-label="Nivå">
+      {% for level in page.levels %}
+      <button type="button" class="w3-button w3-border w3-round-xxlarge w3-small" data-level="{{ level.key }}" aria-pressed="false">{{ level.label }} <span class="w3-opacity"></span></button>
+      {% endfor %}
+    </div>
+    <p class="w3-small w3-text-grey"><span id="jobsCount" aria-live="polite"></span> <button type="button" id="jobsReset" class="w3-button w3-round w3-padding-small w3-hide">Nullstill filtre</button></p>
+  </form>
+
+  {% for group in year_groups %}
+    {%- assign group_open = false -%}
+    {%- for job in group.items -%}{%- if job.deadline and job.deadline >= build_today -%}{%- assign group_open = true -%}{%- endif -%}{%- endfor %}
+  <section class="jobs-year{% unless group_open %} jobs-year--expired{% endunless %}">
+    {% if group.name == "" %}{% assign year_title = "Uten oppgitt frist" %}{% else %}{% assign year_title = group.name %}{% endif %}
+    {% include section_heading.html level="h3" title=year_title %}
+    <ul class="w3-ul">
+      {% for job in group.items %}
+      {%- assign level = page.levels | where: "key", job.level | first -%}
+      {%- assign expired = true -%}
+      {%- if job.deadline and job.deadline >= build_today -%}{%- assign expired = false -%}{%- endif %}
+      <li class="job w3-cell-row{% if expired %} job--expired{% endif %}" data-deadline="{{ job.deadline }}" data-level="{{ job.level }}">
+        <div class="w3-cell w3-cell-top w3-mobile">
+          <h4 class="w3-large">{% if job.url %}<a href="{{ job.url | escape }}" target="_blank" rel="noopener">{{ job.title | escape }}</a>{% else %}{{ job.title | escape }}{% endif %}</h4>
+          <div class="w3-text-dark-grey">{{ job.institution | escape }}{% if job.department %} · {{ job.department | escape }}{% endif %}</div>
+          {% if job.contact %}<div class="w3-small w3-text-grey">Kontakt: {{ job.contact | escape }}</div>{% endif %}
+          {% if job.more_links %}<div class="w3-small w3-text-grey">Også: {% for link in job.more_links %}<a href="{{ link.url | escape }}" target="_blank" rel="noopener">{{ link.label | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</div>{% endif %}
+        </div>
+        <div class="job-meta w3-cell w3-cell-top w3-mobile w3-right-align w3-padding-small">
+          <span class="w3-tag w3-light-grey w3-round-xxlarge w3-small">{{ level.label | default: "Annet" }}</span><br>
+          <span class="job-deadline w3-small">{% if job.deadline %}Frist {% include date_nb.html date=job.deadline %}{% elsif job.deadline_text %}Frist: {{ job.deadline_text | escape }}{% else %}Frist ikke oppgitt{% endif %}</span><br>
+          <span class="w3-tiny w3-text-grey">{{ job.id | escape }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+
+  <div class="w3-center w3-padding-32 w3-text-grey" id="jobsEmpty" hidden>
+    <p class="w3-large" id="jobsEmptyText"></p>
+    <button type="button" class="w3-button w3-border w3-round" id="jobsEmptyAction"></button>
+  </div>
+
+</div>
