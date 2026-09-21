@@ -11,6 +11,15 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+
+- id: "NO-0671"
+  title: "Postdoctoral Research Fellow position within Physics-Informed Machine Learning for Offshore Wind"
+  level: "postdoc"
+  institution: "University of Bergen"
+  department: "Department of Mathematics"
+  deadline: "2026-10-12"
+  url: "https://www.jobbnorge.no/en/available-jobs/job/307924/postdoctoral-research-fellow-position-within-physics-informed-machine-learning-for-offshore-wind"
+
 - id: "NO-0670"
   title: "PhD Fellowships in Knowledge-Driven Machine Learning in Norway (8 positions)"
   level: "phd"
