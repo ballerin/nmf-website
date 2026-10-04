@@ -11,6 +11,21 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0673"
+  title: "Postdoctoral Research Fellow in Stochastic Analysis and Computational Methods"
+  level: "postdoc"
+  institution: "Universitetet i Oslo"
+  department: "Matematisk institutt"
+  deadline: "2026-10-22"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309395"
+
+- id: "NO-0672"
+  title: "Forsker i anvendt matematikk og berekningsvitskap for geologiske porøse materiale"
+  level: "researcher"
+  institution: "Universitetet i Bergen"
+  department: "Matematisk institutt"
+  deadline: "2026-10-20"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/306414"
 
 - id: "NO-0671"
   title: "Postdoctoral Research Fellow position within Physics-Informed Machine Learning for Offshore Wind"
