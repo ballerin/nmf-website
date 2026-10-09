@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0674"
+  title: "Stipendiat i anvend og berekningsorientert matematikk"
+  level: "phd"
+  institution: "Universitetet i Bergen"
+  department: "Matematisk institutt"
+  deadline: "2026-11-05"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309768"
+
 - id: "NO-0673"
   title: "Postdoctoral Research Fellow in Stochastic Analysis and Computational Methods"
   level: "postdoc"
