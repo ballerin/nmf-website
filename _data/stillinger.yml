@@ -11,6 +11,30 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0679"
+  title: "Postdoctoral Research Fellow in Physics-Adapted Numerical Methods"
+  level: "postdoc"
+  institution: "Western Norway University of Applied Sciences"
+  department: "Department of Computer Science, Electrical Engineering and Mathematical Sciences"
+  deadline: "2026-11-06"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/8065bb62-1caf-443a-a16f-257e100d4ceb"
+
+- id: "NO-0678"
+  title: "Researcher in mathematical modelling of hub molecules"
+  level: "researcher"
+  institution: "UiT The Arctic University of Norway"
+  department: "Department of Arctic and Marine Biology"
+  deadline: "2026-10-25"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/35551f72-0201-4174-9c98-fd979403f78f"
+
+- id: "NO-0677"
+  title: "Stipendiat i analog kvanteberekning"
+  level: "phd"
+  institution: "OsloMet"
+  department: "Institutt for informasjonsteknologi"
+  deadline: "2026-11-06"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/4679d28d-9026-4365-9bc3-1ad922051a39"
+
 - id: "NO-0676"
   title: "Stipendiat i kvanteberegning, optimalisering på støyrike portbaserte NISQ-plattformer"
   level: "phd"
