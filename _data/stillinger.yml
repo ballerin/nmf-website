@@ -11,6 +11,22 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0676"
+  title: "Stipendiat i kvanteberegning, optimalisering på støyrike portbaserte NISQ-plattformer"
+  level: "phd"
+  institution: "OsloMet - storbyuniversitetet"
+  department: "Institutt for informasjonsteknologi"
+  deadline: "2026-11-06"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/308810"
+
+- id: "NO-0675"
+  title: "PhD Research Fellow in Machine Learning and Statistics"
+  level: "phd"
+  institution: "Universitetet i Oslo"
+  department: "Integreat - Norsk senter for kunnskapsdrevet maskinlæring"
+  deadline: "2026-10-16"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/308211"
+
 - id: "NO-0674"
   title: "Stipendiat i anvend og berekningsorientert matematikk"
   level: "phd"
