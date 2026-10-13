@@ -6,7 +6,7 @@ categories: [nyheter, vb-prisen]
 author: NMF
 year: 2018
 laureate: "Rune Gjøringbø Haugseng"
-citation: "hans banebrytende bidrag til teorien for høyere kategorier, med anvendelser i blant annet kvantefeltteori, representasjonsteori, algebraisk geometri og geometrisk topologi, og for å ha utviklet høyere Morita-teori og berikede ∞-kategorier."
+citation: "hans banebrytende bidrag til teorien for høyere kategorier, med anvendelser i blant annet kvantefeltteori, representasjonsteori, algebraisk geometri og geometrisk topologi, og for å ha utviklet høyere Morita-teori og berikede \\(\\infty\\)-kategorier."
 image: "/assets/images/viggo-brun-prisen/viggo-brun-prisen-wide-blue.svg"
 image-background: "#cfd9c9"
 card-zoom: 0.8
@@ -18,7 +18,7 @@ Haugseng studerer høyere kategorier. Dette er strukturer som dukker opp mange f
 
 For eksempel er deler av Haugsengs arbeid bidrag til topologisk kvantefeltteori. Kvantefeltteorier tilordner til tid-rommet (geometri) dets tilstandsrom (algebra) med en tidsutviklings-operator. Dette skal skje på en måte der sammensetningen av den lokale informasjonen bestemmer det globale. Å gjøre dette til en matematisk tilfredsstillende teori viser seg å være en formidabel oppgave som har opptatt matematikere i tiår. Problemet er at mange ting griper inn i hverandre og gir et uhyre komplekst system av koherensproblemer. Deler av Haugsengs arbeider har også direkte koblinger til derivert algebraisk geometri der tilsvarende fenomener er en del av teorien.
 
-Blant Haugsengs mange viktige arbeider er det to monumentale bidrag: I et 140-siders banebrytende fellesarbeid med David Gepner, publisert i Advances in Mathematics, utvikler de teorien for berikede ∞-kategorier, og i et 100-siders arbeid, publisert i Geometry & Topology, løser Haugseng det sentrale problemet om hvordan konstruere en høyere versjon av Morita-kategorien av assosiative algebraer, bimoduler og bimodul-homomorfier. Haugsengs arbeid gir en kontekst for faktoriseringshomologi, en topologisk variant av Beilinson–Drinfelds kiralhomologi fremmet av Jacob Lurie. Gitt en En-algebra (en algebra der kommutativitet holder opp til “nivå n”) gir faktoriseringshomologi opphav til en topologisk kvantefeltteori for n-dimensjonale mangfoldigheter.
+Blant Haugsengs mange viktige arbeider er det to monumentale bidrag: I et 140-siders banebrytende fellesarbeid med David Gepner, publisert i Advances in Mathematics, utvikler de teorien for berikede $$\infty$$-kategorier, og i et 100-siders arbeid, publisert i Geometry & Topology, løser Haugseng det sentrale problemet om hvordan konstruere en høyere versjon av Morita-kategorien av assosiative algebraer, bimoduler og bimodul-homomorfier. Haugsengs arbeid gir en kontekst for faktoriseringshomologi, en topologisk variant av Beilinson–Drinfelds kiralhomologi fremmet av Jacob Lurie. Gitt en $$E_n$$-algebra (en algebra der kommutativitet holder opp til “nivå $$n$$”) gir faktoriseringshomologi opphav til en topologisk kvantefeltteori for $$n$$-dimensjonale mangfoldigheter.
 
 Haugsengs nyvinninger gir en plattform for å virkeliggjøre eksisterende strate- gier slik at sentrale formodninger kan angripes for alvor. Haugseng står selv i en unik posisjon til å utnytte denne muligheten.
 

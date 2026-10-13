@@ -149,6 +149,28 @@ If you need to show a literal `*`, `#`, or `[`, put a backslash before it:
 \# not a heading
 ```
 
+## Math (LaTeX)
+
+Every page on the site loads [MathJax](https://www.mathjax.org/), so LaTeX works in any post or page — you do not need to switch anything on.
+
+In a Markdown post, wrap the math in **double dollar signs**, even in the middle of a sentence:
+
+```markdown
+the $$\gamma < 2$$ theory, a Borel subset of $$\mathbb{R}$$, an $$E_n$$-algebra
+```
+
+Put `$$...$$` on a line of its own, with a blank line before and after, to get a centred display formula.
+
+Two places are different, because Markdown does not process them:
+
+| Where | Write | Example |
+|---|---|---|
+| Markdown body (`.md`) | `$$...$$` | `$$\pi$$` |
+| HTML pages (`.html`) | `\(...\)` | `\(\pi\)` |
+| Front matter in double quotes (e.g. `citation:`) | `\\(...\\)` — every backslash doubled | `"... \\(\\infty\\)-kategorier."` |
+
+A single `$` is just a dollar sign, so prices are safe. Check formulas in the local preview — if you see the raw LaTeX instead of a formula, the delimiters are wrong.
+
 ## Quick reference
 
 | Goal | Write |

@@ -22,6 +22,7 @@ Three consequences worth understanding:
 
 - **The `_site/` folder is output, not source.** It is rebuilt from scratch every time and is not stored in Git. Editing it achieves nothing.
 - **`layout:` in a post's front matter picks the frame.** That is why the layout name has to be one of the three real ones — see [3_MARKDOWN_AND_POSTING.md](3_MARKDOWN_AND_POSTING.md#where-the-file-goes).
+- **Every layout builds on `_layouts/default.html`** (its own front matter says `layout: default`). That file holds the shared `<head>` — styles, fonts and MathJax — so a new layout that skips it loses all of them.
 - **There is no database and nothing running on a server.** The published site is a folder of files, which is why it is fast, cheap, and nearly impossible to break permanently.
 
 This site uses **Jekyll 4.4** with one plugin, `jekyll-feed` (it generates `/feed.xml`). It does not use a theme — all styling is local, in `assets/main.css`.
