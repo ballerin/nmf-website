@@ -27,7 +27,7 @@ Vi må likevel tenke dypt og godt over hvordan de beste tingene kan videreføres
 
 «hvordan skal et meritokrati fungere i et landskap der noen få teknologiselskaper kontrollerer tilgang og forskning plutselig blir avsindig kostbart?».  
 
-Se også ”Math and AI” deklarasjonen og EMS’ pressemelding
+Se også [Math and AI](https://mathandai.org)  deklarasjonen,  [EMS’ pressemelding](https://euromathsoc.org/news/ems-statement-on-recent-navier-stokes-announcement-225) og [ICIAM uttalelse](https://iciam.org/news/26/9/24/iciam-statement-mathematics-and-artificial-intelligence)
 
 I sin beste form er KI et kraftig verktøy som kan akselerere matematisk forskning.  Men noen må ha et kompass som kan lede oss til interessante resultater.
 
