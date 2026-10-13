@@ -4,7 +4,7 @@ title: "NMF-uttalelse om den nylige kunngjøringen om Navier–Stokes"
 date: 2026-09-20 12:00:00 +0100
 categories: [nyheter]
 author: NMF
-image: "/assets/nyheter/2026-06-03-leiden-declaration/ai-hero.jpeg"
+image: "/assets/nyheter/2026-09-20-NMF-uttalelse-Navier-Stokes/navier-stokes-light-master.png.webp"
 ---
 
 Med annonseringen av en avklaring av Navier Stokes-problemet støttet av agentisk AI ser vi konturene av en ny æra for matematisk forskning.  Dette er både spennende og utfordrende på en gang.  
@@ -31,3 +31,6 @@ Se også ”Math and AI” deklarasjonen og EMS’ pressemelding
 
 I sin beste form er KI et kraftig verktøy som kan akselerere matematisk forskning.  Men noen må ha et kompass som kan lede oss til interessante resultater.
 
+![Navier Stokes singularity by OpenAI](/assets/nyheter/2026-09-20-NMF-uttalelse-Navier-Stokes/navier-stokes-light-master.png.webp)
+
+> Visualization of Navier Stokes singularity - courtesy of [OpenAI](https://openai.com/index/navier-stokes-solution/)
