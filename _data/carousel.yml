@@ -4,7 +4,8 @@ carousel:
   # List of slide images (paths relative to /assets/images/carousel/)
   slides:
     - NMM_Oslo_2024_group.jpg
-    - NMM_Oslo_2024_lecture.jpg
+    - NTNU_2026-1.png
+    - NTNU_2026-2.jpg
     - NMM_Tromsoe_2022_group.jpg
     - NMM_Tromsoe_2022_lecture.jpg
 
