@@ -3,16 +3,37 @@ layout: default
 ---
 <!-- FRONT MATTER FIELDS:
      Required: layout, title, date, categories, year, laureate
-     Optional: author, citation, image, image-background, card-zoom, card-shift
+     Optional: author, citation, image, image-background, card-zoom, card-shift,
+               language, citation_translation
      This layout has no hero, so its image is only ever used by the cards that
      link here; card-zoom/card-shift frame it there. See _includes/card_image.html.
      Reproduces the printed diploma on page 2 of assets/ViggoBrun_2.pdf as the
-     header of the post; the body copy then runs on below the dotted rule. -->
+     header of the post; the body copy then runs on below the dotted rule.
+
+     TRANSLATION: `language` is the language of the official text (no or en,
+     default no). A line holding the HTML comment "translation" in the body
+     (see the 2026 post) splits it: the
+     official text above, the translation below, with `citation_translation` as
+     its citation. A switch then toggles the two (assets/main.js); without
+     JavaScript both are shown, one after the other. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,500&display=swap">
+
+{% assign vb_main_lang = page.language | default: "no" %}
+{% if vb_main_lang == "en" %}{% assign vb_tr_lang = "no" %}{% else %}{% assign vb_tr_lang = "en" %}{% endif %}
+{% assign vb_parts = content | replace: "<!--translation-->", "<!-- translation -->" | split: "<!-- translation -->" %}
+{% assign vb_translated = false %}
+{% if vb_parts.size > 1 %}{% assign vb_translated = true %}{% endif %}
 
 <article class="post-article vb-article w3-border w3-round-large w3-margin-bottom">
 
   <header class="vb-diploma">
+
+    {% if vb_translated %}
+    <div class="vb-lang-switch" role="group" aria-label="Språk / Language" hidden>
+      <button type="button" data-vb-switch="no" lang="no">Norsk</button>
+      <button type="button" data-vb-switch="en" lang="en">English</button>
+    </div>
+    {% endif %}
 
     <img class="vb-emblem w3-image" src="/assets/images/viggo-brun-prisen/viggo-brun-emblem-gold.svg"
          alt="" aria-hidden="true">
@@ -34,7 +55,10 @@ layout: default
           <div class="vb-rule vb-rule--hatch" aria-hidden="true"></div>
 
           {% if page.laureate %}
-          <p class="vb-label">Tildeles</p>
+          <p class="vb-label">
+            <span lang="{{ vb_main_lang }}" data-vb-lang="{{ vb_main_lang }}">{% if vb_main_lang == "en" %}Awarded to{% else %}Tildeles{% endif %}</span>
+            {% if vb_translated %}<span lang="{{ vb_tr_lang }}" data-vb-lang="{{ vb_tr_lang }}">{% if vb_tr_lang == "en" %}Awarded to{% else %}Tildeles{% endif %}</span>{% endif %}
+          </p>
           <p class="vb-laureate">{{ page.laureate }}</p>
           {% endif %}
         </div>
@@ -42,7 +66,10 @@ layout: default
 
       {% if page.citation %}
       <p class="vb-label vb-label--for">For</p>
-      <p class="vb-citation">{{ page.citation }}</p>
+      <p class="vb-citation" lang="{{ vb_main_lang }}" data-vb-lang="{{ vb_main_lang }}">{{ page.citation }}</p>
+      {% if vb_translated and page.citation_translation %}
+      <p class="vb-citation" lang="{{ vb_tr_lang }}" data-vb-lang="{{ vb_tr_lang }}">{{ page.citation_translation }}</p>
+      {% endif %}
       {% endif %}
 
     </div>
@@ -56,7 +83,12 @@ layout: default
   </div>
 
   <div class="w3-container w3-padding post-content">
+    {% if vb_translated %}
+    <div lang="{{ vb_main_lang }}" data-vb-lang="{{ vb_main_lang }}">{{ vb_parts[0] }}</div>
+    <div class="vb-translation" lang="{{ vb_tr_lang }}" data-vb-lang="{{ vb_tr_lang }}">{{ vb_parts[1] }}</div>
+    {% else %}
     {{ content }}
+    {% endif %}
   </div>
 
 

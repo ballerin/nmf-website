@@ -623,6 +623,21 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 	background: radial-gradient(circle, var(--ink) 1.35px, transparent 1.55px) center/5px 4px repeat-x;
 }
 
+/* Language switch for bilingual citations, mirroring the emblem in the top-left
+   corner. It stays hidden until main.js wires it up; without JavaScript both
+   languages show, the translation set off below a rule. */
+.vb-lang-switch { position: absolute; top: 1.6em; left: 1.6em; display: flex; border: 1px solid var(--blue); border-radius: 999px; overflow: hidden; font: 600 0.75rem "Poppins", sans-serif; }
+.vb-lang-switch[hidden] { display: none; }
+@media (max-width: 600px) { .vb-lang-switch { position: static; width: max-content; margin: -1em auto 1.5em; } }
+.vb-lang-switch button { padding: 0.3rem 0.8rem; border: 0; background: transparent; color: var(--blue); font: inherit; cursor: pointer; }
+.vb-lang-switch button[aria-pressed="true"] { background: var(--blue); color: #fff; }
+.vb-lang-switch button:focus-visible { outline: 2px solid #51ade5; outline-offset: -2px; }
+.vb-label span + span::before { content: " / "; }   /* both labels, without JavaScript */
+.vb-article.vb-switchable .vb-label span + span::before { content: none; }
+.vb-translation { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dotted var(--ink); }
+.vb-article.vb-switchable .vb-translation { margin-top: 0; padding-top: 0; border-top: 0; }
+.vb-article.vb-switchable [data-vb-lang][hidden] { display: none; }
+
 .vb-signature { padding: 1.5rem 1rem 1.75rem; }
 .vb-signature img { display: block; width: 30px; margin: 0 auto 0.6rem; }
 .vb-signature-name { margin: 0; font: 700 0.8rem "Poppins", sans-serif; text-transform: uppercase; letter-spacing: 0.17em; text-indent: 0.17em; color: var(--ink); }

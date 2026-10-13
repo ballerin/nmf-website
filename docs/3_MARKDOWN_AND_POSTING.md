@@ -250,6 +250,33 @@ Your Markdown content starts here…
 
 Note that `date` and `start-date` answer different questions. `date` is when you are announcing the event (on the website); `start-date` and `end-date` are when the event runs. If `start-date` and `end-date` are missing, then the website falls back on `date`. For a news article you only need `date`, as this is not an event.
 
+## Viggo Brun-prisen: two languages
+
+A Viggo Brun-prisen post (`layout: viggo_brun_template`) can carry its citation in both Norwegian and English. The post appears once in the news, and readers get a **Norsk / English** switch at the top. The 2026 post is a working example.
+
+- Write the **official text first**, as the normal body. In the front matter, `language:` says which language it is in (`no` or `en`; leave it out for Norwegian).
+- Below it, put a line with exactly `<!-- translation -->` (with a blank line before and after), then the translation.
+- Put the translated diploma citation in `citation_translation:`, next to `citation:`.
+
+```markdown
+---
+layout: viggo_brun_template
+language: en
+citation: "for his original and influential contributions to …"
+citation_translation: "for hans originale og innflytelsesrike bidrag til …"
+---
+
+The official English text …
+
+<!-- translation -->
+
+> **Merk:** Dette er en automatisk oversettelse …
+
+Den norske oversettelsen …
+```
+
+The page opens in the official language. A link ending in `#en` or `#no` opens that language directly. Without the marker line there is no switch, so posts with only one language need no changes. If the marker is misspelled, the page silently shows both texts one after the other, with no switch.
+
 ## Two mistakes that make a post disappear
 
 Both of these build successfully and produce no error at all — the post is simply not there. If a post is missing, check these first.

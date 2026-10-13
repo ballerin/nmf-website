@@ -457,3 +457,42 @@ function initJobList() {
 }
 
 window.addEventListener("DOMContentLoaded", initJobList);
+
+/* ============================================================================
+   VIGGO BRUN-PRISEN LANGUAGE SWITCH
+   Toggles the official text and its translation (_layouts/viggo_brun_template.html).
+   Opens on the official language unless the URL asks for one with #en or #no;
+   switching writes the choice back into the URL, so it can be linked.
+   ========================================================================== */
+
+function initVbLanguageSwitch() {
+	var article = document.querySelector(".vb-article");
+	var toggle = article && article.querySelector(".vb-lang-switch");
+	if (!toggle) return;
+
+	var buttons = toggle.querySelectorAll("button[data-vb-switch]");
+	var blocks = article.querySelectorAll("[data-vb-lang]");
+	var official = blocks[0].getAttribute("data-vb-lang");
+
+	function show(lang) {
+		blocks.forEach(function(block) { block.hidden = block.getAttribute("data-vb-lang") !== lang; });
+		buttons.forEach(function(btn) {
+			btn.setAttribute("aria-pressed", btn.getAttribute("data-vb-switch") === lang ? "true" : "false");
+		});
+	}
+
+	toggle.addEventListener("click", function(event) {
+		var btn = event.target.closest("button[data-vb-switch]");
+		if (!btn) return;
+		var lang = btn.getAttribute("data-vb-switch");
+		show(lang);
+		history.replaceState(null, "", lang === official ? window.location.pathname + window.location.search : "#" + lang);
+	});
+
+	var requested = window.location.hash.slice(1);
+	show(requested === "en" || requested === "no" ? requested : official);
+	article.classList.add("vb-switchable");
+	toggle.hidden = false;
+}
+
+window.addEventListener("DOMContentLoaded", initVbLanguageSwitch);
