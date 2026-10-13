@@ -1,0 +1,7 @@
+Alexander Verbovetsky (joint with P.Kersten, J.Krasil'shchik and R.Vitolo) - "Hamiltonian structures for general PDEs".
+
+We will discuss the following question: What happens to a Hamiltonian operator of an evolution system 
+if we change coordinates so that the system becomes non-evolution?
+
+We will give an answer to this question, describe the corresponding geometry, consider examples, in particular, 
+construct a bihamiltonian structure for Kupershmidt's nonholonomic deformation of a bihamiltonian system.

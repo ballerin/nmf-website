@@ -1,0 +1,68 @@
+---
+layout: default
+title: "The Abel Symposium"
+---
+<!-- Overview of the Abel Symposia. Every symposium is a page in _abelsymposium/
+     (kind: year); the timeline below lists them newest first, so a new year
+     only needs its own file. The newest one is featured under the hero.
+     Styles: "ABEL SYMPOSIUM" in assets/main.css. -->
+
+{% assign abs_years = site.abelsymposium | where: "kind", "year" | sort: "year" | reverse %}
+{% assign abs_latest = abs_years | first %}
+{% assign abs_this_year = site.time | date: "%Y" | plus: 0 %}
+
+<div class="abs-overview" lang="en">
+
+  <header class="abs-hero">
+    <img class="abs-hero-face" src="/assets/abelsymposium/images/face-white.webp" alt="" aria-hidden="true">
+    <div class="abs-hero-copy">
+      <p class="abs-hero-kicker">Norsk matematisk forening</p>
+      <h1>The Abel Symposium</h1>
+      <p>The Board for the <a href="https://abelprize.no/">Niels Henrik Abel Memorial Fund</a> has established an annual Abel Symposium (biennial since 2023), administrated by the Norwegian Mathematical Society. Each symposium is an exclusive meeting at the highest scientific level within a selected area of the mathematical sciences.</p>
+    </div>
+  </header>
+
+  <a class="abs-feature" href="{{ abs_latest.url }}">
+    <img src="/assets/images/abelsymposium-logo.webp" alt="">
+    <span class="abs-feature-year">{{ abs_latest.year }}</span>
+    <span class="abs-feature-copy">
+      <span class="abs-kicker">{% if abs_latest.year > abs_this_year %}Upcoming symposium{% else %}Latest symposium{% endif %}</span>
+      <strong>{{ abs_latest.title }}</strong>
+      {% if abs_latest.when %}<span>{{ abs_latest.when }}</span>{% endif %}
+    </span>
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+  </a>
+
+  <section aria-labelledby="symposia">
+    <h2 id="symposia" class="abs-section-title">All symposia</h2>
+    <ol class="abs-timeline">
+      {% for s in abs_years %}
+      <li{% if s.cancelled %} class="is-cancelled"{% endif %}>
+        <span class="abs-timeline-year">{{ s.year }}</span>
+        <span class="abs-timeline-body">
+          <a href="{{ s.url }}">{{ s.title }}</a>{% if s.cancelled %}<span class="abs-cancelled">Cancelled</span>{% endif %}
+          <span class="abs-timeline-when">{{ s.when }}</span>
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <div class="abs-cards">
+    <section class="abs-card">
+      <h2>Organising a symposium</h2>
+      <p>To organise an Abel Symposium, send a brief pre-application to Norsk matematisk forening by 15 September, two years before the symposium. The main organiser must be employed at a Norwegian university or research institute.</p>
+      <ul>
+        <li><a href="/abelsymposium/info/">Information for applicants</a></li>
+        <li><a href="/abelsymposium/guidelines/">Retningslinjer for søknader</a> (in Norwegian)</li>
+        <li><a href="/abelsymposium/regulations/">Avtale mellom Abelfondet og NMF</a> (in Norwegian)</li>
+      </ul>
+    </section>
+    <section class="abs-card">
+      <h2>Proceedings and contact</h2>
+      <p>Each symposium normally results in a volume in the <a href="https://www.springer.com/series/7462">Abel Symposia</a> book series, published by Springer.</p>
+      <p>Questions about the Abel Symposium can be sent to <a href="mailto:nmf@matematikkforeningen.no">nmf@matematikkforeningen.no</a>.</p>
+    </section>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+Rafaele Vitolo (joint with M. Modugno, C. Tejero Prieto) - "Geometric aspects of the quantization of a rigid body".
+
+We consider the configuration space of n classical particles as the n-fold product of the configuration space of one particle.  
+Then, we impose a rigid constraint and the resulting space is dealt with as a configuration space of a single abstract `particle'. 
+We develop quantum theory in the framework of Kostant-Kirillov-Souriau theory of geometric quantization as well as in a more 
+general time-dependent (covariant) framework. This scheme can model, e.g. the quantum dynamics of very cold molecules.
+
+Pre-quantization structures are Hermitian complex line bundles over the configuration space (whose sections are interpreted 
+as quantum wavefunctions), endowed with a Hermitian complex connection. We show that there exist two inequivalent 
+pre-quantization structures, one of which is given by a non-trivial bundle. The eigenfunctions of the Bochner Laplacian 
+(energy operator) corresponding to half-integer values of the angular momentum turn out to be sections of the non-trivial bundle. 
+
+This is a new geometric interpretation of double-valued wavefunctions which are found in all quantum mechanics textbooks. 
+Examples of a quantum rigid system under the influence of a constant electric field (Stark effect) or 
+an invariant magnetic field (magnetic monopole) are discussed.

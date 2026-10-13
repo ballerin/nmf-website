@@ -1,0 +1,25 @@
+Andreas Cap - "BGG sequences and geometric overdetermined systems".
+
+Parabolic geometries form a large class of geometric
+structures which admit an equivalent description as Cartan geometries
+with homogeneous model a generalized flag manifold, the quotient of a
+semisimple Lie group $G$ by a parabolic subgroup $P$. This family
+contains many well known examples like conformal structures,
+hypersurface type CR structures, almost quaternionic structures, path
+geometries, quaternionic contact structures, and several types of
+generic distributions.
+
+The technique of BGG sequences associates to each irreducible
+representation of $G$ a sequence of differential operators which are
+intrinsic to the given structure. The first operator(s) in this
+sequence always form an overdetermined system. Many well known
+geometric systems arise in this way, for example the conformal Killing
+equations on all types of tensors. The construction of the BGG
+sequences automatically relates the overdetermined system in the
+beginning of the sequence to a linear connection on a bigger bundle.
+
+After outlining this construction, I will indicate how these methods
+can be extended to obtain an invariant prolongation of these
+overdetermined system (i.e. the construction of an equivalent
+invariant first order system in closed form) as well as prolongations
+of arbitrary semi--linear systems with the same principal symbol.

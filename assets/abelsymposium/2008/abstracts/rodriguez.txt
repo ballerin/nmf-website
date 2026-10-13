@@ -1,0 +1,12 @@
+Jesus Rodriguez (joint with R. Alonso and S. Jimenez) - "Characteristics of PDE in the framework of Lie-Weil jet spaces".
+
+Weil's near points of a smooth manifold are the algebra homomorphisms from its ring of smooth functions into a local algebra. 
+We define the jets as the kernels of such morphisms.
+
+The tangent space to a jet manifold of a smooth manifold M at a point is identified with the quotient space of derivations from 
+the ring of smooth functions from M into a local algebra; this fact allows giving a characterization of the contact system 
+and Cartan`s tangent vectors, and defining a canonical bracket in the Cartan tangent space.
+
+On the other hand, the inclusion between jets gives rise to some canonical correspondences between jet spaces 
+which cannot be defined for jets of sections of a fibre bundle. These correspondences allow defining characteristic vectors 
+of a system of partial differential equations; the characteristic vectors are related with the canonical bracket defined above.

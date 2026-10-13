@@ -1,0 +1,6 @@
+Boris Dubrovin - "On deformations of integrable hierarchies".
+
+We will address the problem of classification of hierarchies of systems of bihamiltonian PDEs 
+with one spatial dimension. Under certain nondegeneracy assumptions the complete set of invariants 
+of the underlying bihamiltonian structures will be constructed. These invariants will be computed 
+for the examples of Drinfeld - Sokolov integrable hierarchies associated with an arbitrary simple Lie algebra.

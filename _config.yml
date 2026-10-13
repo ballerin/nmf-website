@@ -22,6 +22,11 @@ collections:
   pages:
     output: true
     permalink: /:name/
+  # The Abel Symposium archive, imported from abelsymposium.no in 2026.
+  # _abelsymposium/2019.md -> /abelsymposium/2019/, 2019/program.html -> /abelsymposium/2019/program/
+  abelsymposium:
+    output: true
+    permalink: /abelsymposium/:path/
 
 # Exclude from processing
 exclude:

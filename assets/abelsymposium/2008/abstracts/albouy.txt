@@ -1,0 +1,17 @@
+Alain Albouy - "Projective dynamics of a classical particle or a multiparticle system".
+
+There exists a "projective dynamics of the particle", which underlies intrinsically the 
+"classical particle dynamics", exactly as projective geometry underlies Euclidean geometry.  
+
+In classical particle dynamics a particle moves in the Euclidean space subjected to a potential. 
+In projective dynamics the position space has only the local structure of the real projective space, 
+and a new object, the projective force, must be introduced.
+
+These statements are direct consequences of Appell's remarks on the homography in mechanics, 
+and are compatible with similar statements due to Tabachnikov concerning projective billiards.
+
+We will review the successes of the projective point of view in the dynamics of a particle, 
+trying to explain  briefly some results in
+http://arxiv.org/abs/math-ph/0612031 and
+http://arxiv.org/abs/math-ph/0501026 
+or some results published by Alexey Borisov and Ivan Mamaev.

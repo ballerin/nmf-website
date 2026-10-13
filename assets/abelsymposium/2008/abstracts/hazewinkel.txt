@@ -1,0 +1,50 @@
+Michiel Hazewinkel - "Niceness theorems".
+
+In this lecture I aim to raise a new kind of question. It appears that many important
+mathematical objects (including counterexamples) are unreasonably nice, beautiful and elegant.
+They tend to have (many) more (nice) properties and extra bits of structure than one would a
+priori expect.
+
+The question is why this happens and whether this can be understood 
+   [There is of course the “anthropomorphic principle” answer, much like the question of the existence of
+   (intelligent) life in this universe. It goes something like this. If these objects wern’t nice and regular we would not be
+   able to understand and describe them; we can see/understand only the elegant and beautiful ones. I do not consider
+   this answer good enough though there is something in it. So the search is also on for ugly brutes of mathematical 
+   objects.
+   Also this anthropomorphic argument raises the subsidiary question of why we can only understand/describe
+   beautiful/regular things. There are aspects of (Kolmogorov) complexity and information theory involved here.]
+
+This lecture is about lots of examples of this phenomenon such as Daniel Kan’s observation that
+a group carries a comonoid structure in the category of groups if and only if it is a free group, the
+Milnor-Moore and Leray theorems in the theory of Hopf algebras, Grassmann manifolds and
+classifying spaces, and especially the star example: the ring of commutative polynomials over
+the integers in countably infinite indeterminates. This last one occurs all over the place in
+mathematics and has more compatible structures that can be believed. For instance it occurs as
+the algebra of symmetric functions in infinitely many variables, as the cohomology and
+homology of the classifying space BU, as the sum of the representation rings of the symmetric
+groups, as the free lambda-ring on one variable, as the representing ring of the Witt vectors, as
+the ring of rational representation of GL_\infty , ... .
+
+To start with here is a preliminary list of the kind of phenomena I have in mind.
+
+- A. Universal objects. That is mathematical objects which satisfy a universal property. They tend to have:
+   a) a nice regular underlying structure
+   b) additional universal properties (sometimes seemingly completely unrelated to the defining universal property)
+
+- B. Objects with a great deal of compatible structure tend to have a nice regular underlying
+structure and/or additional nice properties: “Extra structure simplifies the underlying object”.
+
+- C. Nice objects tend to be large and inversely large objects of one kind or another tend to
+have additional nice properties. For instance, large projective modules are free (Hyman Bass).
+
+- D. Extremal objects tend to be nice and regular. (The symmetry of a problem tends to
+survive in its extremal solutions is one of the aspects of this phenomenon; even (when properly
+looked at), when there is bifurcation (symmetry breaking) going on.)
+
+- E. Uniqueness theorems and rigidity theorems often yield nice objects (and inversely).
+They tend to be unreasonably well behaved. I.e. if one asks for an object with such and such
+properties and the answer is unique the object involved tends to be very regular. This is not
+unrelated to D.
+
+Concrete examples of all these kinds of phenomena will be given below (section 2) as well
+as a (pityful) few first explanatory general theorems (section 3).

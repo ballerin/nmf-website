@@ -1,0 +1,12 @@
+Ian Anderson - "Symmetry reduction and Darboux Integrability".
+
+The method of Darboux is a technique for finding  the general solution to scalar, second order partial differential 
+equations in two independent variables. In this talk I will  describe a far-reaching generalization of this classical method 
+which allows one to explicitly solve more general systems of PDE. 
+
+This new approach is based upon the idea of "inverse" symmetry reduction of  differential systems. 
+This approach exposes the fundamental geometric invariants for any Darboux integrablity system, 
+allows for the algorithmic integration of such equations, and provides new insights in many 
+geometrical aspects of Darboux integrability. For example, 
+I will show how this theory allows one to easily construct examples of non-linear Laplace transformations.
+

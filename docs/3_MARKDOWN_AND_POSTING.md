@@ -277,6 +277,28 @@ Den norske oversettelsen …
 
 The page opens in the official language. A link ending in `#en` or `#no` opens that language directly. Without the marker line there is no switch, so posts with only one language need no changes. If the marker is misspelled, the page silently shows both texts one after the other, with no switch.
 
+## The Abel Symposium pages
+
+The Abel Symposium has its own section at `/abelsymposium/`, imported from the old abelsymposium.no in 2026. Each symposium is one file in `_abelsymposium/`, and the overview page lists them automatically, newest first.
+
+To add a new symposium, create `_abelsymposium/2027.md`:
+
+```markdown
+---
+layout: abelsymposium_template
+kind: year
+year: 2027
+title: "Title of the symposium"
+when: "14–18 June, 2027, Bergen, Norway"
+---
+
+A short description, the committee, links to the program …
+```
+
+Pages that belong to a year go in a folder with the year's name. For example, `_abelsymposium/2027/program.md` (with `kind: sub` and `year: 2027`) appears at `/abelsymposium/2027/program/`, with a link back to the year. Files such as posters and abstracts go in `assets/abelsymposium/2027/`. For a cancelled symposium, add `cancelled: true`.
+
+The older pages are archived HTML from the old site, wrapped in `{% raw %}` … `{% endraw %}`. They can be edited, but there is rarely a reason to.
+
 ## Two mistakes that make a post disappear
 
 Both of these build successfully and produce no error at all — the post is simply not there. If a post is missing, check these first.

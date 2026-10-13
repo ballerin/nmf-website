@@ -24,6 +24,19 @@ body.brand-theme {
 	--nmf-primary-rgb: 2,90,138;
 }
 
+/* The Abel Symposium pages (/abelsymposium/) keep the old abelsymposium.no
+   palette: orange on cream with slate links. Its orange #D17720 is too light
+   for white text, so buttons and the nav bar use a deeper shade of it. */
+body.abelsymposium-theme {
+	--nmf-primary: #A85A12;
+	--nmf-primary-strong: #8A4A0E;
+	--nmf-secondary: #FDEBD5;
+	--nmf-on-secondary: #9C5310;
+	--nmf-secondary-border: #DFDAD3;
+	--nmf-focus-ring: rgba(209,119,32,0.3);
+	--nmf-primary-rgb: 168,90,18;
+}
+
 /* Applies the NMF palette to W3.CSS utility classes. */
 body.brand-theme .nmf-primary { background-color: var(--nmf-primary) !important; color: var(--nmf-on-primary) !important; }
 body.brand-theme .text-nmf-primary { color: var(--nmf-primary) !important; }
@@ -641,3 +654,111 @@ h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; margin-bottom: 0; }
 .vb-signature { padding: 1.5rem 1rem 1.75rem; }
 .vb-signature img { display: block; width: 30px; margin: 0 auto 0.6rem; }
 .vb-signature-name { margin: 0; font: 700 0.8rem "Poppins", sans-serif; text-transform: uppercase; letter-spacing: 0.17em; text-indent: 0.17em; color: var(--ink); }
+
+/* ============================================================================
+   ABEL SYMPOSIUM
+   _layouts/abelsymposium_template.html and _pages/abelsymposium.html. Colours
+   from the old abelsymposium.no: orange #D17720, cream #FDEBD5 / #FFF6ED,
+   the beige frame #DFDAD3 and slate links #5C6F7B. The archived pages keep
+   their original classes (program, participants, abstract, infobox …), which
+   are restyled here rather than rewritten.
+   ========================================================================== */
+.abelsymposium-theme {
+	--abs-orange: #D17720;
+	--abs-orange-text: #9C5310;
+	--abs-cream: #FDEBD5;
+	--abs-cream-faded: #FFF6ED;
+	--abs-frame: #DFDAD3;
+	--abs-slate: #5C6F7B;
+}
+body.abelsymposium-theme .text-nmf-secondary { color: var(--abs-slate) !important; }
+.abelsymposium-theme #main a:not(.w3-button) { color: var(--abs-slate); }
+.abelsymposium-theme #main a:not(.w3-button):hover { color: var(--abs-orange-text); }
+
+.abs-article { max-width: 1040px; margin-left: auto; margin-right: auto; border: 1px solid var(--abs-frame); border-radius: 14px; background: #fff; overflow: hidden; box-shadow: 0 10px 30px rgba(60,35,10,0.08); }
+
+.abs-header { background: var(--abs-cream) url("/assets/abelsymposium/images/face-orange.webp") no-repeat right -30px bottom -60px / 230px; padding: 2rem 1.75rem 1.75rem; border-bottom: 3px solid var(--abs-orange); }
+.abs-header-inner { position: relative; }
+.abs-header-inner { display: flex; align-items: center; gap: 1.5rem; max-width: min(980px, calc(100% - 150px)); }
+.abs-logo img { display: block; width: 110px; height: auto; }
+.abs-header-copy { min-width: 0; }
+.abs-kicker { margin: 0; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; }
+.abs-kicker a { color: var(--abs-orange-text) !important; text-decoration: none; }
+.abs-kicker a:hover { text-decoration: underline; }
+.abs-parent { margin: 0.35rem 0 0; font-size: 0.95rem; color: var(--abs-orange-text); font-style: italic; }
+.abs-title { margin: 0.3rem 0 0; font-size: clamp(1.5rem, 3.2vw, 2.3rem); line-height: 1.2; color: #3a2a1a; }
+.abs-when { margin: 0.5rem 0 0; color: #4d4d4d; }
+.abs-cancelled { display: inline-block; margin: 0.6rem 0 0; padding: 0.15rem 0.7rem; border-radius: 999px; background: var(--abs-orange-text); color: #fff; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.abs-content { line-height: 1.7; }
+.abs-content h2, .abs-content h3 { color: var(--abs-orange-text); }
+.abs-content h4, .abs-content h5 { color: #3a2a1a; margin-top: 1.2rem; }
+.abs-content img { max-width: 100%; height: auto; }
+.abs-footer { background: var(--abs-cream-faded); border-top: 1px solid var(--abs-frame); }
+
+/* Archived markup from the old site. */
+.abs-content .infobox, .abs-content .infoboxfaded { padding: 0.75rem 1.25rem; margin: 0 0 1rem; border-left: 4px solid var(--abs-orange); border-radius: 4px; }
+.abs-content .infobox { background: var(--abs-cream); }
+.abs-content .infoboxfaded { background: var(--abs-cream-faded); }
+.abs-content table.program, .abs-content table.lysegraa, .abs-content table.participants, .abs-content table.topalign { width: auto; max-width: 100%; }
+.abs-content table.program th.date, .abs-content tr.lysegraaoransjelinje td { background: var(--abs-cream) !important; color: var(--abs-orange-text); text-align: left; }
+.abs-content table.program th.time { color: var(--abs-orange-text); background: none; font-weight: 600; white-space: nowrap; }
+.abs-content table.program td.item { font-style: italic; }
+.abs-content table.program td.item.speaker { font-style: normal; }
+.abs-content ul.participants { column-count: 2; column-gap: 2rem; }
+.abs-content p.title { color: var(--abs-orange-text); font-weight: 700; margin: 1rem 0 0.2rem; }
+.abs-content p.author { font-style: italic; margin: 0.8rem 0 0; }
+.abs-content p.address, .abs-content p.abstract, .abs-content p.slideslink { margin: 0 0 0.5rem 1.5rem; }
+.abs-content div.innrykk { margin: 1rem 0 0 1.5rem; }
+
+/* Overview page: an orange hero with the white face cropped off its right
+   edge, the newest symposium as a card, then a timeline of every year. */
+.abs-overview { max-width: 1040px; margin: 1.5rem auto 2.5rem; padding: 0 16px; }
+.abs-hero { position: relative; overflow: hidden; border-radius: 14px; padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem); background: linear-gradient(115deg, #8A4A0E 0%, #A85A12 60%); color: #fff; }
+.abs-hero-face { position: absolute; right: -2.5rem; bottom: -3rem; width: min(360px, 55%); opacity: 0.22; pointer-events: none; }
+.abs-hero-copy { position: relative; max-width: 40rem; }
+.abs-hero-kicker { margin: 0; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; opacity: 0.85; }
+.abs-hero h1 { margin: 0.4rem 0 1rem; font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+.abs-hero p { line-height: 1.7; }
+.abelsymposium-theme #main .abs-hero a { color: #fff; text-decoration-color: rgba(255,255,255,0.6); }
+
+.abs-feature { display: flex; align-items: center; gap: 1.25rem; margin: -1.75rem 1.5rem 3rem; position: relative; padding: 1.1rem 1.5rem; background: #fff; border: 1px solid var(--abs-frame); border-radius: 12px; box-shadow: 0 10px 30px rgba(60,35,10,0.12); text-decoration: none; color: inherit; }
+.abs-feature:hover { border-color: var(--abs-orange); }
+.abs-feature img { width: 64px; height: auto; flex: none; }
+.abs-feature-year { font-size: 2.6rem; font-weight: 300; color: var(--abs-orange); line-height: 1; flex: none; }
+.abs-feature-copy { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
+.abs-feature-copy .abs-kicker { color: var(--abs-orange-text); font-size: 0.7rem; }
+.abs-feature-copy strong { font-size: 1.15rem; color: #3a2a1a; }
+.abs-feature-copy span:last-child { color: #555; font-size: 0.95rem; }
+.abs-feature .fa-arrow-right { color: var(--abs-orange); font-size: 1.2rem; }
+
+.abs-section-title { font-size: 1.6rem; color: #3a2a1a; margin: 0 0 1rem; }
+.abs-timeline { list-style: none; margin: 0 0 3rem; padding: 0; }
+.abs-timeline li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1.25rem; padding: 0.9rem 0; border-bottom: 1px solid #eee5da; }
+.abs-timeline-year { font-size: 1.6rem; font-weight: 300; color: var(--abs-orange); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.abs-timeline-body { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.6rem; }
+.abelsymposium-theme #main .abs-timeline-body a { color: #3a2a1a; font-weight: 600; text-decoration: none; }
+.abelsymposium-theme #main .abs-timeline-body a:hover { color: var(--abs-orange-text); text-decoration: underline; }
+.abs-timeline-when { flex-basis: 100%; color: #666; font-size: 0.92rem; }
+.abs-timeline .is-cancelled .abs-timeline-year, .abs-timeline .is-cancelled a { opacity: 0.6; }
+.abs-timeline .abs-cancelled { margin: 0; font-size: 0.65rem; padding: 0.05rem 0.55rem; }
+
+.abs-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.abs-card { position: relative; overflow: hidden; padding: 1.5rem 1.5rem 1.25rem; background: var(--abs-cream-faded) url("/assets/abelsymposium/images/face-cream.webp") no-repeat right -40px bottom -50px / 170px; border-top: 4px solid var(--abs-orange); border-radius: 10px; line-height: 1.65; }
+.abs-card h2 { margin: 0 0 0.5rem; font-size: 1.2rem; color: #3a2a1a; }
+.abs-card > * { position: relative; }
+
+@media (max-width: 600px) {
+	.abs-header { padding: 1.5rem 1rem 1.25rem; background-size: 140px; background-position: right -40px top -20px; }
+	.abs-header-inner { max-width: none; }
+	.abs-header-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+	.abs-logo img { width: 72px; }
+	.abs-content ul.participants { column-count: 1; }
+	.abs-feature { margin: -1.25rem 0.5rem 2.5rem; flex-wrap: wrap; }
+	.abs-feature .fa-arrow-right { display: none; }
+	.abs-feature-copy { flex-basis: 100%; }
+	.abs-feature img { width: 48px; }
+	.abs-feature-year { font-size: 2.1rem; }
+	.abs-timeline li { grid-template-columns: 3.8rem 1fr; gap: 0.75rem; }
+	.abs-timeline-year { font-size: 1.25rem; }
+}

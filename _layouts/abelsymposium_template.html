@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<!-- FRONT MATTER FIELDS:
+     Required: layout, title, kind
+     Optional: year, when, when_note, cancelled, lang, old_url
+     One layout for every page under /abelsymposium/ (the _abelsymposium
+     collection, imported from the old abelsymposium.no in 2026):
+       kind: year     the page of one symposium, /abelsymposium/2019/
+       kind: sub      a page belonging to a year (program, participants, …)
+       kind: general  application info, guidelines, regulations
+     `when` is the date-and-place line under the title. The colours are the
+     old site's own (oranges on cream, slate links); see "ABEL SYMPOSIUM" in
+     assets/main.css. The overview page is _pages/abelsymposium.html. -->
+
+{% if page.kind == "sub" %}
+  {% assign abs_parent = site.abelsymposium | where: "kind", "year" | where: "year", page.year | first %}
+{% endif %}
+
+<article class="abs-article w3-margin-bottom" lang="{{ page.lang | default: "en" }}">
+
+  <header class="abs-header">
+    <div class="abs-header-inner">
+      <a href="/abelsymposium/" class="abs-logo" aria-label="The Abel Symposium: all symposia">
+        <img src="/assets/images/abelsymposium-logo.webp" alt="">
+      </a>
+      <div class="abs-header-copy">
+        <p class="abs-kicker">
+          {% if page.year %}<a href="/abelsymposium/{{ page.year }}/">The Abel Symposium {{ page.year }}</a>{% else %}<a href="/abelsymposium/">The Abel Symposium</a>{% endif %}
+        </p>
+        {% if abs_parent %}<p class="abs-parent">{{ abs_parent.title }}</p>{% endif %}
+        <h1 class="abs-title">{{ page.title }}</h1>
+        {% if page.when %}<p class="abs-when">{{ page.when }}{% if page.when_note %}<br><small>{{ page.when_note }}</small>{% endif %}</p>{% endif %}
+        {% if page.cancelled %}<p class="abs-cancelled">Cancelled</p>{% endif %}
+      </div>
+    </div>
+  </header>
+
+  <div class="w3-container w3-padding post-content abs-content">
+    {{ content }}
+  </div>
+
+  <div class="abs-footer w3-padding w3-center">
+    {% if abs_parent %}
+    <a href="{{ abs_parent.url }}" class="w3-button nmf-primary back-button w3-round" aria-label="Back to the Abel Symposium {{ page.year }}">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
+      <span class="label">Back to the Abel Symposium {{ page.year }}</span>
+    </a>
+    {% else %}
+    <a href="/abelsymposium/" class="w3-button nmf-primary back-button w3-round" aria-label="Back to all Abel Symposia">
+      <i class="fa-solid fa-reply" aria-hidden="true"></i>
+      <span class="label">All Abel Symposia</span>
+    </a>
+    {% endif %}
+  </div>
+
+</article>

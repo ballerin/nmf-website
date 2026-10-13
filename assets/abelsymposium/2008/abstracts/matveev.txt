@@ -1,0 +1,10 @@
+Vladimir Matveev - "Projective vector fields: Solution of Lie and Schouten problems".
+
+In 1882 Sophus Lie asked to describe all 2-dimensional metrics admitting vector fields whose flows sends 
+(unparameterized) geodesics to geodesics. I will explain the solution of this problem (part of the results are joint 
+with R.L. Bryant and G. Manno). The results are published in arXiv:0705.3592, arXiv:0802.2344, and arXiv:0802.2346. 
+The solution uses a description of metrics whose geodesic flows admit integrals quadratic in velocities; 
+I will give an overview of this subject.
+
+Besides this theory, the solution consists of a trick and huge calculations. I will explain the trick and hope you will explain me 
+what other classical problems one can hope to solve by using similar calculations.

@@ -1,0 +1,5 @@
+Niky Kamran - "Focal systems for Pfaffian systems with characteristics"
+
+We present a definition of focal curves for Pfaffian systems as envelopes of families of characteristics, 
+and show how these can be computed and used to give normal form results for various classes of systems, 
+in particular for Pfaffian systems associated to hypervbolic pdes of order two.

@@ -1,0 +1,8 @@
+Sergei Merkulov - "Wheeled props, deformation theory and quantization".
+
+The theory of operads and props is nowadays much more than just a useful technical tool.
+It has grown into a kind of universal mathematical language with the help of which topologist, algebraists, 
+homotopy theorists  and  geometers can fruitfully communicate with each other.
+We shall discuss some key ideas of  the theory of (wheeled) props, and focus on its recent applications  
+to the deformation theory of algebraic and geometric structures,  quantization of Poisson manifolds, 
+and the  Batalin-Vilkovisky formalism.

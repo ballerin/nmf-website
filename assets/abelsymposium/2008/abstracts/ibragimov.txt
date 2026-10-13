@@ -1,0 +1,12 @@
+Nail Ibragimov - "Symmetries and conservation laws: a general theorem for arbitrary differential equations".
+
+A general theorem on a connection between symmetries and conservation laws is proved for arbitrary differential equations. 
+The theorem is valid also for any system of differential equations where the number of equations is equal to the number 
+of dependent variables. The new theorem does not require existence of a Lagrangian and contains Noether’s theorem 
+as a particular case. It is based on a concept of an adjoint equation for non-linear equations and the statement that the 
+adjoint equation inherits all symmetries of the original equation proved recently by the author. Using the basic theorem, 
+one can associate a conservation law with any group of Lie, Lie-Backlund  and nonlocal symmetries. 
+The theorem is illustrated by computing conservation laws for several differential equations without classical Lagrangians. 
+In particular, the Korteweg-de Vries equation provides a remarkable example on this theorem. Namely, it will be shown 
+in the talk that all local symmetries of the KdV equation lead to trivial local conservation laws whereas its 
+non-local symmetries provide all known local conservation laws. 

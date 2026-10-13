@@ -20,12 +20,14 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head>
 
-{% assign is_abel_related = false %}
-{% if page.url contains '/abelsymposium/' or page.layout == 'abelprisen_template' %}
-  {% assign is_abel_related = true %}
+{% assign body_theme = "brand-theme" %}
+{% if page.url contains '/abelsymposium/' %}
+  {% assign body_theme = "brand-theme abelsymposium-theme" %}
+{% elsif page.layout == 'abelprisen_template' %}
+  {% assign body_theme = "" %}
 {% endif %}
 
-<body class="{% unless is_abel_related %}brand-theme{% endunless %}">
+<body class="{{ body_theme }}">
   
   <!-- Top bar and Nav bar -->
   {% include default_header.html %}

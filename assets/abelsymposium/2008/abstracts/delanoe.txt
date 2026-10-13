@@ -1,0 +1,7 @@
+Philippe Delanoe - "Transport Equations And Geometry: A Survey"
+
+The talk will bear on the following questions:
+Why transporting volume-forms? How to do it in an optimal way? 
+What are the properties of the related, optimal transport, partial differential equations?
+(last part based on the recent paper whose DOI link is: 
+http://dx.doi.org/10.1016/j.difgeo.2007.11.025)

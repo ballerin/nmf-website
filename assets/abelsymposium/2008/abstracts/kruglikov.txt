@@ -1,0 +1,11 @@
+Boris Kruglikov (joint with V. Lychagin) - "Algebraic aspects of compatibility of PDEs".
+
+In this talk I explain algebraic aspects of the problem of computing compatibility conditions
+for overdetermined systems of nonlinear partial differential equations.
+
+In the case the symbolic modules are nice, the corresponding differential syzygies can be
+represented as certain multi-brackets of differential operators (including Jacobi-Mayer bracket
+for the scalar systems).
+
+I will discuss how to compute compatibilites in the general case and in the presence of 
+a pseudogroup of symmetries. Application to integrability schemes will be also mentioned.

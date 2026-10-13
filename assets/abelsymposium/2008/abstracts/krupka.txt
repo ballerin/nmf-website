@@ -1,0 +1,11 @@
+Demeter Krupka - "Differential invariants in gauge theory".
+
+The subject of this talk is the theory of differential invariants of a Lie group, based on the theory of jets. 
+We discuss basic categories of manifolds, principal bundles and associated bundles. 
+We define the concept of a G-natural functor and show that the natural transformations of G-natural functors 
+are in one-to-one correspondence with G-equivariant mappings of type fibres of these functors. 
+
+Finally, we discuss the concept of the jet prolongation of Lie group G and a principal G-bundle, and introduce 
+a differential invariant as an equivariant mapping of the prolonged group. 
+This gives an abstract framework for the theory of (scalar) differential G-invariants that are used 
+as Lagrangians in the variational functionals of the gauge theory. 

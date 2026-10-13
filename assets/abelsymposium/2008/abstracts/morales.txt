@@ -1,0 +1,11 @@
+Juan J. Morales-Ruiz and David B. Sanz - 
+"Local and global properties of Lie-Vessiot systems".
+
+We explore a classical Lie's result on the superposition of
+solutions for ordinary differential equations. This theorem
+characterizes locally the class of differential equations 
+admitting superposition laws. We introduce the notion 
+of pretransitive Lie-Vessiot system, wich form the
+class of equations admitting global superposition laws. We
+develop a differential Galois theory for these equations, and
+study their reduction and integration. 

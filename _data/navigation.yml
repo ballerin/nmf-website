@@ -33,8 +33,7 @@ navbar:
       - label: Abelkonkuransen
         url: /abelkonkurransen/
       - label: Abelsymposium
-        url: https://abelsymposium.no/
-        external: true
+        url: /abelsymposium/
       - label: Generalforsamlinger
         url: /generalforsamlinger/
       - label: Nasjonalt matematikermøte
