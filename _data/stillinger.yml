@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0681"
+  title: "Universitetslektor i matematikk og fysikk"
+  level: "faculty"
+  institution: "Universitetet i Stavanger"
+  department: "Institutt for matematikk og fysikk"
+  deadline: "2026-11-13"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309291"
+
 - id: "NO-0680"
   title: "Undervisningsstilling – matematikk, naturfag og fysikk (vikariat)"
   level: "other"
