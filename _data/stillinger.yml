@@ -11,7 +11,7 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
-- id: "NO-0682"
+- id: "NO-0681"
   title: "Sommerforsker 2027 innen matematikk og kybernetikk"
   level: "other"
   institution: "SINTEF Digital"
@@ -19,21 +19,13 @@
   deadline: "2026-10-29"
   url: "https://arbeidsplassen.nav.no/stillinger/stilling/b2e8ddcd-761d-408d-86f2-e350d35a6c9b"
 
-- id: "NO-0681"
+- id: "NO-0680"
   title: "Universitetslektor i matematikk og fysikk"
   level: "faculty"
   institution: "Universitetet i Stavanger"
   department: "Institutt for matematikk og fysikk"
   deadline: "2026-11-13"
   url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309291"
-
-- id: "NO-0680"
-  title: "Undervisningsstilling – matematikk, naturfag og fysikk (vikariat)"
-  level: "other"
-  institution: "Rogaland fylkeskommune"
-  department: "Bryne vgs - Realfag"
-  deadline: "2026-10-26"
-  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309933"
 
 - id: "NO-0679"
   title: "Postdoctoral Research Fellow in Physics-Adapted Numerical Methods"
