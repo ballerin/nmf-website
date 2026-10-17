@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0682"
+  title: "Sommerforsker 2027 innen matematikk og kybernetikk"
+  level: "other"
+  institution: "SINTEF Digital"
+  department: "Department of Mathematics"
+  deadline: "2026-10-29"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/b2e8ddcd-761d-408d-86f2-e350d35a6c9b"
+
 - id: "NO-0681"
   title: "Universitetslektor i matematikk og fysikk"
   level: "faculty"
