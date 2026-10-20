@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0682"
+  title: "St. nr. 11/2026 - PhD Position in Mathematics Education, Artificial Intelligence and Competence Dev"
+  level: "phd"
+  institution: "Høgskulen i Volda"
+  department: "AHL: Avdeling for humanistiske fag og lærarutdanning"
+  deadline: "2027-01-04"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/310457"
+
 - id: "NO-0681"
   title: "Sommerforsker 2027 innen matematikk og kybernetikk"
   level: "other"
