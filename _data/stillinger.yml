@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0684"
+  title: "Universitetslektor i matematikk knyttet til Arktisk matematisk talentinitiativ (AMTI)"
+  level: "faculty"
+  institution: "UiT Norges arktiske universitet"
+  department: "Institutt for matematikk og statistikk"
+  deadline: "2026-11-18"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/309241"
+
 - id: "NO-0683"
   title: "PhD Research Fellow position in Mathematics"
   level: "phd"
