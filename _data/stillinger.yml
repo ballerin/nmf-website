@@ -11,6 +11,22 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0689"
+  title: "Postdoctoral Researcher in Economics of Education"
+  level: "postdoc"
+  institution: "Research Department, Statistics Norway"
+  department: "Department of Mathematics"
+  deadline: "2027-01-03"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/51691aec-9a64-46e7-97e5-b97c5adbe932"
+
+- id: "NO-0688"
+  title: "Postdoctoral Fellowships in Mathematical Sciences"
+  level: "postdoc"
+  institution: "NTNU"
+  department: "Department of Mathematics"
+  deadline: "2026-12-10"
+  url: "https://arbeidsplassen.nav.no/stillinger/stilling/5dc3a544-6cac-4806-ba7a-c316cb2cf4a0"
+
 - id: "NO-0687"
   title: "Prosjektkoordinator til internasjonalt utviklingssamarbeid"
   level: "other"
