@@ -1,19 +1,86 @@
 ---
 layout: default
 title: "INFOMAT: medlemsbladet til NMF"
+
+# ----------------------------------------------------------------------------
+# SISTE UTGAVE: kortet øverst på INFOMAT-siden
+#
+# Når en ny utgave kommer ut:
+#   1. Legg PDF-filen i mappen assets/documents/infomat/
+#      (filnavn: år og måned med to sifre hver, f.eks. 2611.pdf for november 2026).
+#   2. Endre de to linjene under:
+#        siste_utgave_periode: måned og år slik de skal vises på kortet,
+#                              f.eks. "november 2026".
+#        siste_utgave_fil:     filnavnet til PDF-en, f.eks. "2611.pdf".
+#   3. Legg også inn lenken i tabellen "Alle utgaver" lenger ned i denne filen.
+#
+# Behold anførselstegnene (" ") rundt verdiene.
+# ----------------------------------------------------------------------------
+siste_utgave_periode: "oktober 2026"
+siste_utgave_fil: "2610.pdf"
 ---
 
 <style>
-  /* Archive table: many narrow month columns, so it scrolls sideways on small
-     screens and overrides the centred .site-table cells with tighter ones. */
-  .infomat-archive-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: fit-content; max-width: 100%; margin: 16px auto 32px; }
-  .infomat-archive-table { min-width: 560px; font-size: 0.88rem; }
-  .infomat-archive-table th, .infomat-archive-table td { padding: 7px 6px; white-space: nowrap; }
-  .infomat-archive-table thead th:first-child,
-  .infomat-archive-table tbody td:first-child { text-align: left; padding-left: 10px; }
-  .infomat-archive-table tbody td:first-child { font-weight: 600; }
-  .infomat-archive-table tbody td a { color: var(--nmf-primary); font-weight: 600; }
-  .infomat-archive-table tbody td a:hover { text-decoration: underline; }
+  /* ---- Latest issue: feature card at the top of the page ---- */
+  .infomat-latest {
+    display: flex; align-items: stretch; flex-wrap: wrap;
+    max-width: 760px; margin: 28px auto 48px;
+    border: 1px solid rgba(0,0,0,0.10); border-radius: 14px; overflow: hidden;
+    background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .infomat-latest-date {
+    flex: 0 0 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 32px 20px; background: var(--nmf-primary); color: var(--nmf-on-primary); text-align: center;
+  }
+  .infomat-latest-month { font-size: 1.9rem; font-weight: 700; line-height: 1.1; text-transform: capitalize; }
+  .infomat-latest-year { font-size: 1.1rem; letter-spacing: 0.2em; opacity: 0.85; margin-top: 8px; }
+  .infomat-latest-body { flex: 1 1 280px; padding: 30px 36px 32px; }
+  .infomat-kicker { margin: 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--nmf-primary); }
+  .infomat-latest-body h3 { margin: 10px 0 12px; font-size: 1.45rem; line-height: 1.25; }
+  .infomat-latest-body p { margin: 0 0 24px; color: #555; line-height: 1.6; }
+  .infomat-latest-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .infomat-latest-actions .w3-button { padding: 10px 22px; font-weight: 600; }
+  @media (max-width: 600px) {
+    .infomat-latest { margin: 20px auto 36px; }
+    .infomat-latest-date { flex-basis: 100%; flex-direction: row; align-items: baseline; gap: 12px; padding: 18px 20px; }
+    .infomat-latest-year { margin-top: 0; }
+    .infomat-latest-body { padding: 22px 20px 24px; }
+    .infomat-latest-actions .w3-button { flex: 1 1 100%; text-align: center; }
+  }
+
+  /* ---- Archive table: one row per year, month cells as chips. Scrolls sideways
+     on small screens with the year column pinned. ---- */
+  .infomat-archive-scroll {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    max-width: 860px; margin: 16px auto 32px;
+    border: 1px solid rgba(0,0,0,0.10); border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  }
+  .infomat-archive-table.site-table { width: 100%; max-width: none; min-width: 620px; margin: 0; border: none; border-radius: 0; box-shadow: none; font-size: 0.88rem; }
+  .infomat-archive-table th, .infomat-archive-table td { padding: 6px 4px; white-space: nowrap; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .infomat-archive-table thead th { padding: 10px 4px; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .infomat-archive-table tbody tr:nth-child(odd) td,
+  .infomat-archive-table tbody tr:nth-child(even) td { background: #fff; }
+  .infomat-archive-table tbody tr:hover td { background: rgba(var(--nmf-primary-rgb),0.04); }
+  /* Year column: pinned, solid background so cells slide under it. */
+  .infomat-archive-table th:first-child,
+  .infomat-archive-table td:first-child {
+    position: sticky; left: 0; z-index: 1;
+    text-align: left; padding-left: 14px; padding-right: 12px;
+    box-shadow: inset -1px 0 0 rgba(0,0,0,0.08);
+  }
+  .infomat-archive-table thead th:first-child { background: var(--nmf-primary); }
+  .infomat-archive-table tbody td:first-child,
+  .infomat-archive-table tbody tr:hover td:first-child { background: #faf9f8; color: #333; font-variant-numeric: tabular-nums; }
+  /* Month chips */
+  .infomat-archive-table tbody td a {
+    display: inline-block; min-width: 2.8em; padding: 3px 0; border-radius: 999px;
+    background: rgba(var(--nmf-primary-rgb),0.08); color: var(--nmf-primary);
+    font-weight: 600; text-decoration: none; transition: background 0.15s, color 0.15s;
+  }
+  .infomat-archive-table tbody td a:hover,
+  .infomat-archive-table tbody td a:focus-visible { background: var(--nmf-primary); color: var(--nmf-on-primary); outline: none; }
+  /* Months with no issue */
+  .infomat-archive-table tbody td:not(:first-child):not(:has(a)) { color: rgba(0,0,0,0.18); }
 </style>
 
 {% include default_opening.html 
@@ -21,18 +88,44 @@ title: "INFOMAT: medlemsbladet til NMF"
   subtitle= "Medlemsbladet til Norsk matematisk forening"
 %}
 
+{% comment %}
+  Latest issue card. Do not edit here: the period and file name are set in
+  "siste_utgave_periode" and "siste_utgave_fil" at the top of this file.
+  The period is split into month(s) and year (the last word), e.g.
+  "oktober 2026" -> "oktober" + "2026". The same issue is highlighted in the
+  archive table below.
+{% endcomment %}
+{% if page.siste_utgave_fil and page.siste_utgave_periode %}
+  {% assign latest_period = page.siste_utgave_periode | strip %}
+  {% assign latest_year = latest_period | split: " " | last %}
+  {% assign latest_month_name = latest_period | remove_first: latest_year | strip %}
+  {% capture latest_path %}/assets/documents/infomat/{{ page.siste_utgave_fil | strip }}{% endcapture %}
+  <style>
+    .infomat-archive-table tbody td a[href="{{ latest_path }}"] { background: var(--nmf-primary); color: var(--nmf-on-primary); }
+  </style>
+  <div class="w3-container" id="siste">
+    <div class="infomat-latest">
+      <div class="infomat-latest-date" aria-hidden="true">
+        <span class="infomat-latest-month">{{ latest_month_name }}</span>
+        <span class="infomat-latest-year">{{ latest_year }}</span>
+      </div>
+      <div class="infomat-latest-body">
+        <p class="infomat-kicker">Siste utgave</p>
+        <h3>INFOMAT {{ latest_month_name }} {{ latest_year }}</h3>
+        <p>Den nyeste utgaven av medlemsbladet, med nyheter, arrangementer og stillinger fra det matematiske miljøet i Norge.</p>
+        <div class="infomat-latest-actions">
+          <a href="{{ latest_path | relative_url }}" target="_blank" rel="noopener" class="w3-button nmf-primary w3-round">Les utgaven (PDF)</a>
+          <a href="#arkiv" class="w3-button w3-border w3-round">Alle utgaver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% include section_heading.html level="h3" title="Redaksjon og tips" id="redaksjon" %}
 <p>Redaktør for INFOMAT er Arne B. Sletsjøe, Universitetet i Oslo. Stoff til INFOMAT sendes til <a href="mailto:arnebs@math.uio.no">arnebs@math.uio.no</a>. INFOMAT kommer ut ca. den 15. i hver måned, unntatt juli. Deadline for neste utgave er alltid den 15. i neste måned.</p>
 
-
-<div class="card-grid">
-{% assign infomat_posts = site.posts | where_exp: "post", "post.categories contains 'infomat'" %}
-{% for post in infomat_posts %}
-  {% include infomat_card.html issue=post %}
-{% endfor %}
-</div>
-
-{% include section_heading.html level="h3" title="Arkiv av eldre utgaver (PDF)" id="arkiv" %}
+{% include section_heading.html level="h3" title="Alle utgaver" id="arkiv" %}
 <p>Alle utgaver av INFOMAT tilbake til 2003. Klikk på måneden for å åpne den aktuelle PDF-filen.</p>
 <div class="w3-container w3-center">
   <div class="infomat-archive-scroll">
@@ -53,7 +146,10 @@ title: "INFOMAT: medlemsbladet til NMF"
           <td><a href="/assets/documents/infomat/2604.pdf" target="_blank" rel="noopener">apr</a></td>
           <td><a href="/assets/documents/infomat/2605.pdf" target="_blank" rel="noopener">mai</a></td>
           <td><a href="/assets/documents/infomat/2606.pdf" target="_blank" rel="noopener">jun</a></td>
-          <td><a href="/assets/documents/infomat/2608.pdf" target="_blank" rel="noopener">aug</a></td><td>—</td><td>—</td><td>—</td><td>—</td>
+          <td><a href="/assets/documents/infomat/2608.pdf" target="_blank" rel="noopener">aug</a></td>
+          <td><a href="/assets/documents/infomat/2609.pdf" target="_blank" rel="noopener">sep</a></td>
+          <td><a href="/assets/documents/infomat/2610.pdf" target="_blank" rel="noopener">okt</a></td>
+          <td>—</td><td>—</td>
         </tr>
         <tr>
           <td><b>2025</b></td>
@@ -375,4 +471,13 @@ title: "INFOMAT: medlemsbladet til NMF"
       </tbody>
     </table>
   </div>
+</div>
+
+{% include section_heading.html level="h3" title="Eksperimentell nettutgave" id="nettutgave" %}
+<p>Vi jobber med en eksperimentell nettversjon av INFOMAT, der utgavene kan leses direkte på nettsiden i stedet for som PDF. Nettversjonen er under utprøving og er ikke komplett: den offisielle utgaven av INFOMAT er fortsatt PDF-filene i tabellen over.</p>
+<div class="card-grid">
+{% assign infomat_posts = site.posts | where_exp: "post", "post.categories contains 'infomat'" %}
+{% for post in infomat_posts %}
+  {% include infomat_card.html issue=post size="short" %}
+{% endfor %}
 </div>
