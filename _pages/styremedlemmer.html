@@ -15,6 +15,17 @@ title: "Styremedlemmer i NMF"
     object-fit: cover;
     object-position: center;
   }
+
+  /* Placeholder when a member has no photo: same size as a photo, with a
+     neutral person silhouette in the brand colour. */
+  .board-photo-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    height: 320px;
+    background: linear-gradient(160deg, rgba(var(--nmf-primary-rgb),0.10), rgba(var(--nmf-primary-rgb),0.22));
+    color: rgba(var(--nmf-primary-rgb),0.45);
+  }
+  .board-photo-placeholder svg { width: 45%; max-width: 170px; height: auto; }
+  .board-photo [hidden] { display: none; }
 </style>
 
 <div class="w3-container" id="content">
@@ -31,8 +42,23 @@ title: "Styremedlemmer i NMF"
     {% for member in site.data.styremedlemmer.members %}
     <div class="w3-col m6 l4 w3-margin-bottom">
       <div class="w3-card-4 board-card w3-round-large">
+        {% comment %}
+          Photo, or a placeholder if "picture" is empty, missing, or points to
+          a file that does not exist in the site.
+        {% endcomment %}
+        {% assign picture = member.picture | strip %}
+        {% assign picture_file = nil %}
+        {% if picture != "" %}
+          {% assign picture_file = site.static_files | where: "path", picture | first %}
+        {% endif %}
         <div class="board-photo">
-          <img src="{{ member.picture }}" alt="{{ member.name }}">
+          {% if picture_file %}
+          <img src="{{ picture | relative_url }}" alt="{{ member.name }}"
+               onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+          <div class="board-photo-placeholder" hidden>{% include person_placeholder.svg %}</div>
+          {% else %}
+          <div class="board-photo-placeholder" role="img" aria-label="{{ member.name }} (bilde mangler)">{% include person_placeholder.svg %}</div>
+          {% endif %}
         </div>
         <div class="w3-container {{ member.color }}" style="padding-bottom: 4px;">
           <h3 style="margin: 8px 0;"><b>{{ member.name }}</b></h3>

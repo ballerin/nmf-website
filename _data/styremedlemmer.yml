@@ -1,3 +1,7 @@
+# Styremedlemmer: vises på _pages/styremedlemmer.html.
+# picture: sti til bildet, f.eks. "/assets/images/styremedlemmer/fornavn_etternavn.jpg".
+#          Mangler bildet, la feltet stå tomt (picture: ""), så vises en
+#          standard plassholder i stedet.
 heading_period: "Fra årsmøtet 2024 til årsmøtet i 2025 består styret i NMF av:"
 members:
   - name: "Bjørn Ian Dundas"
