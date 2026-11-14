@@ -3,6 +3,53 @@ layout: default
 title: "Elizabeth Stephansen-forelesningene"
 ---
 
+{% comment %}
+  ============================================================================
+  VIL DU ENDRE TABELLEN MED FOREDRAGSHOLDERE?
+  Tabellen fylles ikke inn her. Legg til eller endre forelesninger
+  (år, foredragsholder, tittel, slides/video) i filen:
+
+      _data/elizabeth_stephansen.yml
+
+  Teksten lenger ned på siden ("Om forelesningene" og "Elizabeth Stephansen")
+  endres fortsatt her i denne filen.
+  ============================================================================
+{% endcomment %}
+
+<style>
+  /* Lecture list: a wide, left-aligned table built from
+     _data/elizabeth_stephansen.yml (edit the lectures there). Slides/video
+     appear in the "Lenker" column as small buttons. On phones each row
+     becomes a stacked card. */
+  .site-table.es-lectures { max-width: 860px; margin: 24px auto 8px; }
+  .es-lectures th, .es-lectures td { text-align: left; vertical-align: top; padding: 14px 18px; line-height: 1.5; }
+  .es-lectures thead th { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .es-lectures .es-year { width: 1%; white-space: nowrap; font-weight: 700; color: var(--nmf-primary); font-variant-numeric: tabular-nums; }
+  .es-lectures .es-speaker { width: 26%; font-weight: 600; }
+  .es-lectures .es-speaker a { text-decoration: none; }
+  .es-lectures .es-speaker a:hover { text-decoration: underline; }
+  .es-lectures .es-title { font-style: italic; }
+  .es-lectures .es-link {
+    display: inline-block; padding: 2px 12px; border-radius: 999px; white-space: nowrap;
+    font-style: normal; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+    background: rgba(var(--nmf-primary-rgb),0.08); color: var(--nmf-primary);
+  }
+  .es-lectures .es-links { width: 1%; white-space: nowrap; }
+  .es-lectures .es-link + .es-link { margin-left: 6px; }
+  .es-lectures .es-link:hover { background: var(--nmf-primary); color: var(--nmf-on-primary); }
+  @media (max-width: 600px) {
+    .es-lectures thead { display: none; }
+    .es-lectures, .es-lectures tbody, .es-lectures tr, .es-lectures td { display: block; width: auto; }
+    .es-lectures tr { padding: 14px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .es-lectures tbody tr:last-child { border-bottom: none; }
+    .es-lectures td, .es-lectures tbody tr td { padding: 0; border: none; background: none !important; }
+    .es-lectures .es-year { font-size: 0.85rem; }
+    .es-lectures .es-speaker { width: auto; margin: 2px 0 4px; }
+    .es-lectures .es-links { margin-top: 8px; }
+    .es-lectures .es-links:empty { display: none; }
+  }
+</style>
+
 {% include default_opening.html 
   heading="Elizabeth Stephansen-forelesningene" 
   subtitle=""
@@ -10,36 +57,35 @@ title: "Elizabeth Stephansen-forelesningene"
 
 <div class="w3-container w3-padding">
   {% include section_heading.html level="h3" title="Foredragsholdere" id="foredragsholdere" %}
-  <div class="w3-padding-16"></div>
-  <table class="site-table" aria-label="Elizabeth Stephansen-forelesningene Foredragsholdere">
+  <table class="site-table es-lectures" aria-label="Elizabeth Stephansen-forelesningene: foredragsholdere">
     <thead>
       <tr>
         <th scope="col">År</th>
         <th scope="col">Foredragsholder</th>
         <th scope="col">Tittel</th>
-        <th scope="col">Link</th>
+        <th scope="col">Lenker</th>
       </tr>
     </thead>
     <tbody>
+      {% comment %} Radene hentes fra _data/elizabeth_stephansen.yml: endre forelesningene der, ikke her. {% endcomment %}
+      {% for lecture in site.data.elizabeth_stephansen %}
       <tr>
-        <td style="white-space: nowrap;">2026</td>
-        <td><a href="https://www4.uib.no/en/find-employees/inga.berre">Inga Berre</a></td>
-        <td>Deformation and Flow in Thermo-Poroelastic Fractured Media: 
-          Nonlinear and Non-smooth Challenges in Contact Mechanics and Phase Separation</td>
-        <td></td>
+        <td class="es-year">{{ lecture.year }}</td>
+        <td class="es-speaker">
+          {%- if lecture.speaker_url -%}
+            <a href="{{ lecture.speaker_url }}">{{ lecture.speaker }}</a>
+          {%- else -%}
+            {{ lecture.speaker }}
+          {%- endif -%}
+        </td>
+        <td class="es-title">{{ lecture.title }}</td>
+        <td class="es-links">
+          {%- for link in lecture.links -%}
+            <a class="es-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+          {%- endfor -%}
+        </td>
       </tr>
-      <tr>
-        <td style="white-space: nowrap;">2024</td>
-        <td><a href="https://www.mn.uio.no/math/english/people/aca/giulian/">Giulia di Nunno</a></td>
-        <td>The complexity of risk measurement</td>
-        <td><a href="https://www.puremath.no/wp-content/uploads/2024/10/GdN-NMM2024-talk-drawings.pdf">Slides</a></td>
-      </tr>
-      <tr>
-        <td style="white-space: nowrap;">2022</td>
-        <td><a href="https://www.ntnu.edu/employees/eugenia.malinnikova">Eugenia Malinnikova</a></td>
-        <td>Laplace eigenfunctions and the frequency function method</td>
-        <td></td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>

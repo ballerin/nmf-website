@@ -1,0 +1,29 @@
+# Elizabeth Stephansen-forelesningene: foredragsholdere.
+# Shown as the table on _pages/elizabeth-stephansen-forelesningene.html.
+# Newest at the top: copy the block below.
+#
+# - year: 2028
+#   speaker: "Fornavn Etternavn"
+#   speaker_url: "https://..."   # optional: the speaker's web page
+#   title: "Title of the lecture"
+#   links:                       # optional: slides, video, ...
+#     - label: "Slides"
+#       url: "https://..."
+
+- year: 2026
+  speaker: "Inga Berre"
+  speaker_url: "https://www4.uib.no/en/find-employees/inga.berre"
+  title: "Deformation and Flow in Thermo-Poroelastic Fractured Media: Nonlinear and Non-smooth Challenges in Contact Mechanics and Phase Separation"
+
+- year: 2024
+  speaker: "Giulia di Nunno"
+  speaker_url: "https://www.mn.uio.no/math/english/people/aca/giulian/"
+  title: "The complexity of risk measurement"
+  links:
+    - label: "Slides"
+      url: "https://www.puremath.no/wp-content/uploads/2024/10/GdN-NMM2024-talk-drawings.pdf"
+
+- year: 2022
+  speaker: "Eugenia Malinnikova"
+  speaker_url: "https://www.ntnu.edu/employees/eugenia.malinnikova"
+  title: "Laplace eigenfunctions and the frequency function method"
