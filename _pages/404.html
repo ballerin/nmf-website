@@ -16,6 +16,18 @@ sitemap: false
     adresse eller aldri ha eksistert.
   </p>
 
+  <div class="old-site-notice">
+    <p class="old-site-notice-title">Vi har nylig fått ny nettside</p>
+    <p>
+      Lenker til den gamle nettsiden virker ikke alltid lenger. Den gamle
+      nettsiden er fortsatt tilgjengelig på
+      <a href="https://old.matematikkforeningen.no">old.matematikkforeningen.no</a>.
+    </p>
+    <p>
+      <a id="old-site-link" href="https://old.matematikkforeningen.no" class="w3-button w3-border w3-round">Prøv denne siden på den gamle nettsiden</a>
+    </p>
+  </div>
+
   <p class="w3-padding-16">
     <a href="/" class="w3-button nmf-primary w3-round">Til forsiden</a>
     <a href="/nyheter/" class="w3-button w3-border w3-round">Nyheter</a>
@@ -23,3 +35,27 @@ sitemap: false
     <a href="/kontakt/" class="w3-button w3-border w3-round">Kontakt oss</a>
   </p>
 </div>
+
+<style>
+  .old-site-notice {
+    max-width: 640px; margin: 24px auto 8px; padding: 20px 24px;
+    border-radius: 12px; text-align: center;
+    background: rgba(var(--nmf-primary-rgb),0.06);
+    border: 1px solid rgba(var(--nmf-primary-rgb),0.20);
+  }
+  .old-site-notice p { margin: 0 0 12px; }
+  .old-site-notice p:last-child { margin-bottom: 0; }
+  .old-site-notice-title { font-weight: 700; font-size: 1.15rem; color: var(--nmf-primary); }
+</style>
+
+<script>
+  // Send the visitor to the same address on the old site (e.g. an old
+  // bookmark to /foo/bar opens old.matematikkforeningen.no/foo/bar).
+  // Without JavaScript the link goes to the old site's front page.
+  (function () {
+    var link = document.getElementById('old-site-link');
+    if (link && location.pathname !== '/' && location.pathname !== '/404.html') {
+      link.href = 'https://old.matematikkforeningen.no' + location.pathname + location.search + location.hash;
+    }
+  })();
+</script>
