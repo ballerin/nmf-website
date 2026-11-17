@@ -11,6 +11,14 @@
 #   url: "https://www.jobbnorge.no/..."
 #   contact: "Name, e-mail"  # optional
 
+- id: "NO-0690"
+  title: "Stipendiat i rein matematikk"
+  level: "phd"
+  institution: "Universitetet i Bergen"
+  department: "Matematisk institutt"
+  deadline: "2027-01-03"
+  url: "https://www.jobbnorge.no/ledige-stillinger/stilling/311884"
+
 - id: "NO-0689"
   title: "Postdoctoral Researcher in Economics of Education"
   level: "postdoc"
